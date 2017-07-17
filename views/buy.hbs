@@ -1,0 +1,88 @@
+<div style="margin: 0 auto; background: none; " class="large-12 medium-12">
+  <h3 style="margin: 0"> <b>  Robin  </b></h3>
+  <span> The Summer Clothing Store</span>
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/admin">Sell</a></li>
+    <li><a> Account </a></li>
+  </ul>
+</div>
+
+<div class="large-12 medium-12 small-12" style="display: flex; flex-wrap: wrap;">
+
+  <div class="border large-4 medium-5 small-12">
+    <h4>Buy This Product</h4>
+
+    <figure>
+      <img src="../../images/{{ pro.image }}">
+      <figcaption>
+        <h5>{{ pro.name }}</h5>
+        <h6>${{ pro.price }}</h6>
+      </figcaption>
+    </figure>
+  </div>
+
+  <div class="border large-8 medium-7 small-12">
+    <h4> Product Description</h4>
+    <hr>
+    <p>{{ pro.description }}</p><br>
+    <div style="padding:0" class=" large-3 medium-4 small-5">
+      <label>Select Size</label>
+      <select>
+        <option value="husker">M</option>
+        <option value="starbuck">L</option>
+        <option value="hotdog">XL</option>
+        <option value="apollo">XXL</option>
+      </select>
+    </div>
+    <h6 class=""> <b> Price :</b> {{ pro.price }}
+    </h6>
+    <h6> <b> Discount :</b> {{ pro.discount }}% </h6>
+    <h6> <b> Quantity : </b> {{ pro.quantity }} Items Left</h6>
+    <h6> <b> Payable Amount :</b> {{ pro.pa }}</h6>
+    <button class="button primary expanded"> Place Order </button>
+  </div>
+
+</div>
+
+
+<div class="large-12 medium-12 small-12">
+  <div class="border">
+    <h2> Similar Products </h2>
+    <hr> {{>content }}
+  </div>
+</div>
+
+{{> model }}
+
+
+<div class="large-12 medium-12 small-12">
+  <div class="border">
+    <h3 style="display:inline" class="large">Rating Reviews</h3>
+    <button style="float: right" class="button alert"> Write A Review </button>
+    <hr>
+
+    <div class="review-box large-12">
+      <h6><b>Great Product</b></h6>
+      <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id nisi, consequatur! Ipsam dolor iste aliquam velit eveniet,
+        temporibus explicabo totam repellat nemo, placeat quibusdam reiciendis sunt? Dolores itaque dolorum, perspiciatis.
+      </p>
+    </div>
+
+    <div class="review-box large-12">
+      <h6><b> Loved it </b></h6>
+      <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id nisi, consequatur! Ipsam dolor iste aliquam velit eveniet,
+        temporibus explicabo totam repellat nemo, placeat quibusdam reiciendis sunt? Dolores itaque dolorum, perspiciatis.
+      </p>
+    </div>
+
+    <div class="review-box large-12">
+      <h6><b> Would Buy it again </b> </h6>
+      <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id nisi, consequatur! Ipsam dolor iste aliquam velit eveniet,
+        temporibus explicabo totam repellat nemo, placeat quibusdam reiciendis sunt? Dolores itaque dolorum, perspiciatis.
+      </p>
+    </div>
+  </div>
+</div>
+
+{{> footer }}

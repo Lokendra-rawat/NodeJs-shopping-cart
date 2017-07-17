@@ -1,0 +1,21 @@
+<div class="row ">
+
+  <div style="margin: 0 auto; background: none; " class="large-11 medium-12">
+    <h1><b> Robin </b> </h1>
+    <span> The Summer Clothing Store</span>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a> Product <span class="badge">  {{data.length}} </span> </a></li>
+      <li><a href="/admin">Sell</a></li>
+      <li><a> Account </a></li>
+    </ul>
+    <div id="hero"></div>
+  </div>
+
+  <div style="margin: 0 auto;" class="large-9 medium-11">
+    <h3 style="text-align: center; color: #666"> Featured Collection </h3>
+    <hr> {{> content }}
+  </div>
+
+  {{> model }} {{> footer }}
+</div>

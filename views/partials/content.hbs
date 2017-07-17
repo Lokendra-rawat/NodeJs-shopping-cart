@@ -1,0 +1,15 @@
+<div id="content" style="margin: 0 auto" class="row">
+  {{#each data }}
+  <div class="box large-4 medium-4 small-6">
+    <figure>
+      <img src="../images/{{ this.image }}">
+      <figcaption class="prodata">
+        <div class="name boder">{{ this.name }}</div>
+        <h6 class="name">${{ this.price }}</h6>
+        <a href="../buy/{{ this._id }}" class="button primary"> Buy </a>
+        <button style="float:right" class="button primary" onclick="loadDoc('{{ this._id }}')"> View </button>
+      </figcaption>
+    </figure>
+  </div>
+  {{/each }}
+</div>

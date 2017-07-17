@@ -1,0 +1,186 @@
+.column:last-child:not(:first-child),
+.columns:last-child:not(:first-child) {
+	float: left;
+}
+.shadow{
+	box-shadow: 0 0px 1px 1px rgba(0,0,0,0.1)
+}
+
+figure img{
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	display: flex;
+	flex-wrap: wrap;
+	max-height: 285px;
+}
+
+.badge{
+  padding: 2px 8px;
+  border-radius: 3px;
+  line-height: 1;
+  background: #777; 
+  color: white;
+}
+.border {
+	border: 1px dotted black;
+}
+.name{
+	display: block;
+	text-overflow: clip;
+	padding: 2px 3px;
+	height: 22px;
+}
+figcaption h4 {
+	text-overflow: clip;
+}
+
+body {
+		font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	color: #1779ba;
+	color: black;
+	color: #777;
+}
+
+ul {
+	float: right;
+}
+
+li {
+	display: inline;
+	padding: 4px;
+	line-height: 1;
+	text-align: center;
+	font-weight: bolder;
+	margin-right: 5px;
+	transition: 100ms linear;
+}
+
+li:last-child {
+	margin-right: 0px;
+}
+
+li a {
+	 color: inherit; 
+}
+
+img {
+	padding: 2px;
+}
+
+p {
+	color: #666;
+	margin: 0;
+}
+
+div {
+	  padding: 10px;  
+	/*border: 1px dshed #666;*/
+}
+
+#hero {
+	text-align: center;
+	/* background-attachment: fixed; */
+	background-image: url(../images/model3.jpg);
+	border-radius: 5px;
+	opacity: 0.9;
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 320px;
+	margin-bottom: 30px;
+	margin-top: 14px;
+}
+
+
+#hero-text {
+	float: right;
+	margin-top: 10%;
+	margin-right: 10px;
+	font-size: 5em;
+	margin-bottom: 0;
+}
+
+#content {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.box {
+	margin-bottom: 40px;
+	box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.1);
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start ;
+	align-items: flex-end;
+}
+
+#parent {
+	margin: 0 auto;
+}
+
+.model {
+	box-shadow: 0 0 0px 500px rgba(0 ,0 ,0, 0.7);
+	position: fixed;
+	z-index: 100;
+	width: 60vw;
+	height: 60vh;
+	max-height: 530px;
+	background: rgba(255, 255, 255, 1);
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	transition: 100ms ease-in;
+	overflow-y: scroll;
+	display: none;
+}
+.model-d{
+	height: 100%;
+	width: 40vw;
+	max-height: 600px
+}
+
+/* Scroll fix */
+
+.scroll::-webkit-scrollbar-track {
+	border-radius: 0px;
+	background-color: #fff;
+}
+
+.scroll::-webkit-scrollbar {
+	width: 0px;
+	border-radius: 0px;
+	background-color: #fff;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+	border-radius: 0px;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+#dash{
+	display: block;
+	width: 100%;
+}
+
+#dash li{
+	display: block;
+}
+
+.review-box{
+	box-shadow: 0 0 1px 0px rgba(0 ,0 ,0, 0.2)
+}
+.footer{
+	margin: 2px 0;
+}
+
+#info-modal{
+	width: 50vw;
+	height: 10vh;
+	position: absolute;
+	left: 25vw;
+	transition: 1000ms ease-in;
+	display: none;
+	font-size: 20px;
+	line-height: 2;
+	text-align: center;
+}

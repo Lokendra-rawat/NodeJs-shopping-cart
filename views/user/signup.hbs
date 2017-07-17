@@ -1,0 +1,22 @@
+<div class="row large-8 medium-10 small-11">
+
+  <label class="column"> <h4> Sign Up </h4> </label>
+
+  <form method="POST" action="/users/signup">
+
+    <div class="column large-6 medium-6 small-12">
+      <label>Email</label>
+      <input type="email" name="email" placeholder="Email">
+      <label style="color:red;" class="help-text">{{messages}}</label>
+    </div>
+
+    <div class="column large-6 medium-6 small-12">
+      <label>Password</label>
+      <input type="password" name="password" placeholder="Password">
+    </div>
+    <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+    <div class="column">
+      <input class="button expanded" type="submit" value="Sign Up">
+    </div>
+  </form>
+</div>
