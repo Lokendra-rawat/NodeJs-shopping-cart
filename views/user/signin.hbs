@@ -1,22 +1,20 @@
-<div class="row border large-6 medium-7 small-12">
+<div class="row">
+  <div class="large-5 medium-7 small-12 callout" style="left:50%;top:50%; transform:translate(-50%,50%)">
 
-  <label> <h4>Log in </h4> </label>
+    <label> <h5>Log in </h5> </label>
+    <form method="POST" action="/users/signin">
 
-  <form method="POST" action="/users/signin">
-
-    <div class=" large-12 medium-10 small-12">
       <label>Email</label>
       <input type="email" name="email" placeholder="Email">
       <label style="color:red;" class="help-text">{{messages}}</label>
-    </div>
 
-    <div class=" large-12 medium-10 small-12">
       <label>Password</label>
       <input type="password" name="password" placeholder="Password">
-    </div>
-    <input type="hidden" name="_csrf" value="{{ csrfToken }}">
-    <div class="large-12">
+      <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+
       <input class="button success" type="submit" value="Log In">
-    </div>
-  </form>
+            <a class="float-right " style="padding: 8px 0" href="/users/signup">New User Signup </a>
+
+    </form>
+  </div>
 </div>

@@ -1,23 +1,25 @@
-<div class="rw large-12 shadow " style=" margin: 3px 0;">
-  <h3 style="display: inline-block">Robin Dashboard </h3>
-  <ul style="display: inline-block; margin:0; line-height: 3.4;">
-    <li> <a href="/"> Home </a> </li>
-    <li> <a href="/users/signin"> Login </a> </li>
-    <li> <a href="/users/signup"> Signup </a> </li>
-    <li> <a href="/users/profile"> Profile </a> </li>
-  </ul>
+<div class="row ">
+  <div class="callout" style=" margin: 3px 0;">
+    <h3 style="display: inline-block">Robin Dashboard </h3>
+    <ul class="menu float-right show-for-medium">
+      <li> <a href="/"> Home </a> </li>
+      <li> <a href="/users/signin"> Login </a> </li>
+      <li> <a href="/users/signup"> Signup </a> </li>
+      <li> <a href="/users/profile"> Profile </a> </li>
+    </ul>
+  </div>
 </div>
 
-<div class="large-12">
+<div class="row">
 
-  <div class="column large-3  medium-4 border shadow">
-    <ul class="block" id="dash">
+  <div class="column large-3  medium-4 callout secondary">
+    <ul class="stack no-bullet">
       <h5> Products Manager </h5>
       <li><button class="button expanded" id="add-btn" onclick="showadd()"> <b>Add New Product</b></button></li>
     </ul>
   </div>
 
-  <div class="shadow border" style="display: flex; flex-wrap:wrap; flex-direction:column; align-items: center">
+  <div class="callout" style="display: flex; flex-wrap:wrap; flex-direction:column; align-items: center">
 
 
     <div id="add" style="display: none;" class="border model model-d scroll column large-12 medium-12 small-12">
@@ -42,7 +44,7 @@
     </div>
 
     <div id="update" style="display: none;" class="border model model-d scroll column large-12 medium-12 small-12">
-      <div class="label">
+      <div class="">
         <p><b> Update Product </b> </p>
       </div>
       <div class="row large-12 medium-12 small-12">

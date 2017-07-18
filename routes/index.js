@@ -112,7 +112,7 @@ router.get('/buy/:id', function (req, res, next) {
         pro: pro,
         data: data
       });
-    }).limit(4);
+    }).limit(3);
   });
 });
 
