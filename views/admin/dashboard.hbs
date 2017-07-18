@@ -10,7 +10,7 @@
   </div>
 </div>
 
-<div class="row">
+<div class="row pad">
 
   <div class="column large-3  medium-4 callout secondary">
     <ul class="stack no-bullet">
@@ -19,8 +19,7 @@
     </ul>
   </div>
 
-  <div class="callout" style="display: flex; flex-wrap:wrap; flex-direction:column; align-items: center">
-
+  <div class="large-9 medium-8 small-12" style="display: flex; flex-wrap:wrap; flex-direction:column; align-items: center">
 
     <div id="add" style="display: none;" class="border model model-d scroll column large-12 medium-12 small-12">
       <img src="../images/close.png" style="position: absolute; right: 15px;" onclick="closemodel()">
@@ -66,20 +65,20 @@
       </div>
     </div>
 
-
-
     <div id="content" style="margin: 0 auto;" class="column large-12 medium-12 small-12">
       {{#each data}}
-      <div id="{{ this._id }}" class="box column large-4 medium-6 small-6">
-        <figure>
-          <img src="../images/{{ this.image }}">
-          <figcaption style="display: flex; flex-wrap:wrap;flex-direction:column">
-            <div class="name">{{ this.name }}</div>
-            <h6>${{ this.price }}</h6>
-            <a hef="admin/update/{{ this._id }}" onclick="update('{{ this._id }}') , showUp()" class="button hollow small ">Update</a>
-            <button onclick="del('{{ this._id }}')" class="button hollow small alert">Delete</button>
-          </figcaption>
-        </figure>
+      <div id="{{ this._id }}" class="column box1 large-4 medium-6 small-6">
+        <div class="box">
+          <figure>
+            <img src="../images/{{ this.image }}">
+            <figcaption stye="display: flex; flex-wrap:wrap;flex-direction:column">
+              <div class="name clearfix">{{ this.name }}</div>
+              <h6>${{ this.price }}</h6>
+              <a hef="admin/update/{{ this._id }}" onclick="update('{{ this._id }}') , showUp()" class="button hollow small ">Update</a>
+              <button onclick="del('{{ this._id }}')" class="button small alert float-right">Delete</button>
+            </figcaption>
+          </figure>
+        </div>
       </div>
       {{/each}}
     </div>
@@ -88,8 +87,10 @@
 
   </div>
 </div>
-
-{{> footer }}
+<div class="row pad">
+  <hr>
+  {{> footer }}
+</div>
 
 <script>
   var add = document.getElementById('add');

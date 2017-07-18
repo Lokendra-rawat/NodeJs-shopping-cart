@@ -1,4 +1,4 @@
-<div class="row ">
+<div id="index" class="row ">
 
   <div style="margin: 0 auto;" class="large-12 medium-12">
     <h1><b> Robin </b> </h1>
@@ -9,13 +9,24 @@
       <li><a href="/admin">Sell</a></li>
       <li><a> Account </a></li>
     </ul>
-    <div id="hero"></div>
+    <div id="hero" style="padding:0px">
+      <h1 id="hero-text"> Robin Clothing </h1>
+      <br>
+      <small>The Summer Style Clothing Store</small><br>
+    </div>
   </div>
 
-  <div class="large-12 medium-11">
+
+  <div class="large-12 medium-12 small-12">
     <h3 class="text-center"> Featured Collection </h3>
+    <div class="medium-10 small-11 text-center" style="margin: 0 auto;" >
+      <small>
+       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero sapiente ullam natus eaque cum ex, quia dicta dolores mollitia inventore eius ipsa accusantium magni? Debitis maxime et totam praesentium quos? </small>
+    </div>
     <hr> {{> content }}
   </div>
 
-  {{> model }} {{> footer }}
+  {{> model }} 
+  <hr>
+  {{> footer }}
 </div>

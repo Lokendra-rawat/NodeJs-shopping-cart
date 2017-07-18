@@ -1,4 +1,4 @@
-<div class="row border">
+<div class="row bordr">
   <div style="margin: 0 auto; background: none; " class="large-12 medium-12">
     <h3 style="margin: 0"> <b>  Robin  </b></h3>
     <span> The Summer Clothing Store</span>
@@ -8,23 +8,24 @@
       <li><a> Account </a></li>
     </ul>
   </div>
+  <hr>
 </div>
 
-<div class="row border large-12 medium-12 small-12" style="display: flex; flex-wrap: wrap;">
+<div class="row borer pad large-12 medium-12 small-12" style="display: flex; flex-wrap: wrap;">
 
-  <div class="border large-4 medium-5 small-12">
-    <h4>Buy This Product</h4>
+  <div class="bordr pad large-4 medium-5 small-12">
+    <h3>Buy This Product</h3>
 
-    <figure>
-      <img src="../../images/{{ pro.image }}">
-      <figcaption>
+    <figure class="clearfix" >
+      <img style="max-height: 390px" class="flat-left" src="../../images/{{ pro.image }}">
+      <figcaption class="flat-left">
         <h5>{{ pro.name }}</h5>
         <h6>${{ pro.price }}</h6>
       </figcaption>
     </figure>
   </div>
 
-  <div class="border large-8 medium-7 small-12">
+  <div class="bordr pad large-8 medium-7 small-12">
     <h4> Product Description</h4>
     <hr>
     <p>{{ pro.description }}</p><br>
@@ -48,8 +49,8 @@
 </div>
 
 
-<div class="row  border large-12 medium-12 small-12">
-  <div class="border">
+<div class="row pad  bordr large-12 medium-12 small-12">
+  <div class="bordr">
     <h2> Similar Products </h2>
     <hr> {{>content }}
   </div>
@@ -58,27 +59,29 @@
 {{> model }}
 
 
-<div class="row border large-12 medium-12 small-12">
-  <div class="border">
+<div class="row pad large-12 medium-12 small-12">
+  <div class="">
     <h3 style="display:inline" class="large">Rating Reviews</h3>
     <button style="float: right" class="button alert"> Write A Review </button>
     <hr>
 
-    <div class="review-box large-12">
+    <div class="review-box pad large-12">
       <h6><b>Great Product</b></h6>
       <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id nisi, consequatur! Ipsam dolor iste aliquam velit eveniet,
         temporibus explicabo totam repellat nemo, placeat quibusdam reiciendis sunt? Dolores itaque dolorum, perspiciatis.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam aut suscipit alias! Est cupiditate itaque dolorem magni. Ab, animi sed deserunt iure, labore accusamus saepe officia fugit sint aperiam porro.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, molestias sunt ratione? Ullam officiis hic, sapiente dolorum totam animi obcaecati tempore, quibusdam recusandae, quia doloremque praesentium provident eaque unde iusto.
       </p>
     </div>
 
-    <div class="review-box large-12">
+    <div class="review-box pad large-12">
       <h6><b> Loved it </b></h6>
       <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id nisi, consequatur! Ipsam dolor iste aliquam velit eveniet,
         temporibus explicabo totam repellat nemo, placeat quibusdam reiciendis sunt? Dolores itaque dolorum, perspiciatis.
       </p>
     </div>
 
-    <div class="review-box large-12">
+    <div class="review-box pad large-12">
       <h6><b> Would Buy it again </b> </h6>
       <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id nisi, consequatur! Ipsam dolor iste aliquam velit eveniet,
         temporibus explicabo totam repellat nemo, placeat quibusdam reiciendis sunt? Dolores itaque dolorum, perspiciatis.
@@ -87,4 +90,7 @@
   </div>
 </div>
 
-{{> footer }}
+
+<div class="row pad">
+  <hr> {{> footer }}
+</div>

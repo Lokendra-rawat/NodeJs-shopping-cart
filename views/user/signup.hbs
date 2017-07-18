@@ -4,11 +4,9 @@
     <label> <h5> Sign Up </h5> </label>
 
     <form method="POST" action="/users/signup">
-
       <label>Email</label>
       <input type="email" name="email" placeholder="Email">
       <label style="color:red;" class="help-text">{{messages}}</label>
-
       <label>Password</label>
       <input type="password" name="password" placeholder="Password">
       <input type="hidden" name="_csrf" value="{{ csrfToken }}">

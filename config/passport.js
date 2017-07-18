@@ -39,4 +39,4 @@ passport.use('local.signup', new localStrategy({
       return done(null, newUser);
     })
   })
-}))
+}));

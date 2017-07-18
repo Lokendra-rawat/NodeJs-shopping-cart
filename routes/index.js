@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 let product = require('./../models/model');
+var app = require('../app');
 
 
 /* GET home page. Data for Modal  */
