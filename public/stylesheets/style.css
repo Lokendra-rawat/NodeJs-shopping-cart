@@ -36,10 +36,10 @@ figcaption h4 {
 }
 
 body {
-		font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-	color: #1779ba;
+		/* font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; */
+	/* color: #1779ba;
 	color: black;
-	color: #777;
+	color: #777; */
 }
 
 ul {

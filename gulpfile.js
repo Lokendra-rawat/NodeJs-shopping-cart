@@ -14,7 +14,6 @@ gulp.watch - watch files and folders for change
 
 
 
-
 //LOGS MESSAGE
 gulp.task('msg', function () {
   return console.log("Gulp is running");
@@ -41,13 +40,9 @@ gulp.task('imgmin', function () {
 
 
 
-// MINIF
-// gulp.task('minify', function () {
-// });
 
 //MINIFY FILES
 gulp.task('minify', function () {
-  // gulp.src('/*.js').pipe(uglify('main.js')).pipe(gulp.dest('dist'));
-  // gulp.src('public
+  gulp.src('public/javascripts/vendor/*').pipe(uglify()).pipe(concat('vendor.js')).pipe(gulp.dest('public/javascripts/vendor'));
   return false;
 })
