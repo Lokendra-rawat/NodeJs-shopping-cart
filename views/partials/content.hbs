@@ -1,14 +1,17 @@
-<div id="content" style="margin: 0 auto" class="large-8 small-12">
+<div id="content" style="margin: 0 auto" class="grid-x grid-padding-x">
   {{#each data }}
-  <div class="box1 large-4 medium-4 small-6">
-    <div class="box pad">
+  <div class="box1 large-4 medium-6 small-12 cell">
+    <div class="box  pad">
       <figure>
         <img src="../images/{{ this.image }}">
         <figcaption class="prodata">
-          <div class="name boder">{{ this.name }}</div>
+          <div class="name">{{ this.name }}</div>
           <h6 class="name subheader">${{ this.price }}</h6>
-          <a href="../buy/{{ this._id }}" class="button secondary small"> Buy </a>
-          <button style="float:right" class="button hollow secondary small" onclick="loadDoc('{{ this._id }}')"> View </button>
+           <button class="button info hollow small" onclick="addToCart('{{this._id}}')"> Add to Cart </button> 
+          <div class="clearfix">
+            <a href="../buy/{{ this._id }}" class="button secondary small"> Buy </a>
+            <button style="float:right" class="button hollow secondary small" onclick="loadDoc('{{ this._id }}')"> View </button>
+          </div>
         </figcaption>
       </figure>
     </div>

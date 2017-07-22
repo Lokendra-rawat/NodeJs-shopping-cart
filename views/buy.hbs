@@ -11,12 +11,12 @@
   <hr>
 </div>
 
-<div class="row borer pad large-12 medium-12 small-12" style="display: flex; flex-wrap: wrap;">
+<div class="row grid-x" style="display: flex; flex-wrap: wrap;">
 
   <div class="bordr pad large-4 medium-5 small-12">
     <h3>Buy This Product</h3>
 
-    <figure class="clearfix" >
+    <figure class="clearfix">
       <img style="max-height: 390px" class="flat-left" src="../../images/{{ pro.image }}">
       <figcaption class="flat-left">
         <h5>{{ pro.name }}</h5>
@@ -43,13 +43,17 @@
     <h6> <b> Discount :</b> {{ pro.discount }}% </h6>
     <h6> <b> Quantity : </b> {{ pro.quantity }} Items Left</h6>
     <h6> <b> Payable Amount :</b> {{ pro.pa }}</h6>
-    <button class="button primary expanded"> Place Order </button>
+    <div class="clearfix grid-x grid-padding-x">
+      <button class="button primary  large-4"> Add to Cart </button>
+      <span class="large-4"> </span>
+      <button class="button primary  large-4 float-right"> Place Order </button>
+    </div>
   </div>
 
 </div>
 
 
-<div class="row pad  bordr large-12 medium-12 small-12">
+<div class="row pad ">
   <div class="bordr">
     <h2> Similar Products </h2>
     <hr> {{>content }}
@@ -69,8 +73,10 @@
       <h6><b>Great Product</b></h6>
       <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id nisi, consequatur! Ipsam dolor iste aliquam velit eveniet,
         temporibus explicabo totam repellat nemo, placeat quibusdam reiciendis sunt? Dolores itaque dolorum, perspiciatis.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam aut suscipit alias! Est cupiditate itaque dolorem magni. Ab, animi sed deserunt iure, labore accusamus saepe officia fugit sint aperiam porro.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, molestias sunt ratione? Ullam officiis hic, sapiente dolorum totam animi obcaecati tempore, quibusdam recusandae, quia doloremque praesentium provident eaque unde iusto.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam aut suscipit alias! Est cupiditate itaque dolorem
+        magni. Ab, animi sed deserunt iure, labore accusamus saepe officia fugit sint aperiam porro. Lorem ipsum dolor sit
+        amet, consectetur adipisicing elit. Ad, molestias sunt ratione? Ullam officiis hic, sapiente dolorum totam animi
+        obcaecati tempore, quibusdam recusandae, quia doloremque praesentium provident eaque unde iusto.
       </p>
     </div>
 

@@ -1,5 +1,92 @@
 <div class="row border">
 
+
+
+  <ul class="vertical menu" data-accordion-menu>
+    <li>
+      <a href="#0">Item 1</a>
+      <ul class="menu vertical nested is-active">
+        <li>
+          <a href="#0">Item 1A</a>
+          <ul class="menu vertical nested">
+            <li><a href="#0">Item 1Ai</a></li>
+            <li><a href="#0">Item 1Aii</a></li>
+            <li><a href="#0">Item 1Aiii</a></li>
+          </ul>
+        </li>
+        <li><a href="#0">Item 1B</a></li>
+        <li><a href="#0">Item 1C</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#0">Item 2</a>
+      <ul class="menu vertical nested">
+        <li><a href="#0">Item 2A</a></li>
+        <li><a href="#0">Item 2B</a></li>
+      </ul>
+    </li>
+    <li><a href="#0">Item 3</a></li>
+  </ul>
+
+
+  <p><a data-open="exampleModal1">Click me for a modal</a></p>
+
+  <div class="reveal" id="exampleModal1" data-reveal>
+    <h1>Awesome. I Have It.</h1>
+    <p class="lead">Your couch. It is mine.</p>
+    <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
+    <button class="close-button" data-close aria-label="Close reveal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  </div>
+
+  <div class="title-bar">
+    <div class="title-bar-left">
+      <button class="menu-icon" type="button"></button>
+      <span class="title-bar-title">Foundation</span>
+    </div>
+    <div class="title-bar-right">
+      <button class="menu-icon" type="button"></button>
+    </div>
+  </div>
+
+  <ul class="tabs" data-tabs id="example-tabs">
+    <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Tab 1</a></li>
+    <li class="tabs-title"><a href="#panel2">Tab 2</a></li>
+    <li class="tabs-title"><a href="#panel3">Tab 3</a></li>
+    <li class="tabs-title"><a href="#panel4">Tab 4</a></li>
+    <li class="tabs-title"><a href="#panel5">Tab 5</a></li>
+    <li class="tabs-title"><a href="#panel6">Tab 6</a></li>
+  </ul>
+
+  <div class="tabs-content" data-tabs-content="example-tabs">
+    <div class="tabs-panel is-active" id="panel1">
+      <p>One</p>
+      <p>Check me out! I'm a super cool Tab panel with text content!</p>
+    </div>
+    <div class="tabs-panel" id="panel2">
+      <p>Two</p>
+      <img class="thumbnail" src="assets/img/generic/rectangle-7.jpg">
+    </div>
+    <div class="tabs-panel" id="panel3">
+      <p>Three</p>
+      <p>Check me out! I'm a super cool Tab panel with text content!</p>
+    </div>
+    <div class="tabs-panel" id="panel4">
+      <p>Four</p>
+      <img class="thumbnail" src="assets/img/generic/rectangle-2.jpg">
+    </div>
+    <div class="tabs-panel" id="panel5">
+      <p>Five</p>
+      <p>Check me out! I'm a super cool Tab panel with text content!</p>
+    </div>
+    <div class="tabs-panel" id="panel6">
+      <p>Six</p>
+      <img class="thumbnail" src="assets/img/generic/rectangle-8.jpg">
+    </div>
+  </div>
+
+
   <h1> Heading <small> sub heading </small> </h1>
   <h2 class="subheader"> sub header </h2>
 
@@ -37,12 +124,12 @@
   </div>
 
 
-  <div class="switch radius">
+  <div class="switch tiny">
     <input id="exampleRadioSwitch2" type="radio" name="testGroup">
     <label for="exampleRadioSwitch2"></label>
   </div>
 
-  <div class="switch round">
+  <div class="switch large">
     <input class="switch-input" id="switch" type="checkbox" name="switchStatus">
     <label class="switch-paddle" for="switch"> 
       <span class="show-for-sr"> Enabled </span>

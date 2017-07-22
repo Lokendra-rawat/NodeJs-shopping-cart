@@ -5,6 +5,12 @@
 .shadow{
 	box-shadow: 0 0px 1px 1px rgba(0,0,0,0.1)
 }
+.cent{
+	position: relative;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,50%);
+}
 
 figure img{
 	margin-left: auto;
@@ -38,7 +44,7 @@ p {
 }
 
 div {
-	  padding: 10px;  
+	  padding: 10px;
 }
 
 #hero {
@@ -51,7 +57,11 @@ div {
 	height: 320px;
 	margin-bottom: 30px;
 	margin-top: 14px;
+	/* animation-name: loki;
+	animation-duration: infinite;
+	animation-delay: 0; */
 }
+
 
 
 #hero-text {
@@ -59,12 +69,12 @@ div {
 	/* margin-top: 10%; */
 	/* margin-right: 10px; */
 	/* font-size: 5em; */
-	border-bottom: 1px solid black;
 	 margin-bottom: 0; 
 	background: rgba(255,255,255,0.4);
 	display: inline-block;
 	margin-top: 130px;
-	box-shadow: 0 0 0 30px rgba(255,255,255,0.4);
+	box-shadow: 0 0 30px 30px rgba(255,255,255,0.4);
+	display: none
 }
 
 #content {
@@ -144,12 +154,40 @@ div {
 }
 .row{
 	max-width: 1100px;
+	margin: 0 auto;
 }
 div {
 	padding: 0
 }
 .pad{
 	padding: 10px
+}
+.cart{
+	height: 40px;
+	/* position: relative;
+	top: -300px;
+	left: 70px; */
+}
+a{
+	 color: #111;
+}
+	.badge{
+		border-radius: 50%;
+		background: #111;
+		/* margin-bottom: 15px; */
+		position: relative;
+		top: -2px;
+	}
+#cartt:hover + #cartModal{
+	display: block;
+}
+#cartModal{
+	position: absolute;
+	width: 300px;
+	top: 20px;
+	height: auto;
+	min-height: 200px;
+	display: none;
 }
 @media (max-width: 360px){
 	.box1{

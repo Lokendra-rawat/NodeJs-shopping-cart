@@ -1,32 +1,25 @@
-<div id="index" class="row ">
+<div id="index" class="row  ">
+	<div class="grid-x grid-padding-x">
+		<div style="margin: 0 auto; overflow:hidden" class="cell large-12 medium-12">
+			<h1><b> Robin </b> </h1>
+			<span> The Summer Clothing Store</span>
+			<ul class="menu  float-right show-for-medium">
+				<li><a href="/">Home</a></li>
+				<li id="cartt"><a href="/checkouts/new"> Cart <span id="cartInfo" class="badge">{{cart.cart.totalqty}}  </span> </a></li>
+				{{!-- <div id="cartModal" class="border"></div> --}}
+				<li><a href="/admin">Sell</a></li>
+				<li><a> Account </a></li>
+			</ul>
+			<div id="hero"></div>
+		</div>
 
-  <div style="margin: 0 auto;" class="large-12 medium-12">
-    <h1><b> Robin </b> </h1>
-    <span> The Summer Clothing Store</span>
-    <ul class="menu float-right show-for-medium">
-      <li><a href="/">Home</a></li>
-      <li><a> Products </a></li>
-      <li><a href="/admin">Sell</a></li>
-      <li><a> Account </a></li>
-    </ul>
-    <div id="hero" style="padding:0px">
-      <h1 id="hero-text"> Robin Clothing </h1>
-      <br>
-      <small>The Summer Style Clothing Store</small><br>
-    </div>
-  </div>
-
-
-  <div class="large-12 medium-12 small-12">
-    <h3 class="text-center"> Featured Collection </h3>
-    <div class="medium-10 small-11 text-center" style="margin: 0 auto;" >
-      <small>
-       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero sapiente ullam natus eaque cum ex, quia dicta dolores mollitia inventore eius ipsa accusantium magni? Debitis maxime et totam praesentium quos? </small>
-    </div>
-    <hr> {{> content }}
-  </div>
-
-  {{> model }} 
-  <hr>
-  {{> footer }}
+		<div class="cell row large-10 medium-12 small-12">
+			<h3 class="text-center"> Featured Collection </h3>
+			<div class="medium-10 small-11 text-center" style="margin: 0 auto;">
+				<small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero sapiente ullam natus eaque cum ex, quia dicta dolores mollitia inventore eius ipsa accusantium magni? Debitis maxime et totam praesentium quos? </small>
+			</div>
+			<hr> {{> content }}
+		</div>
+	</div>
+	<hr> {{> footer }}
 </div>
