@@ -1,6 +1,6 @@
-<div class="cen">
+<div class="cen pad">
 	<div class="row grid-x grid-padding-y grid-padding-x">
-		<div class="cell large-6 medium-7">
+		<div class="cell large-7 medium-7 callout">
 			<div>
 				<h5> Items </h5>
 				{{#each data.cart.items}}
@@ -13,7 +13,7 @@
 								<div class="name">{{ this.item.name }}</div>
 								<h6 class="name subheader">${{ this.item.price }}</h6>
 								<div class="clearfix">
-									<button style="float:right" class="button alert small" onclick="del('{{ this.item._id }}')"> Remove </button>
+									<button style="float:right" class="button alert small" onclick="remove('{{ this.item._id }}')"> Remove </button>
 								</div>
 							</figcaption>
 						</figure>
@@ -31,12 +31,12 @@
 			</div>
 		</div>
 
-		<div class="cell large-6 medium-5 ">
-			<div class="grid-x clearfix callout pad">
+		<div class="cell large-5 medium-5 ">
+			<div class="grid-x clearfix callout">
 				<div class="large-12 medium-12 small-12">
 					<form id="payment-form" method="POST" action="/checkouts">
 						<label style="color:red;" class="help-text">{{#each messages}} {{this.error}} {{/each }}</label><br>
-						<input id="amount" name="amount" type="number" value="10" placeholder="Enter you amount">
+						<input id="amount" name="amount" type="number" value="{{ data.cart.totalprice }}" placeholder="Enter you amount">
 						<div id="dropin-container"></div>
 						<input id="nonce" type="hidden" name="payment_method_nonce">
 						<button id="submit-button" type="submit" class="button"> Checkout </button>
@@ -44,30 +44,35 @@
 				</div>
 			</div>
 		</div>
+		
 	</div>
 </div>
 
-{{!-- {{> footer}} --}}
+{{> footer}}
 
 <script src="https://js.braintreegateway.com/web/dropin/1.4.0/js/dropin.min.js"></script>
 <script type="text/javascript">
 	var form = document.getElementById('payment-form');
 	var button = document.getElementById('submit-button');
-	braintree.dropin.create({
-		authorization: '{{ clientToken }}',
-		container: '#dropin-container'
-	}, function (createErr, instance) {
-		form.addEventListener('submit', function () {
-			instance.requestPaymentMethod(function (err, payload) {
-				// Submit payload.nonce to your server
-				if (err) {
-					console.log(err);
-				}
-				document.getElementById('nonce').value = payload.nonce;
-				 form.submit();
+	if (braintree === undefined) {
+		document.getElementById('dropin-container').innerHTML = "<h3 class='aside'> Payment Options are not available </h3>";
+	} else {
+		braintree.dropin.create({
+			authorization: '{{ clientToken }}',
+			container: '#dropin-container'
+		}, function (createErr, instance) {
+			form.addEventListener('submit', function () {
+				instance.requestPaymentMethod(function (err, payload) {
+					// Submit payload.nonce to your server
+					if (err) {
+						console.log(err);
+					}
+					document.getElementById('nonce').value = payload.nonce;
+					form.submit();
+				});
 			});
 		});
-	});
+	}
 
 	 //var checkout = new Demo({
 	//	formID: 'payment-form'

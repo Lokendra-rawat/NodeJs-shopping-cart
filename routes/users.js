@@ -5,6 +5,8 @@ var passport = require('passport');
 let product = require('./../models/model');
 
 
+var csrfProtection = csrf();
+router.use(csrfProtection);
 
 
 router.get('/signup', function (req, res, next) {

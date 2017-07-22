@@ -88,6 +88,24 @@ function del(a) {
 	}
 }
 
+function remove(a) {
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function () {
+		if (this.readyState == 4 && this.status == 200) {
+			// window.location.assign('/admin');
+		}
+	};
+	xhttp.open("DELETE", "/remove/" + a, true);
+	// let r = confirm('Item ' + a + '  Will be Deleted ');
+	let r = 1;
+	if (r == true) {
+		xhttp.send();
+		document.getElementById(a).style.display = "none";
+	} else {
+		return false;
+	}
+}
+
 function refresh(a) {
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function () {

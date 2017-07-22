@@ -6,9 +6,7 @@ let Cart = require('./../models/cart');
 var app = require('../app');
 
 
-
 // BRAINTREE START 
-
 
 var braintree = require("braintree");
 
@@ -64,21 +62,14 @@ function createResultObject(transaction) {
 	return result;
 }
 
-// router.get('/', function (req, res) {
-// 	res.redirect('/checkout');
-// });
-
-// router.get('/', function (req, res) {
-// 	res.redirect('/checkouts/new');
-// });
-
 router.get('/checkouts/new', function (req, res) {
 	if (req.session.cart) {
 		gateway.clientToken.generate({}, function (err, response) {
-			res.render('checkouts/new', { clientToken: response.clientToken, messages: req.flash('error') });
+			if (response === undefined) { res.render('checkouts/new', {data: req.session}); return }
+			res.render('checkouts/new', { clientToken: response.clientToken, data: req.session, messages: req.flash('error') });
 		});
 	} else {
-		res.send('Add something to Cart To go to the CheckOut Page')
+		res.send('Add something to Cart To go to the CheckOut Page');
 	}
 });
 
@@ -92,9 +83,6 @@ router.get('/checkouts/:id', function (req, res) {
 	});
 });
 
-// router.post('/checkouts', function (req, res) {
-// 	res.send('hello')
-// })
 router.post('/checkouts', function (req, res) {
 	var transactionErrors;
 	var amount = req.body.amount; // In production you should not take amounts directly from clients
@@ -118,9 +106,7 @@ router.post('/checkouts', function (req, res) {
 	});
 });
 
-
 //BRAINTREE END 
-
 
 
 
@@ -129,13 +115,18 @@ router.get('/add-to-cart/:id', function (req, res) {
 	var id = req.params.id;
 	var cart = new Cart(req.session.cart ? req.session.cart : {});
 	product.findById(id, function (err, product) {
-		if (err) { res.send(404) };
+		if (err) { res.redirect('/') };
 		cart.add(product, product.id);
 		req.session.cart = cart;
 		console.log(req.session.cart);
 		res.send(req.session.cart);
 	});
 });
+
+router.get('/reduce/:id', function (req, res) {
+	var id = req.params.id;
+	
+})
 
 router.get('/user-ajax/:id', function (req, res) {
 	product.findOne({ _id: req.params.id }, function (err, data) {

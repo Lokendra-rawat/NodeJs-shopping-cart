@@ -12,15 +12,10 @@ gulp.dest - points to folder to output
 gulp.watch - watch files and folders for change
 */
 
-
-
 //LOGS MESSAGE
 gulp.task('msg', function () {
   return console.log("Gulp is running");
 });
-
-
-
 
 // COPY ALL HTML FILES
 gulp.task('copyfiles', function () {
@@ -30,16 +25,10 @@ gulp.task('copyfiles', function () {
   gulp.src('views/temp/*.ejs').pipe(gulp.dest('dist/views/temp'));
 });
 
-
-
-
 // OPTIMIZE IMAGES
 gulp.task('imgmin', function () {
   gulp.src('public/images/*').pipe(imagemin()).pipe(gulp.dest('public/images'));
 });
-
-
-
 
 //MINIFY FILES
 gulp.task('minify', function () {
