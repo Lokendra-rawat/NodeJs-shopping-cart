@@ -158,7 +158,7 @@ router.get('/api', function (req, res) {
 
 router.get('/', function (req, res, next) {
 	product.find({}, function (err, data) {
-		console.log(req.session)
+		console.log(data)
 		res.render('index', {
 			data: data,
 			flash: req.flash(),
