@@ -1,8 +1,8 @@
 var express = require('express');
 // var csrf = require('csurf');
 var router = express.Router();
-let product = require('./../models/model');
-let Cart = require('./../models/cart');
+var product = require('./../models/model');
+var Cart = require('./../models/cart');
 var app = require('../app');
 
 
@@ -65,12 +65,12 @@ function createResultObject(transaction) {
 router.get('/checkouts/new', function (req, res) {
 	if (req.session.cart.totalqty) {
 		// gateway.clientToken.generate({}, function (err, response) {
-			// if (response === undefined) { res.render('checkouts/new', { data: req.session }); return };
-			res.render('checkouts/new', { clientToen: 'response.clientToken', data: req.session, messages: req.flash('error') });
+		// if (response === undefined) { res.render('checkouts/new', { data: req.session }); return };
+		res.render('checkouts/new', { clientToen: 'response.clientToken', data: req.session, messages: req.flash('error') });
 		// });
 
 	} else {
-		res.send('Add something to Cart To go to the CheckOut Page');
+		res.redirect('/');
 	}
 });
 
@@ -127,9 +127,9 @@ router.get('/reduce/:id', function (req, res) {
 	var id = req.params.id;
 	var cart = new Cart(req.session.cart ? req.session.cart : {});
 	cart.remove(id);
-	console.log(cart)
+	var fin = cart.find(id);
 	req.session.cart = cart;
-	res.send(req.session.cart);
+	res.send([fin,id]);
 });
 
 router.get('/user-ajax/:id', function (req, res) {
@@ -158,7 +158,6 @@ router.get('/api', function (req, res) {
 		}
 	})
 })
-
 
 router.get('/', function (req, res, next) {
 	product.find({}, function (err, data) {
@@ -209,7 +208,7 @@ router.post('/admin/update/:id', function (req, res, next) {
 
 router.get('/admin/add', function (req, res) {
 	res.render('admin/add', { admin: " lokendra rawat" });
-})
+});
 
 router.post('/admin', function (req, res, next) {
 

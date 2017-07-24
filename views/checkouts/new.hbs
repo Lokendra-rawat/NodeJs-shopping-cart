@@ -13,7 +13,7 @@
 								<div class="name">{{ this.item.name }}</div>
 								<h6 class="name subheader">${{ this.item.price }}</h6>
 								<div class="clearfix">
-									<button style="float:right" class="button alert small" onclick="remove('{{ this.item._id }}')"> Remove </button>
+									<a style="float:right" onclick="remove('{{this.item._id}}')" class="button alert small"> Remove </a>
 								</div>
 							</figcaption>
 						</figure>
@@ -24,9 +24,9 @@
 				</div>
 				{{/each}}
 				<hr>
-				<div class="panal warning">
-					<h5> Total Quantity :<span class="stat"> {{ data.cart.totalqty }} </span> </h5>
-					<h5> Total Price :<span class="stat"> {{ data.cart.totalprice }} </span> </h5>
+				<div id="total" class="panal warning">
+					<h5> Total Quantity : {{ data.cart.totalqty }} </h5>
+					<h5> Total Price : {{ data.cart.totalprice }} </h5>
 				</div>
 			</div>
 		</div>
@@ -48,9 +48,8 @@
 	</div>
 </div>
 
-{{> footer}}
-
-{{!-- <script src="https://js.braintreegateway.com/web/dropin/1.4.0/js/dropin.min.js"></script> --}}
+{{> footer}} {{!--
+<script src="https://js.braintreegateway.com/web/dropin/1.4.0/js/dropin.min.js"></script> --}}
 <script type="text/javascript">
 	var form = document.getElementById('payment-form');
 	var button = document.getElementById('submit-button');

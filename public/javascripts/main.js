@@ -89,13 +89,18 @@ function remove(a) {
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function () {
 		if (this.readyState == 4 && this.status == 200) {
-			// document.getElementById(a).style.display = "none";
+			// window.location.assign('/checkouts/new');
 			let data = JSON.parse(this.responseText);
-			// console.log(data.items[a].qty === undefined);
-			if (data.items[a].qty) {
-				document.getElementById(a).style.display = "none";
-			} else{
-				document.getElementById(a).children[1].value--;
+			console.log(data);
+			if (data[0]) {
+				document.getElementById(data[1]).children[1].innerHTML = "Item Quantity : " + data[0].itemqty;
+				document.getElementById(data[1]).children[2].innerHTML = "Item Price : " + data[0].itemprice;
+				document.getElementById('total').children[0].innerText = "Total Quantity : " + data[0].totalqty;
+				document.getElementById('total').children[0].innerText = "Total Price : " + data[0].totalprice;
+			} else {
+				document.getElementById(data[1]).style.display = "none";
+				document.getElementById('total').children[0].innerText ="Total Quantity : " + 0;
+				document.getElementById('total').children[0].innerText ="Total Price : " + 0;
 			}
 		}
 	};

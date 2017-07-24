@@ -25,6 +25,21 @@ module.exports = function cart(oldcart) {
     }
   }
 
+  this.find = function (id) {
+    var storedItem = this.items[id];
+    if (!storedItem) {
+      // return "no item left in cart";
+      return false;
+    } else {
+      return {
+        itemprice: this.items[id].price,
+        itemqty: this.items[id].qty,
+        totalprice: this.totalprice,
+        totalqty: this.totalqty
+      }
+    }
+  }
+
   this.generateArray = function () {
     var arr = [];
     for (var id in this.items) {

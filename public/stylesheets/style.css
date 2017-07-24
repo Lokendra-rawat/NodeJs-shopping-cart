@@ -3,7 +3,7 @@
 	float: left;
 }
 body{
-		animation: fadein 0.6s;
+		animation: fadein 0.2s;
 }
 .shadow{
 	box-shadow: 0 0px 1px 1px rgba(0,0,0,0.1)
@@ -60,11 +60,11 @@ div {
 	height: 320px;
 	margin-bottom: 30px;
 	margin-top: 14px;
-	-webkit-animation: fadein 2.3s; /* Safari, Chrome and Opera > 12.1 */
-	-moz-animation: fadein 2.3s; /* Firefox < 16 */
+	-webkit-animation: fadein 1.3s; /* Safari, Chrome and Opera > 12.1 */
+	/* -moz-animation: fadein 2.3s;  Firefox < 16 
 	-ms-animation: fadein 2.3s; /* Internet Explorer */
-	-o-animation: fadein 2.3s; /* Opera < 12.1 */
-	animation: fadein 2.3s;
+	/* -o-animation: fadein 2.3s;  Opera < 12.1  */
+	/* animation: fadein 2.3s; */
 	/* animation-name: loki;
 	animation-duration: infinite;
 	animation-delay: 0; */
@@ -111,15 +111,16 @@ div {
 	position: fixed;
 	z-index: 100;
 	width: 60vw;
-	height: 60vh;
+	height: 65vh;
 	max-height: 530px;
 	background: rgba(255, 255, 255, 1);
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
 	transition: 100ms ease-in;
-	overflow-y: scroll;
+	/* overflow-y: scroll; */
 	display: none;
+	animation: fadein 0.2s;
 }
 .model-d{
 	height: 100%;
@@ -198,11 +199,7 @@ a{
 	display: none;
 }
 .box1{
-	-webkit-animation: fadein 2.3s; /* Safari, Chrome and Opera > 12.1 */
-	-moz-animation: fadein 2.3s; /* Firefox < 16 */
-	-ms-animation: fadein 2.3s; /* Internet Explorer */
-	-o-animation: fadein 2.3s; /* Opera < 12.1 */
-	animation: fadein 2.3s;
+	-webkit-animation: fadein 0.8s; /* Safari, Chrome and Opera > 12.1 */
 }
 @keyframes fadein {
 	0% { opacity: 0; }
