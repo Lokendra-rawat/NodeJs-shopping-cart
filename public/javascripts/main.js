@@ -32,7 +32,6 @@ function loadDoc(a) {
 	xhttp.onreadystatechange = function () {
 		if (this.readyState == 4 && this.status == 200) {
 			let data = JSON.parse(this.responseText);
-			console.log(data)
 			document.getElementById("price").innerHTML = "<b>Price : </b>" + data.price;
 			document.getElementById("discount").innerHTML = "<b>Discount : </b>" + data.discount + "%";
 			document.getElementById("description").innerHTML = data.description;
