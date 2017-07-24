@@ -63,11 +63,12 @@ function createResultObject(transaction) {
 }
 
 router.get('/checkouts/new', function (req, res) {
-	if (req.session.cart) {
-		gateway.clientToken.generate({}, function (err, response) {
-			if (response === undefined) { res.render('checkouts/new', {data: req.session}); return }
-			res.render('checkouts/new', { clientToken: response.clientToken, data: req.session, messages: req.flash('error') });
-		});
+	if (req.session.cart.totalqty) {
+		// gateway.clientToken.generate({}, function (err, response) {
+			// if (response === undefined) { res.render('checkouts/new', { data: req.session }); return };
+			res.render('checkouts/new', { clientToen: 'response.clientToken', data: req.session, messages: req.flash('error') });
+		// });
+
 	} else {
 		res.send('Add something to Cart To go to the CheckOut Page');
 	}
@@ -118,15 +119,18 @@ router.get('/add-to-cart/:id', function (req, res) {
 		if (err) { res.redirect('/') };
 		cart.add(product, product.id);
 		req.session.cart = cart;
-		console.log(req.session.cart);
 		res.send(req.session.cart);
 	});
 });
 
 router.get('/reduce/:id', function (req, res) {
 	var id = req.params.id;
-	
-})
+	var cart = new Cart(req.session.cart ? req.session.cart : {});
+	cart.remove(id);
+	console.log(cart)
+	req.session.cart = cart;
+	res.send(req.session.cart);
+});
 
 router.get('/user-ajax/:id', function (req, res) {
 	product.findOne({ _id: req.params.id }, function (err, data) {
@@ -158,7 +162,6 @@ router.get('/api', function (req, res) {
 
 router.get('/', function (req, res, next) {
 	product.find({}, function (err, data) {
-		console.log(data)
 		res.render('index', {
 			data: data,
 			flash: req.flash(),

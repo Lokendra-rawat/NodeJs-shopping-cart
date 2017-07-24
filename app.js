@@ -14,14 +14,17 @@ var expressHbs = require('express-handlebars');
 var mongoStore = require('connect-mongo')(session);
 
 
-//var event = new emitter();
-//event.on('loki', (data) => { console.log('loki ' + data) });
-//event.emit('loki' , "The best programmer");
+
 //mongodb://<dbuser>:<dbpassword>@ds115573.mlab.com:15573/cart
+
+// mongoose.connect('mongodb://127.0.0.1:27017/cart', function (err) {
+//   if (err) console.log(err.name + " => " + err.message);
+// });
 
 mongoose.connect('mongodb://lokendra:mlab@ds115573.mlab.com:15573/cart', function (err) {
   if (err) console.log(err.name + " => " + err.message);
 });
+
 require('./config/passport');
 
 var index = require('./routes/index');
@@ -52,7 +55,6 @@ app.use(session({
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
-
 app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use(cookieParser('keyboard cat'));

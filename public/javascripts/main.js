@@ -20,14 +20,12 @@ function addToCart(a) {
 	xhttp.onreadystatechange = function () {
 		if (this.readyState == 4 && this.status == 200) {
 			let data = JSON.parse(this.responseText);
-			console.log(data);
 			document.getElementById('cartInfo').innerText = data.totalqty;
 		}
 	};
 	xhttp.open("GET", "/add-to-cart/" + a, true);
 	xhttp.send();
 }
-
 
 function loadDoc(a) {
 	var xhttp = new XMLHttpRequest();
@@ -92,18 +90,18 @@ function remove(a) {
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function () {
 		if (this.readyState == 4 && this.status == 200) {
-			// window.location.assign('/admin');
+			// document.getElementById(a).style.display = "none";
+			let data = JSON.parse(this.responseText);
+			// console.log(data.items[a].qty === undefined);
+			if (data.items[a].qty) {
+				document.getElementById(a).style.display = "none";
+			} else{
+				document.getElementById(a).children[1].value--;
+			}
 		}
 	};
-	xhttp.open("DELETE", "/remove/" + a, true);
-	// let r = confirm('Item ' + a + '  Will be Deleted ');
-	let r = 1;
-	if (r == true) {
-		xhttp.send();
-		document.getElementById(a).style.display = "none";
-	} else {
-		return false;
-	}
+	xhttp.open("get", "/reduce/" + a, true);
+	xhttp.send();
 }
 
 function refresh(a) {

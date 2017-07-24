@@ -44,17 +44,17 @@
 				</div>
 			</div>
 		</div>
-		
+
 	</div>
 </div>
 
 {{> footer}}
 
-<script src="https://js.braintreegateway.com/web/dropin/1.4.0/js/dropin.min.js"></script>
+{{!-- <script src="https://js.braintreegateway.com/web/dropin/1.4.0/js/dropin.min.js"></script> --}}
 <script type="text/javascript">
 	var form = document.getElementById('payment-form');
 	var button = document.getElementById('submit-button');
-	if (braintree === undefined) {
+	if (1) {
 		document.getElementById('dropin-container').innerHTML = "<h3 class='aside'> Payment Options are not available </h3>";
 	} else {
 		braintree.dropin.create({
@@ -68,7 +68,9 @@
 						console.log(err);
 					}
 					document.getElementById('nonce').value = payload.nonce;
-					form.submit();
+					document.onload = function () {
+						form.submit();
+					}
 				});
 			});
 		});
