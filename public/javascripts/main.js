@@ -91,16 +91,14 @@ function remove(a) {
 		if (this.readyState == 4 && this.status == 200) {
 			// window.location.assign('/checkouts/new');
 			let data = JSON.parse(this.responseText);
-			console.log(data);
 			if (data[0]) {
 				document.getElementById(data[1]).children[1].innerHTML = "Item Quantity : " + data[0].itemqty;
 				document.getElementById(data[1]).children[2].innerHTML = "Item Price : " + data[0].itemprice;
 				document.getElementById('total').children[0].innerText = "Total Quantity : " + data[0].totalqty;
-				document.getElementById('total').children[0].innerText = "Total Price : " + data[0].totalprice;
+				document.getElementById('total').children[1].innerText = "Total Price : " + data[0].totalprice;
+				document.getElementById('amount').value = data[0].totalprice;
 			} else {
-				document.getElementById(data[1]).style.display = "none";
-				document.getElementById('total').children[0].innerText ="Total Quantity : " + 0;
-				document.getElementById('total').children[0].innerText ="Total Price : " + 0;
+				window.location.assign('/checkouts/new');
 			}
 		}
 	};
@@ -135,4 +133,22 @@ var open = function (p) {
 }
 var close = function (p) {
 	return p.style.display = "none";
+}
+
+var clickAnywhere = function (a) {
+	var l = a;
+	a = this;
+	window.onclick = function (event) {
+		if (event.target != this) {
+
+		}
+	}
+}
+
+window.onclick = function (event) {
+	var ths = document.getElementById('update');
+	ths = this;
+	if (event.target != ths) {
+		console.log('hello world')
+	}
 }

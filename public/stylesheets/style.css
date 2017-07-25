@@ -118,13 +118,14 @@ div {
 	top: 50%;
 	transform: translate(-50%, -50%);
 	transition: 100ms ease-in;
-	/* overflow-y: scroll; */
+	 overflow-y: scroll; 
 	display: none;
 	animation: fadein 0.2s;
 }
 .model-d{
-	height: 100%;
-	width: 40vw;
+	height: 90vh;
+	width: 70vw;
+	max-width: 400px;
 	max-height: 600px
 }
 
@@ -205,7 +206,7 @@ a{
 	0% { opacity: 0; }
 	100% { opacity: 1; }
 }
-@media (max-width: 360px){
+@media (max-width: 460px){
 	.box1{
 		width: 100%
 	}
@@ -215,9 +216,9 @@ a{
 	.pad{
 		padding: 5px
 	}
-	#model{
+	.model{
 		padding: 10px;
-		width:100vw;
+		width: 100vw;
 		height: 90vh;
 	}
 }

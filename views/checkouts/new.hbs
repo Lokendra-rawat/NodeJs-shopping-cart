@@ -1,8 +1,27 @@
+<div class="borer">
+	<div class="title-bar" style="background:#fff;color:#111">
+		<div class="title-bar-left">
+			<span class="title-bar-title"><h3><b>Robin</b> <small>(Admin)</small></h3></span>
+		</div>
+		<div class="title-bar-right clearfix hide-for-large hide-for-medium">
+			<button class="menu-icon" type="button"></button>
+		</div>
+		<div class="title-bar-right show-for-medium">
+			<ul class="menu float-right hide-for-small">
+				<li> <a href="/"> Home </a> </li>
+				<li> <a href="/users/signin"> Login </a> </li>
+				<li> <a href="/users/signup"> Signup </a> </li>
+				<li> <a href="/users/profile"> Profile </a> </li>
+			</ul>
+		</div>
+	</div>
+</div>
+
 <div class="cen pad">
 	<div class="row grid-x grid-padding-y grid-padding-x">
-		<div class="cell large-7 medium-7 callout">
-			<div>
-				<h5> Items </h5>
+		<div class="cell large-7 medium-7 ">
+			<div class="callout">
+				<h5> Items in you Cart </h5>
 				{{#each data.cart.items}}
 				<div id="{{this.item._id}}" class="callout" style="max-height: 200px;">
 
@@ -36,6 +55,7 @@
 				<div class="large-12 medium-12 small-12">
 					<form id="payment-form" method="POST" action="/checkouts">
 						<label style="color:red;" class="help-text">{{#each messages}} {{this.error}} {{/each }}</label><br>
+						<label style="pointer-events:none"><b> Payable Amount </b></label>
 						<input id="amount" name="amount" type="number" value="{{ data.cart.totalprice }}" placeholder="Enter you amount">
 						<div id="dropin-container"></div>
 						<input id="nonce" type="hidden" name="payment_method_nonce">

@@ -1,12 +1,14 @@
 <div class="row bordr">
   <div style="margin: 0 auto; background: none; " class="large-12 medium-12">
-    <h3 style="margin: 0"> <b>  Robin  </b></h3>
-    <span> The Summer Clothing Store</span>
-    <ul class="menu float-right show-for-medium">
-      <li><a href="/">Home</a></li>
-      <li><a href="/admin">Sell</a></li>
-      <li><a> Account </a></li>
-    </ul>
+    <div class="pad">
+      <h3 style="margin: 0"> <b>  Robin  </b></h3>
+      <span> The Summer Clothing Store</span>
+      <ul class="menu float-right show-for-medium">
+        <li><a href="/">Home</a></li>
+        <li><a href="/admin">Sell</a></li>
+        <li><a> Account </a></li>
+      </ul>
+    </div>
   </div>
   <hr>
 </div>
@@ -36,17 +38,17 @@
         <option value="starbuck">L</option>
         <option value="hotdog">XL</option>
         <option value="apollo">XXL</option>
-      </select> 
+      </select>
     </div>
     <h6 class=""> <b> Price :</b> {{ pro.price }}
     </h6>
     <h6> <b> Discount :</b> {{ pro.discount }}% </h6>
     <h6> <b> Quantity : </b> {{ pro.quantity }} Items Left</h6>
     <h6> <b> Payable Amount :</b> {{ pro.pa }}</h6>
-    <div class="clearfix grid-x grid-padding-x">
-      <button class="button primary  large-4"> Add to Cart </button>
+    <div class="clearfix">
+      <button class="button primary"> Add to Cart </button>
       <span class="large-4"> </span>
-      <button class="button primary  large-4 float-right"> Place Order </button>
+      <button class="button float-right"> Place Order </button>
     </div>
   </div>
 

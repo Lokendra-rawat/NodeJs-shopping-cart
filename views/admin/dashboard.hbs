@@ -1,37 +1,39 @@
-<div class="">
-  <div class="title-bar">
+<div class="borer">
+  <div class="title-bar" style="background:#fff;color:#111">
     <div class="title-bar-left">
-      <button class="menu-icon" type="button"></button>
-      <span class="title-bar-title">Robin Dashboard</span>
+      <span class="title-bar-title"><h3><b>Robin Dashboard</b> <small>(Admin)</small></h3></span>
     </div>
     <div class="title-bar-right clearfix hide-for-large hide-for-medium">
       <button class="menu-icon" type="button"></button>
     </div>
     <div class="title-bar-right show-for-medium">
       <ul class="menu float-right hide-for-small">
-        <li> <a href="/" style="color: #fff"> Home </a> </li>
-        <li> <a href="/users/signin" style="color: #fff"> Login </a> </li>
-        <li> <a href="/users/signup" style="color: #fff"> Signup </a> </li>
-        <li> <a href="/users/profile" style="color: #fff"> Profile </a> </li>
+        <li> <a href="/"> Home </a> </li>
+        <li> <a href="/users/signin"> Login </a> </li>
+        <li> <a href="/users/signup"> Signup </a> </li>
+        <li> <a href="/users/profile"> Profile </a> </li>
       </ul>
     </div>
   </div>
 </div>
 
-<div class="rw grid-x">
+<div class="rw grid-x callout">
 
   <div class="cell large-3  medium-4 pad calout">
-    <ul class="stack no-bullet">
-      <h5> Products Manager </h5>
-      <li><button class="button expanded secondary" id="add-btn" onclick="showadd()"> <b>Add New Product</b></button></li>
+    <h5> Products Manager </h5>
+    <hr>
+    <ul class="stack no-bullet pad">
+      <li><a clss="button hollow expanded secondary" id="add-btn" onclick="showadd()">Add New Product</a></li>
+      <li> <a href="#"> Insights </a> </li>
+      <li> <a href="#"> Total sales </a> </li>
     </ul>
   </div>
 
   <div class="cell large-9 medium-8 small-12 grid-x" style="display: flex; flex-wrap:wrap; flex-direction:column; align-items: center">
 
-    <div id="add" style="display: none;" class="border model model-d scroll cell large-12 medium-12 small-12">
+    <div id="add" style="display:none;" class="pad callout model model-d grid-x ">
       <img src="../images/close.png" style="position: absolute; right: 15px;" onclick="closemodel()">
-      <div class="row large-12 medium-12 small-12">
+      <div class="cell ">
         <form method="POST" action="/admin">
           <p>Product Name </p>
           <input type="text" name="name" value="Robin Clothes" placeholder="Product name" requird="true">
@@ -44,17 +46,17 @@
           <p>Product Discount in %</p>
           <input type="number" name="discount" placeholder="Product Discount" value="10" requird="true">
           <input type="file" id="name" style="display:none;" name="image" requird="true">
-          <label for="name" class="button  small"> Upload Image</label>
-          <input type="submit" class="button  expanded small" value="Add Product">
+          <label for="name" class="button success small"> Upload Image</label>
+          <input type="submit" class="button success expanded small" value="Add Product">
         </form>
       </div>
     </div>
 
-    <div id="update" style="display: none;" class="border model model-d scroll cell large-12 medium-12 small-12">
+    <div id="update" style="display: none;" class="callout pad model model-d grid-x">
       <div class="">
         <p><b> Update Product </b> </p>
       </div>
-      <div class="row large-12 medium-12 small-12">
+      <div class="cell">
         <form method="POST" action="">
           <p></p>
           <input type="text" name="name" value="Robin Clothes" placeholder="Product name" requird="true">
@@ -83,7 +85,7 @@
               <div class="name clearfix">{{ this.name }}</div>
               <h6>${{ this.price }}</h6>
               <a hef="admin/update/{{ this._id }}" onclick="update('{{ this._id }}') , showUp()" class="button hollow small ">Update</a>
-              <button onclick="del('{{ this._id }}')" class="button small alert float-right">Delete</button>
+              <button onclick="del('{{ this._id }}')" class="button small hollow alert float-right">Delete</button>
             </figcaption>
           </figure>
         </div>
