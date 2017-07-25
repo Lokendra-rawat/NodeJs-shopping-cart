@@ -2,6 +2,26 @@
 .columns:last-child:not(:first-child) {
 	float: left;
 }
+.size-12 { font-size: 12px; }
+
+.size-14 { font-size: 14px; }
+
+.size-16 { font-size: 16px; }
+
+.size-18 { font-size: 18px; }
+
+.size-21 { font-size: 21px; }
+
+.size-24 { font-size: 24px; }
+
+.size-36 { font-size: 36px; }
+
+.size-48 { font-size: 48px; }
+
+.size-60 { font-size: 60px; }
+
+.size-72 { font-size: 72px; }
+
 body{
 		animation: fadein 0.2s;
 }
@@ -19,7 +39,7 @@ figure img{
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
-	 display: flex; 
+	 display: flex;
 	flex-wrap: wrap;
 	max-height: 285px;
 	 /* min-height: 233px; */
@@ -52,7 +72,7 @@ div {
 
 #hero {
 	text-align: center;
-	background-attachment: fixed; 
+	background-attachment: fixed;
 	background-image: url(../images/model2.jpg);
 	opacity: 0.8;
 	background-size: cover;
@@ -61,28 +81,13 @@ div {
 	margin-bottom: 30px;
 	margin-top: 14px;
 	-webkit-animation: fadein 1.3s; /* Safari, Chrome and Opera > 12.1 */
-	/* -moz-animation: fadein 2.3s;  Firefox < 16 
+	/* -moz-animation: fadein 2.3s;  Firefox < 16
 	-ms-animation: fadein 2.3s; /* Internet Explorer */
 	/* -o-animation: fadein 2.3s;  Opera < 12.1  */
 	/* animation: fadein 2.3s; */
 	/* animation-name: loki;
 	animation-duration: infinite;
 	animation-delay: 0; */
-}
-
-
-
-#hero-text {
-	/* float: right; */
-	/* margin-top: 10%; */
-	/* margin-right: 10px; */
-	/* font-size: 5em; */
-	 margin-bottom: 0; 
-	background: rgba(255,255,255,0.4);
-	display: inline-block;
-	margin-top: 130px;
-	box-shadow: 0 0 30px 30px rgba(255,255,255,0.4);
-	display: none
 }
 
 #content {
@@ -118,7 +123,7 @@ div {
 	top: 50%;
 	transform: translate(-50%, -50%);
 	transition: 100ms ease-in;
-	 overflow-y: scroll; 
+	 overflow-y: scroll;
 	display: none;
 	animation: fadein 0.2s;
 }
@@ -182,11 +187,11 @@ a{
 	 color: #111;
 }
 	.badge{
-		border-radius: 50%;
-		background: #111;
+		 /* border-radius: 50%;
+		background: #111; */
 		/* margin-bottom: 15px; */
 		position: relative;
-		top: -2px;
+		top: -12px;
 	}
 #cartt:hover + #cartModal{
 	display: block;
@@ -202,16 +207,25 @@ a{
 .box1{
 	-webkit-animation: fadein 0.8s; /* Safari, Chrome and Opera > 12.1 */
 }
+
+.footer-heart{
+	color: crimson;
+}
+
 @keyframes fadein {
-	0% { opacity: 0; }
-	100% { opacity: 1; }
+	0% { opacity: 0;}
+	100% { opacity: 1;}
+}
+@keyframes heart{
+	0% { font-size: 36px }
+	100% { font-size: 21px }
 }
 @media (max-width: 460px){
 	.box1{
 		width: 100%
 	}
 	#index{
-		padding: 0	
+		padding: 0
 	}
 	.pad{
 		padding: 5px

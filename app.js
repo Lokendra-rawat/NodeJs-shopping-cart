@@ -14,7 +14,7 @@ var expressHbs = require('express-handlebars');
 var mongoStore = require('connect-mongo')(session);
 
 
-
+console.log(passwordHash.verify('loki' , 'sha1$b1b7e59f$1$5c3cc682a9d2afccd48d7bc324087b146a70d5b1'));
 //mongodb://<dbuser>:<dbpassword>@ds115573.mlab.com:15573/cart
 
 mongoose.connect('mongodb://127.0.0.1:27017/cart', function (err) {
@@ -29,6 +29,7 @@ require('./config/passport');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var checkout = require('./routes/checkout');
 
 var app = express();
 
@@ -37,7 +38,7 @@ var app = express();
 // app.set('views', path.join(__dirname, 'views'));
 app.engine('.hbs', expressHbs({ defaultLayout: 'layout', extname: '.hbs' }));
 app.set('view engine', '.hbs');
-
+// hello this was edited from vim text editor nigga
 // uncomment after placing your favicon in /public
 
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -64,6 +65,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/checkouts', checkout);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

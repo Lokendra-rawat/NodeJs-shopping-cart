@@ -40,3 +40,23 @@ passport.use('local.signup', new localStrategy({
     })
   })
 }));
+
+passport.use('local.signin', new localStrategy({
+  usernameField: 'email',
+  passwordField: 'password',
+  passReqToCallback: true,
+
+}, function (req, email, password, done) {
+  User.findOne({ 'email': email }, function (err, user) {
+    if (err) {
+      return done(err);
+    }
+    if (!user) {
+      return done(null, false, { message: 'user is not in the database' });
+    }
+    if (passwordHash.verify(password, user.password) == false) {
+      return done(null, false, { message: 'password doesnt matched' });
+    }
+    return done(null, user);
+  });
+}));

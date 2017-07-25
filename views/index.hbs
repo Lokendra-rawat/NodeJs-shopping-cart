@@ -2,11 +2,11 @@
 	<div class="grid-x grid-padding-x">
 		<div style="margin: 0 auto; overflow:hidden" class="cell large-12 medium-12">
 			<div class="pad cell">
-				<h1><b> Robin </b> </h1>
+				<h1><b> Robin </b> <small> </small></h1>
 				<span> The Summer Clothing Store</span>
 				<ul class="menu  float-right show-for-medium">
-					<li><a href="/">Home</a></li>
-					<li id="cartt"><a href="/checkouts/new">Cart <span id="cartInfo" class="badge">{{ cart.cart.totalqty}}</span></a></li>
+					<li><a href="/"><i class="fi-home size-18"> Home</i></a></li>
+					<li id="cartt"><a href="/checkouts/new"><i class="fi-shopping-cart size-18"> Cart</i><span id="cartInfo"class="badge {{#unless cart.cart.totalqty}}hide{{/unless}}">{{cart.cart.totalqty}}</span></a></li>
 					<li><a href="/admin">Sell</a></li>
 					<li><a> Account </a></li>
 				</ul>
