@@ -37,15 +37,15 @@ passport.use('local.signup', new localStrategy({
         return done(err);
       }
       return done(null, newUser);
-    })
-  })
+    });
+  });
 }));
 
 passport.use('local.signin', new localStrategy({
   usernameField: 'email',
   passwordField: 'password',
   passReqToCallback: true,
-
+  
 }, function (req, email, password, done) {
   User.findOne({ 'email': email }, function (err, user) {
     if (err) {

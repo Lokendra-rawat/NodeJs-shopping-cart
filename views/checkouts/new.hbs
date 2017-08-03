@@ -1,7 +1,7 @@
 <div class="borer">
 	<div class="title-bar" style="background:#fff;color:#111">
 		<div class="title-bar-left">
-			<span class="title-bar-title"><h3><b>Robin</b> <small>(Admin)</small></h3></span>
+			<span class="title-bar-title"><h3><b>Robin</b> {{#if auth}} <small>(Admin)</small> {{else}}<small>(Hello Stranger)</small> {{/if}} </h3></span>
 		</div>
 		<div class="title-bar-right clearfix hide-for-large hide-for-medium">
 			<button class="menu-icon" type="button"></button>
@@ -50,6 +50,7 @@
 			</div>
 		</div>
 
+		{{#if auth}}
 		<div class="cell large-5 medium-5 ">
 			<div class="grid-x clearfix callout">
 				<div class="large-12 medium-12 small-12">
@@ -64,12 +65,20 @@
 				</div>
 			</div>
 		</div>
+		{{else}}
+		<div class="cell large-5 medium-5">
+			<div class="grid-x callout">
+				<p class="lead"> You have to login to proceed to checkout </p>
+				<a href="/users/signin" class="button "> Click here to go to login page </a>
+			</div>
+		</div>
+		{{/if}}
 
 	</div>
 </div>
 
-{{> footer}} {{!--
-<script src="https://js.braintreegateway.com/web/dropin/1.4.0/js/dropin.min.js"></script> --}}
+{{> footer}} 
+{{!-- <script src="https://js.braintreegateway.com/web/dropin/1.4.0/js/dropin.min.js"></script> --}}
 <script type="text/javascript">
 	var form = document.getElementById('payment-form');
 	var button = document.getElementById('submit-button');

@@ -32,6 +32,6 @@ gulp.task('imgmin', function () {
 
 //MINIFY FILES
 gulp.task('minify', function () {
-  gulp.src('public/javascripts/vendor/*').pipe(uglify()).pipe(concat('vendor.js')).pipe(gulp.dest('public/javascripts/vendor'));
+  gulp.src('public/javascripts/vendor/*').pipe(uglify()).pipe(gulp.dest('dist/javascripts/vendor'));
   return false;
 })

@@ -7,11 +7,15 @@ var app = require('../app');
 
 
 /* GET home page. Data for Modal  */
+router.get('/fetchcart', function (req, res) {
+	res.send(req.session.cart);
+});
+
 router.get('/add-to-cart/:id', function (req, res) {
 	var id = req.params.id;
 	var cart = new Cart(req.session.cart ? req.session.cart : {});
 	product.findById(id, function (err, product) {
-		if (err) { res.redirect('/') };
+		if (err) { res.redirect('/'); }
 		cart.add(product, product.id);
 		req.session.cart = cart;
 		res.send(req.session.cart);
@@ -34,13 +38,18 @@ router.get('/user-ajax/:id', function (req, res) {
 });
 
 router.delete('/delete/:id', function (req, res) {
+	var id = req.params.id;
+	var Cat = new Cart(req.session.cart ? req.session.cart : {});
+	if (Cat.bfind(id)) {
+		Cat.remove(id);
+	}
 	product.remove({ _id: req.params.id }, function (err) {
 		if (err) {
-			res.send({ product: "not found" })
-		};
-		res.send(200);
-	})
-})
+			res.send({ product: "not found" });
+		}
+		res.sendStatus(200);
+	});
+});
 
 router.get('/api', function (req, res) {
 	res.send({
@@ -51,15 +60,15 @@ router.get('/api', function (req, res) {
 			name: "alex gerret",
 			comment: "hey there this is cool"
 		}
-	})
-})
+	});
+});
 
 router.get('/', function (req, res, next) {
 	product.find({}, function (err, data) {
 		res.render('index', {
 			data: data,
 			flash: req.flash(),
-			cart: req.session
+			session: req.session
 		});
 	});
 });
@@ -142,7 +151,7 @@ router.get('/buy/:id', function (req, res, next) {
 });
 
 router.get('/test', function (req, res) {
-	res.render('test')
-})
+	res.render('test');
+});
 
 module.exports = router;

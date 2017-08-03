@@ -26,7 +26,7 @@ body{
 		animation: fadein 0.2s;
 }
 .shadow{
-	box-shadow: 0 0px 1px 1px rgba(0,0,0,0.1)
+	box-shadow: 0 0px 0px 1px rgba(0,0,0,0.2)
 }
 .cent{
 	position: relative;
@@ -79,7 +79,7 @@ div {
 	background-repeat: no-repeat;
 	height: 320px;
 	margin-bottom: 30px;
-	margin-top: 14px;
+	margin-top: 2px;
 	-webkit-animation: fadein 1.3s; /* Safari, Chrome and Opera > 12.1 */
 	/* -moz-animation: fadein 2.3s;  Firefox < 16
 	-ms-animation: fadein 2.3s; /* Internet Explorer */
@@ -191,18 +191,27 @@ a{
 		background: #111; */
 		/* margin-bottom: 15px; */
 		position: relative;
-		top: -12px;
+		top: -8px;
+		left: -3px;
 	}
-#cartt:hover + #cartModal{
-	display: block;
-}
+	#cartt{
+		cursor: pointer;
+	}
 #cartModal{
 	position: absolute;
 	width: 300px;
-	top: 20px;
+	top: 40px;
+	right: 0;
 	height: auto;
-	min-height: 200px;
+	 max-height: 330px; 
+	/* border: 1px solid black; */
+	border-radius: 4px;
+	box-shadow: 0 0 5px 1px rgba(0 ,0 ,0, 0.4);
+	background: #fff;
+	 overflow-y: scroll; 
+	z-index: 99;
 	display: none;
+	-webkit-animation: fadein 0.4s;
 }
 .box1{
 	-webkit-animation: fadein 0.8s; /* Safari, Chrome and Opera > 12.1 */
@@ -210,6 +219,52 @@ a{
 
 .footer-heart{
 	color: crimson;
+}
+
+.drop:hover .hi {
+  display: block;  
+}
+
+.hi {
+  border: 1px solid #999;
+  border-radius: 4px;
+  position: absolute;
+  list-style: none;
+  display: none;
+  max-width: 150px;
+  min-width: 150px;
+	height: auto;
+	z-index: 100;
+  background: white;
+	margin: 0;
+	top: 30px;
+	padding: 0px 0;
+	right: 0;
+  box-sizing: border-box;
+	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15);
+		-webkit-animation: fadein 0.4s;
+
+}
+.hi li {
+  padding: 0px 0px;
+  display: block;
+  width: 100%;
+  margin: 0;
+}
+.hi li:hover {
+	box-shadow: 0 0 4px 1px rgba(0 ,0 ,0, 0.2);
+	color: white;
+	cursor: pointer;
+	-webkit-animation: fadein 0.4s;
+}
+
+.favourite{
+	color: #666;
+	/* color: lime; */
+	/* border: 2px solid black; */
+	position: relative;
+	top: -330px;
+	left: 88%;
 }
 
 @keyframes fadein {
@@ -220,7 +275,10 @@ a{
 	0% { font-size: 36px }
 	100% { font-size: 21px }
 }
-@media (max-width: 460px){
+@media (max-width: 360px){
+[class="box1"]{
+		border: 2px solid black;
+	}
 	.box1{
 		width: 100%
 	}

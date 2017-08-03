@@ -8,13 +8,18 @@ let product = require('./../models/model');
 var csrfProtection = csrf();
 router.use(csrfProtection);
 
+router.get('/logout', function (req, res, next) {
+  req.logout();
+  res.redirect('/');
+});
+
 router.get('/profile', isLoggedin, function(req, res, next) {
   res.render('user/profile');
 });
 
-router.use('/', notLoggedin, function(rea, res, next) {
+router.use('/', notLoggedin, function (rea, res, next) {
   next();
-})
+});
 
 router.get('/signup', function(req, res, next) {
   var message = req.flash('error');
@@ -50,11 +55,6 @@ router.get('/buy/:id', function(req, res, next) {
       pro: pro
     });
   });
-});
-
-router.get('/logout', function(req, res, next) {
-  req.logout();
-  res.redirect('/');
 });
 
 module.exports = router;

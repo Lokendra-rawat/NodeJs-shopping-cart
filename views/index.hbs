@@ -4,11 +4,46 @@
 			<div class="pad cell">
 				<h1><b> Robin </b> <small> </small></h1>
 				<span> The Summer Clothing Store</span>
-				<ul class="menu  float-right show-for-medium">
-					<li><a href="/"><i class="fi-home size-18"> Home</i></a></li>
-					<li id="cartt"><a href="/checkouts/new"><i class="fi-shopping-cart size-18"> Cart</i><span id="cartInfo"class="badge {{#unless cart.cart.totalqty}}hide{{/unless}}">{{cart.cart.totalqty}}</span></a></li>
-					<li><a href="/admin">Sell</a></li>
-					<li><a> Account </a></li>
+				<ul class="menu  float-right shw-for-medium">
+					<li><a href="/"><span class="fi-home size-16"> Home</span></a></li>
+					<li id="catt" style="padding:8px">
+						{{!-- <a href="/checkouts/new">  --}}
+						 <span id="cartt" class="fi-shopping-cart size-16"> Cart </span> 
+						 <span id="cartInfo" class="badge {{#unless session.cart.totalqty}}hide{{/unless}}">{{session.cart.totalqty}}</span> 
+						 {{!-- </a> --}}
+					</li>
+					<div id="cartModal" class="scroll">
+						<div id="cartBox" class="grid-x pad">
+							{{#each session.cart.items}}
+							<div class="cell shadow clearfix large-12 subheader">
+								<img style="height:60px;float:left" src="/images/{{this.item.image}}">
+								<p style="line-height:1.2"><small>Name : {{this.item.name}} </small></p>
+								<p style="line-height:1.2"><small>Price : {{this.item.price}} </small></p>
+								<small>Qty : {{this.qty}} </small>
+							</div>
+							{{/each}}
+						</div>
+
+						<div style="padding: 0 10px 5px 10px;">
+							<div class="cell large-12">
+								<small id="tq"><b> Total Quantity : </b>{{session.cart.totalqty}}</small>
+							</div>
+							<div class="cell large-12">
+								<small id="tp"><b> Total Price : </b>{{session.cart.totalprice}}</small>
+							</div>
+							<div class="large-12 cell clearfix">
+								<button class="button alert small float-left">Remove all </button>
+								<a href="/checkouts/new" class="button small float-right">Checkout </a>
+							</div>
+						</div>
+					</div>
+					<li class="drop"><a><span class="fi-arrow-right size-16"> Account </span></a>
+						<ul class="hi">
+							<li><a href="/users/profile">  <i class="fi-torso size-14"></i> profile </a> </li>
+							<li><a href="/admin"> <i class="fi-torso size-14"></i> my products</a> </li>
+							<li><a href="/users/logout"> <i class="fi-torso size-14"></i> logout </a> </li>
+						</ul>
+					</li>
 				</ul>
 			</div>
 			<div id="hero"></div>
@@ -22,5 +57,18 @@
 			<hr> {{> content }} {{> model}}
 		</div>
 	</div>
-	<hr> {{> footer }}
+	{{> footer }}
 </div>
+
+<script>
+	(function () {
+		var cart = document.getElementById('cartt');
+		var cartm = document.getElementById('cartModal');
+		cart.addEventListener("mouseover", function () {
+			cartm.style.display = "inline-block"
+			 //fetchcart(); 
+			clickAnywhere("#cartt", "#cartModal");
+		});
+	}());
+
+</script>

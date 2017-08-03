@@ -23,12 +23,11 @@ module.exports = function cart(oldcart) {
     if (this.items[id].qty <= 0) {
       delete this.items[id];
     }
-  }
+  };
 
   this.find = function (id) {
     var storedItem = this.items[id];
     if (!storedItem) {
-      // return "no item left in cart";
       return false;
     } else {
       return {
@@ -36,9 +35,14 @@ module.exports = function cart(oldcart) {
         itemqty: this.items[id].qty,
         totalprice: this.totalprice,
         totalqty: this.totalqty
-      }
+      };
     }
-  }
+  };
+
+  this.bfind = function (id) {
+    var storedItem = this.items[id];
+    return (storedItem) ? true : false;
+  };
 
   this.generateArray = function () {
     var arr = [];
@@ -47,4 +51,4 @@ module.exports = function cart(oldcart) {
     }
     return arr;
   };
-}
+};

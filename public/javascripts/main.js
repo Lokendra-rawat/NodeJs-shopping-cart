@@ -15,12 +15,45 @@
 //   }, 5000);
 // }
 
-function addToCart(a) {
-	var xhttp = new XMLHttpRequest();
+const xhttp = new XMLHttpRequest();
+
+function fetccart() {
 	xhttp.onreadystatechange = function () {
 		if (this.readyState == 4 && this.status == 200) {
 			let data = JSON.parse(this.responseText);
+			for (var i = 0; data.length <= 4; i++) {
+				// console.log('hello')
+			}
+			// document.getElementById('cartModal').innerText = data;
+		}
+	};
+	xhttp.open("GET", "/fetchcart", true);
+	xhttp.send();
+}
+
+function addToCart(a) {
+	xhttp.onreadystatechange = function () {
+		if (this.readyState == 4 && this.status == 200) {
+			let data = JSON.parse(this.responseText);
+			let it = data.items;
+			// console.log(data.totalqty)
+			// document.getElementById('cartBox').innerHTML = "";
+			// var div = document.getElementById('cartBox');
+			// while (div = document.getElementById('cartBox')) {
+			// 	div.parentNode.removeChild(div);
+			// }
+			document.getElementById('cartBox').innerHTML = "";
+			for (var x in it) {
+				var box = document.createElement('div');
+				box.setAttribute('class', 'cell shadow clearfix large-12 subheader');
+				box.innerHTML = '<img style="height:60px;float:left" src="/images/' + it[x].item.image + '"><p style="line-height:1.2"><small>Name : ' + it[x].item.name + '</small></p><p style="line-height:1.2"><small>Price : ' + it[x].item.price + ' </small></p><small>Qty : ' + it[x].qty + ' </small>';
+				document.getElementById('cartBox').appendChild(box);
+				document.getElementById('tq').innerHTML = '<b>Total quantity :</b>' + data.totalqty;
+				document.getElementById('tp').innerHTML = '<b>Total price :</b>' + data.totalprice;
+			}
 			document.getElementById('cartInfo').innerText = data.totalqty;
+			document.getElementById('cartInfo').removeAttribute('class', 'hide');
+			document.getElementById('cartInfo').setAttribute('class', 'badge');
 		}
 	};
 	xhttp.open("GET", "/add-to-cart/" + a, true);
@@ -28,10 +61,9 @@ function addToCart(a) {
 }
 
 function loadDoc(a) {
-	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function () {
 		if (this.readyState == 4 && this.status == 200) {
-			let data = JSON.parse(this.responseText);
+			var data = JSON.parse(this.responseText);
 			document.getElementById("price").innerHTML = "<b>Price : </b>" + data.price;
 			document.getElementById("discount").innerHTML = "<b>Discount : </b>" + data.discount + "%";
 			document.getElementById("description").innerHTML = data.description;
@@ -47,11 +79,10 @@ function loadDoc(a) {
 }
 
 function update(a) {
-	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function () {
 		if (this.readyState == 4 && this.status == 200) {
 			let data = JSON.parse(this.responseText);
-			console.log(data)
+			console.log(data);
 			let update = document.getElementById("update");
 			console.log('/admin/update/' + data._id);
 			update.children[1].children[0].setAttribute('action', '/admin/update/' + data._id);
@@ -68,7 +99,6 @@ function update(a) {
 }
 
 function del(a) {
-	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function () {
 		if (this.readyState == 4 && this.status == 200) {
 			// window.location.assign('/admin');
@@ -86,7 +116,6 @@ function del(a) {
 }
 
 function remove(a) {
-	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function () {
 		if (this.readyState == 4 && this.status == 200) {
 			// window.location.assign('/checkouts/new');
@@ -97,6 +126,8 @@ function remove(a) {
 				document.getElementById('total').children[0].innerText = "Total Quantity : " + data[0].totalqty;
 				document.getElementById('total').children[1].innerText = "Total Price : " + data[0].totalprice;
 				document.getElementById('amount').value = data[0].totalprice;
+				document.getElementById('tq').innerHTML = '<b>Total quantity :</b>' + data[0].totalqty;
+				document.getElementById('tp').innerHTML = '<b>Total price :</b>' + data[0].totalprice;
 			} else {
 				window.location.assign('/checkouts/new');
 			}
@@ -107,7 +138,6 @@ function remove(a) {
 }
 
 function refresh(a) {
-	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function () {
 		if (this.readyState == 4 && this.status == 200) {
 			console.log('refresh done');
@@ -125,30 +155,22 @@ function closemodel() {
 function openmodel() {
 	var model = document.getElementById('model');
 	model.style.display = "flex";
+	clickAnywhere("#model", "#model");
 }
+
 const model = document.getElementById('model');
 
 var open = function (p) {
 	return p.style.display = "flex";
-}
+};
 var close = function (p) {
-	return p.style.display = "none";
-}
+	return (p.style.display = "none");
+};
 
-var clickAnywhere = function (a) {
-	var l = a;
-	a = this;
-	window.onclick = function (event) {
-		if (event.target != this) {
-
+const clickAnywhere = function (a, b) {
+	$('body').click(function (event) {
+		if (!$(event.target).closest(b).length && !$(event.target).is(a)) {
+			$(b).hide();
 		}
-	}
-}
-
-window.onclick = function (event) {
-	var ths = document.getElementById('update');
-	ths = this;
-	if (event.target != ths) {
-		console.log('hello world')
-	}
-}
+	});
+};

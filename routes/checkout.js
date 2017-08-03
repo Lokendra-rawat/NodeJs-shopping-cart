@@ -1,5 +1,5 @@
 var express = require('express');
-// var csrf = require('csurf');
+var csrf = require('csurf');
 var router = express.Router();
 // var product = require('./../models/model');
 var Cart = require('./../models/cart');
@@ -7,8 +7,8 @@ var app = require('../app');
 var passport = require('passport');
 
 
-// var csrfProtection = csrf();
-// router.use(csrfProtection);
+var csrfProtection = csrf();
+router.use(csrfProtection);
 
 // BRAINTREE START
 
@@ -63,29 +63,34 @@ function createResultObject(transaction) {
   return result;
 }
 
-router.get('/new', function(req, res) {
+router.get('/new', function (req, res) {
   if (req.session.cart.totalqty) {
+    // console.log(req.session.cart.find({}));
     // gateway.clientToken.generate({}, function (err, response) {
     // if (response === undefined) { res.render('checkouts/new', { data: req.session }); return };
-    res.render('checkouts/new', { clientToen: 'response.clientToken', data: req.session, messages: req.flash('error') });
+    res.render('checkouts/new', {
+      clientToen: 'response.clientToken',
+      auth: req.isAuthenticated(),
+      data: req.session,
+      messages: req.flash('error')
+    });
     // });
-
   } else {
     res.redirect('/');
   }
 });
 
-router.get('checkouts/:id', function(req, res) {
+router.get('checkouts/:id', function (req, res) {
   var result;
   var transactionId = req.params.id;
 
-  gateway.transaction.find(transactionId, function(err, transaction) {
+  gateway.transaction.find(transactionId, function (err, transaction) {
     result = createResultObject(transaction);
     res.render('checkouts/show', { trans: transaction, res: result });
   });
 });
 
-router.post('/checkouts', function(req, res) {
+router.post('/checkouts', function (req, res) {
   var transactionErrors;
   var amount = req.body.amount; // In production you should not take amounts directly from clients
   var nonce = req.body.payment_method_nonce;
@@ -96,7 +101,7 @@ router.post('/checkouts', function(req, res) {
     options: {
       submitForSettlement: true
     }
-  }, function(err, result) {
+  }, function (err, result) {
     if (result.success || result.transaction) {
       res.redirect('checkouts/' + result.transaction.id);
     } else {
