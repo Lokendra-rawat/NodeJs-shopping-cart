@@ -59,15 +59,17 @@
 	</div>
 	{{> footer }}
 </div>
-
 <script>
 	(function () {
 		var cart = document.getElementById('cartt');
 		var cartm = document.getElementById('cartModal');
-		cart.addEventListener("mouseover", function () {
+		cart.addEventListener("mouseenter", function () {
 			cartm.style.display = "inline-block"
 			 //fetchcart(); 
 			clickAnywhere("#cartt", "#cartModal");
+		});
+		cartm.addEventListener("mouseleave" , function() {
+			cartm.style.display = "none";
 		});
 	}());
 

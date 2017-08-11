@@ -17,13 +17,13 @@ var mongoStore = require('connect-mongo')(session);
 //console.log(passwordHash.verify('loki', 'sha1$b1b7e59f$1$5c3cc682a9d2afccd48d7bc324087b146a70d5b1'));
 //mongodb://<dbuser>:<dbpassword>@ds115573.mlab.com:15573/cart
 
-//mongoose.connect('mongodb://127.0.0.1:27017/cart', function (err) {
-// if (err) console.log(err.name + " => " + err.message);
-//});
+mongoose.connect('mongodb://127.0.0.1:27017/cart', function (err) {
+  if (err) console.log(err.name + " => " + err.message);
+});
 
-  mongoose.connect('mongodb://lokendra:mlab@ds115573.mlab.com:15573/cart', function (err) {
- if (err) console.log(err.name + " => " + err.message);
-  });
+// mongoose.connect('mongodb://lokendra:mlab@ds115573.mlab.com:15573/cart', function (err) {
+//if (err) console.log(err.name + " => " + err.message);
+//   });
 
 require('./config/passport');
 
@@ -85,3 +85,25 @@ app.use(function (err, req, res, next) {
 });
 
 module.exports = app;
+
+/*
+loki
+playig ground
+*/
+
+var n = [3, 9, 7, -2];
+
+function product(n) {
+  var al = n.length;
+  var aarr = [];
+  var product = 1;
+  for (var j = 0; j < al; j++) {
+    if (n[j] !== 0) {
+      product *= n[j];
+    }
+  }
+  for (var i = 0; i < al; i++) {
+    (n[i] == 0) ? aarr.push(0) : aarr.push(product / n[i]);
+  }
+  console.log(aarr);
+}

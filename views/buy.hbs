@@ -17,7 +17,6 @@
 
   <div class="bordr pad large-4 medium-5 small-12">
     <h3>Buy This Product</h3>
-
     <figure class="clearfix">
       <img style="max-height: 390px" class="flat-left" src="../../images/{{ pro.image }}">
       <figcaption class="flat-left">
@@ -40,8 +39,7 @@
         <option value="apollo">XXL</option>
       </select>
     </div>
-    <h6 class=""> <b> Price :</b> {{ pro.price }}
-    </h6>
+    <h6> <b> Price :</b> {{ pro.price }}</h6>
     <h6> <b> Discount :</b> {{ pro.discount }}% </h6>
     <h6> <b> Quantity : </b> {{ pro.quantity }} Items Left</h6>
     <h6> <b> Payable Amount :</b> {{ pro.pa }}</h6>
@@ -56,13 +54,13 @@
 
 
 <div class="row pad ">
-  <div class="bordr">
+  <div>
     <h2> Similar Products </h2>
     <hr> {{>content }}
   </div>
 </div>
 
-{{> model }}
+{{> model }} 
 
 
 <div class="row pad large-12 medium-12 small-12">
@@ -99,5 +97,5 @@
 </div>
 
 <div class="row pad">
-  <hr> {{> footer }}
+  {{> footer }}
 </div>

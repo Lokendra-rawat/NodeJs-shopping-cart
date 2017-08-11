@@ -3,6 +3,7 @@ const imagemin = require('gulp-imagemin');
 const uglify = require('gulp-uglify');
 const sass = require('gulp-sass');
 const concat = require('gulp-concat');
+const autoprefixer = require('gulp-autoprefixer');
 
 /*
 -- TOP LEVEL FUNCTIONS --
@@ -34,4 +35,13 @@ gulp.task('imgmin', function () {
 gulp.task('minify', function () {
   gulp.src('public/javascripts/vendor/*').pipe(uglify()).pipe(gulp.dest('dist/javascripts/vendor'));
   return false;
-})
+});
+
+gulp.task('cssauto', () =>
+  gulp.src('public/stylesheets/style.css')
+    .pipe(autoprefixer({
+      browsers: ['last 2 versions'],
+      cascade: false
+    }))
+    .pipe(gulp.dest('public/stylesheets'))
+);

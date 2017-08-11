@@ -5,6 +5,10 @@ var product = require('./../models/model');
 var Cart = require('./../models/cart');
 var app = require('../app');
 
+// router.use(function timeLog(req, res, next) {
+// 	console.log('Time: ', Date.now());
+// 	next();
+// });
 
 /* GET home page. Data for Modal  */
 router.get('/fetchcart', function (req, res) {
@@ -52,20 +56,21 @@ router.delete('/delete/:id', function (req, res) {
 });
 
 router.get('/api', function (req, res) {
-	res.send({
-		name: "lokendra rawat",
-		hobby: "programming",
-		best: "javascript",
-		comment: {
-			name: "alex gerret",
-			comment: "hey there this is cool"
-		}
-	});
+	// res.send({
+	// 	name: "lokendra rawat",
+	// 	hobby: "programming",
+	// 	best: "javascript",
+	// 	comment: {
+	// 		name: "alex gerret",
+	// 		comment: "hey there this is cool"
+	// 	}
+	// });
+	res.render('buy1');
 });
 
 router.get('/', function (req, res, next) {
 	product.find({}, function (err, data) {
-		res.render('index', {
+		res.render('index1', {
 			data: data,
 			flash: req.flash(),
 			session: req.session
@@ -90,7 +95,6 @@ router.get('/admin/update/:id', function (req, res, next) {
 });
 
 router.post('/admin/update/:id', function (req, res, next) {
-
 	let pro = {};
 	pro.name = req.body.name;
 	pro.description = req.body.description;
@@ -142,7 +146,7 @@ router.get('/buy/:id', function (req, res, next) {
 		}
 		pro.pa = Math.round((pro.price - pro.price * pro.discount / 100));
 		product.find({}, function (err, data) {
-			res.render('buy', {
+			res.render('buy1', {
 				pro: pro,
 				data: data
 			});

@@ -15,6 +15,28 @@
 //   }, 5000);
 // }
 
+// $("body").append("<h1>i am appended to the body element</h1>");
+// $("body p").css("background", "steelblue").css("color","white");
+
+function ajaxTest() {
+	$.ajax({
+		url: "/api",
+		beforeSend: function (xhr) {
+			xhr.overrideMimeType("text/plain; charset=x-user-defined");
+			// setTimeout(_ => document.write('loding...'), 1000);
+			console.log('Loding...');
+		}
+	})
+		.done(function (data) {
+			if (console && console.log) {
+				var nd = JSON.parse(data);
+				console.log("Sample of data:", nd);
+			}
+		});
+}
+
+// ajaxTest();
+
 const xhttp = new XMLHttpRequest();
 
 function fetccart() {
@@ -32,32 +54,62 @@ function fetccart() {
 }
 
 function addToCart(a) {
+	$.ajax({
+		url: "/add-to-cart/" + a,
+		// data: a,
+		beforeSend: function (xhr) {
+			xhr.overrideMimeType("text/plain; charset=x-user-defined");
+			// setTimeout(_ => document.write('loding...'), 1000);
+			console.log('Loding...');
+		}
+	})
+		.done(function (data) {
+			if (console && console.log) {
+				var Data = JSON.parse(data);
+				var it = Data.items;
+				$("#cartBox").html("");
+				for (var x in it) {
+					var box = document.createElement('div');
+					box.setAttribute("class" , "cell shadow clearfix large-12 subheader");
+					box.innerHTML = '<img style="height:60px;float: left" src="/images/' + it[x].item.image + '"><p style="line- height:1.2"><small>Name : ' + it[x].item.name + '</small></p><p style="line- height:1.2"><small>Price : ' + it[x].item.price + ' </small></p><small>Qty : ' + it[x].qty + ' </small>';
+					$("#cartBox").append(box);
+					$("#tq").html('<b>Total quantity : </b>' + data.totalqty);
+					$("#tp").html('<b>Total price : </b>' + data.totalprice);
+				}
+				$("#cartInfo").text(data.totalqty);
+				$("#cartInfo").removeClass('hide');
+				$("#cartInfo").addClass('badge');
+				$(a).html("<i class='fi-shopping-cart size-14'> </i> ");
+			}
+		});
+}
+
+function addTooCart(a) {
 	xhttp.onreadystatechange = function () {
 		if (this.readyState == 4 && this.status == 200) {
 			let data = JSON.parse(this.responseText);
 			let it = data.items;
-			// console.log(data.totalqty)
-			// document.getElementById('cartBox').innerHTML = "";
-			// var div = document.getElementById('cartBox');
-			// while (div = document.getElementById('cartBox')) {
-			// 	div.parentNode.removeChild(div);
-			// }
 			document.getElementById('cartBox').innerHTML = "";
 			for (var x in it) {
 				var box = document.createElement('div');
 				box.setAttribute('class', 'cell shadow clearfix large-12 subheader');
 				box.innerHTML = '<img style="height:60px;float:left" src="/images/' + it[x].item.image + '"><p style="line-height:1.2"><small>Name : ' + it[x].item.name + '</small></p><p style="line-height:1.2"><small>Price : ' + it[x].item.price + ' </small></p><small>Qty : ' + it[x].qty + ' </small>';
 				document.getElementById('cartBox').appendChild(box);
-				document.getElementById('tq').innerHTML = '<b>Total quantity :</b>' + data.totalqty;
-				document.getElementById('tp').innerHTML = '<b>Total price :</b>' + data.totalprice;
+				document.getElementById('tq').innerHTML = '<b>Total quantity : </b>' + data.totalqty;
+				document.getElementById('tp').innerHTML = '<b>Total price : </b>' + data.totalprice;
 			}
 			document.getElementById('cartInfo').innerText = data.totalqty;
 			document.getElementById('cartInfo').removeAttribute('class', 'hide');
 			document.getElementById('cartInfo').setAttribute('class', 'badge');
+			document.getElementById(a).innerHTML = "<i class='fi-shopping-cart size-14'> </i> ";
 		}
 	};
 	xhttp.open("GET", "/add-to-cart/" + a, true);
-	xhttp.send();
+	document.getElementById('model').style.display = "block";
+	document.getElementById('model').innerHTML = "<img style='height:150px;margin:0 auto' src='/images/load.gif'>";
+	setTimeout(() => {
+		xhttp.send();
+	}, 1000);
 }
 
 function loadDoc(a) {
@@ -119,7 +171,7 @@ function remove(a) {
 	xhttp.onreadystatechange = function () {
 		if (this.readyState == 4 && this.status == 200) {
 			// window.location.assign('/checkouts/new');
-			let data = JSON.parse(this.responseText);
+			var data = JSON.parse(this.responseText);
 			if (data[0]) {
 				document.getElementById(data[1]).children[1].innerHTML = "Item Quantity : " + data[0].itemqty;
 				document.getElementById(data[1]).children[2].innerHTML = "Item Price : " + data[0].itemprice;
@@ -173,4 +225,4 @@ const clickAnywhere = function (a, b) {
 			$(b).hide();
 		}
 	});
-};
+}; 
