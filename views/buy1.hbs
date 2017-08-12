@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default" style="margin-bottom:0">
 	<div class="container">
 		<div class="navbar-header"><a href="/" class="navbar-brand navbar-link">Fashion Store</a>
 			<button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
@@ -14,7 +14,7 @@
 	</div>
 </nav>
 <ol class="breadcrumb">
-	<li><a href="#"><span>Store </span></a></li>
+	<li><a href="/"><span>Store </span></a></li>
 	<li><a href="#"><span>Men</span></a></li>
 	<li class="active"><span>Suits </span></li>
 </ol>
@@ -107,7 +107,7 @@
 				<label class="control-label">Details </label>
 				<textarea class="form-control"></textarea>
 			</div>
-			<button class="btn btn-success btn-sm" type="submit">Submit Review</button>
+			<button class="btn btn-primary btn-sm" type="submit">Submit Review</button>
 		</form>
 		<hr>
 	</div>
@@ -147,8 +147,7 @@
 </footer>
 <script>
 	function openm(a) {
-		console.log(a)
-		$(".review-form").slideDown().fadeOut().delay().show();
-		//$(this).text('exit');
+		$(".review-form").slideDown().show();
 	}
+
 </script>

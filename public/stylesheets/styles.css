@@ -91,6 +91,8 @@ nav.navbar.navbar-default{
 .items img{
   max-width:100%;
   min-height:100px;
+  width: 100%;
+  /* height: 100%; */
 }
 
 div.details h4{
@@ -143,7 +145,20 @@ div#hero{
   display: none;
 }
 .review-form textarea:focus ,.review-form input:focus{
-  border: 0; 
-  box-shadow: 0 0 3px 1px;  
-  outline: 0; 
+  border: 0;
+   box-shadow: 0 0 3px 1px red; 
+  outline: 0;
+}
+.product-image{
+  max-height:200px;
+  max-width: 350px;
+  height: 200px;
+   /* height: 40vw;  */
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+}
+.list-group{
+  position: absolute;
+  width: 200px;
 }

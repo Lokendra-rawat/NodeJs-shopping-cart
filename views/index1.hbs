@@ -7,8 +7,13 @@
 			<ul class="nav navbar-nav">
 				<li role="presentation"><a href="#">Fall 2015</a></li>
 				<li role="presentation"><a href="#">Top Sellers</a></li>
-				<li role="presentation">
-					<a href="#"> <i class="glyphicon glyphicon-shopping-cart"></i></a>
+				<li id="cart" role="presentation">
+					<a href="#">Cart</a>
+					 <ul class="list-group hidden">
+						<li class="list-group-item"><span>List Group Item 1</span></li>
+						<li class="list-group-item"><span>List Group Item 2</span></li>
+						<li class="list-group-item"><span>List Group Item 3</span></li>
+					</ul> 
 				</li>
 			</ul>
 			<button class="btn btn-primary navbar-btn navbar-right" onclick="loki()" type="button"><i class="glyphicon glyphicon-user"></i> SIGN IN</button>
@@ -20,17 +25,19 @@
 </div>
 <div class="container">
 	<h2 class="text-center">Featured Collection </h2>
-	<p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua.
+	<p class="text-center">
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua.
 		Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure
 		dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-		nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+		nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	</p>
 	<hr>
 
 	<div>
 		{{> content1 }}
 		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 box">
 			<div class="product items">
-				<div><img src="/images/suit_jacket.jpg"></div>
+				<div class="product-image"><img src="/images/model1.jpg"></div>
 				<div class="details">
 					<h3>Suit Jacket</h3>
 					<p>Paragraph<a class="btn btn-default btn-sm" role="button" href="#">Buy Now</a></p>
@@ -39,7 +46,7 @@
 		</div>
 		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 box">
 			<div class="product items">
-				<div><img src="/images/suit_jacket.jpg"></div>
+				<div class="product-image"><img src="/images/suit_jacket.jpg"></div>
 				<div class="details">
 					<h3>Suit Jacket</h3>
 					<p>Paragraph<a class="btn btn-default btn-sm" role="button" href="#">Buy Now</a></p>
