@@ -15,9 +15,11 @@
 //   }, 5000);
 // }
 
-// $("body").append("<h1>i am appended to the body element</h1>");
-// $("body p").css("background", "steelblue").css("color","white");
 
+/**
+ * this function will return the main file to the server
+ * 
+ */
 function ajaxTest() {
 	$.ajax({
 		url: "/api",
@@ -84,6 +86,7 @@ function addToCart(a) {
 		});
 }
 
+
 function addTooCart(a) {
 	xhttp.onreadystatechange = function () {
 		if (this.readyState == 4 && this.status == 200) {
@@ -129,6 +132,7 @@ function loadDoc(a) {
 	xhttp.open("GET", "/user-ajax/" + a, true);
 	xhttp.send();
 }
+
 
 function update(a) {
 	xhttp.onreadystatechange = function () {

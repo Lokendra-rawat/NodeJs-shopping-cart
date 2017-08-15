@@ -1,7 +1,11 @@
 <nav class="navbar navbar-default" style="margin-bottom:0">
 	<div class="container">
 		<div class="navbar-header"><a href="/" class="navbar-brand navbar-link">Fashion Store</a>
-			<button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+			<button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggle collapsed">
+				<span class="sr-only">Toggle navigation</span><span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
 		</div>
 		<div class="collapse navbar-collapse" id="navcol-1">
 			<ul class="nav navbar-nav">
@@ -9,7 +13,7 @@
 				<li role="presentation"><a href="#">Top Sellers</a></li>
 				<li role="presentation"><a href="#">Royalty Program</a></li>
 			</ul>
-			<button class="btn btn-primary navbar-btn navbar-right" type="button"><strong>SIGN UP</strong></button>
+			<button id="signup-btn" class="btn btn-primary navbar-btn navbar-right" type="button"><strong>SIGN UP</strong></button>
 		</div>
 	</div>
 </nav>
@@ -42,7 +46,7 @@
 		<h3>Product Details</h3>
 	</div>
 	<p>Sed mollis, urna eu tempus facilisis, diam tellus aliquam tortor, et vestibulum ante quam non justo. Nullam luctus rutrum
-		mattis. Maecenas in pharetra mi, vel mollis odio. Morbi non mauris massa. </p>
+		mattis. Maecenas in pharetra mi, vel mollis odio. Morbi non mauris massa.</p>
 	<div class="table-responsive">
 		<table class="table table-striped">
 			<thead>
@@ -141,13 +145,28 @@
 			<div class="col-sm-6">
 				<h5>Fashion Store © 2016</h5>
 			</div>
-			<div class="col-sm-6 social-icons"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
+			<div class="col-sm-6 social-icons">
+				<a href="#"><i class="fa fa-facebook"></i></a>
+				<a href="#"><i class="fa fa-twitter"></i></a>
+				<a href="#"><i class="fa fa-instagram"></i></a>
+			</div>
 		</div>
 	</div>
 </footer>
+{{>signin}}
+
 <script>
+	// $("#login-card").hide(); 
 	function openm(a) {
 		$(".review-form").slideDown().show();
 	}
+	$("#signup-btn").click(function () {
+		console.dir(this);
+		var logincard = $("#login-card");
+		$("#login-card").fadeIn().show();
+		window.onclick = function (event) {
+			
+		}
+	});
 
 </script>

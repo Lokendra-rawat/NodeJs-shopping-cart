@@ -18,12 +18,12 @@ var mongoStore = require('connect-mongo')(session);
 //mongodb://<dbuser>:<dbpassword>@ds115573.mlab.com:15573/cart
 
 //mongoose.connect('mongodb://127.0.0.1:27017/cart', function (err) {
-// if (err) console.log(err.name + " => " + err.message);
+//if (err) console.log(err.name + " => " + err.message);
 //});
 
  mongoose.connect('mongodb://lokendra:mlab@ds115573.mlab.com:15573/cart', function (err) {
   if (err) console.log(err.name + " => " + err.message);
- });
+});
 
 require('./config/passport');
 

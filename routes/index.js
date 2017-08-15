@@ -95,7 +95,7 @@ router.get('/admin/update/:id', function (req, res, next) {
 });
 
 router.post('/admin/update/:id', function (req, res, next) {
-	let pro = {};
+	var pro = {};
 	pro.name = req.body.name;
 	pro.description = req.body.description;
 	pro.price = req.body.price;

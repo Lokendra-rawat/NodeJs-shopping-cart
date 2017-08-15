@@ -14,7 +14,7 @@ gulp.watch - watch files and folders for change
 */
 
 //LOGS MESSAGE
-gulp.task('msg', function () {
+gulp.task('loki', function () {
   return console.log("Gulp is running");
 });
 
