@@ -1,10 +1,15 @@
-<div style="display:none" id="login-card" class="login-card">
-	<button style="position:absolute" type="button" onclick="$('#login-card').fadeOut();"> hello </button>
-	<img src="/images/103.png" class="profile-img-card">
-	<p class="profile-name-card"> </p>
+<div style="{{#unless displayForm}}display:none{{/unless}}" id="login-card" class="login-card">
+	{{#unless displayForm}}
+	<button type="button" style="font-size:34px;position:absolute;right:10px;top:10px;" class="close" data-dismiss="login-card"
+	 onclick="$('#login-card').fadeOut();" aria-label="Close"><span aria-hidden="true">×</span></button> {{/unless}}
+	<div style="font-size:46px;text-align:center;color:#eb6864">
+		<i class="glyphicon glyphicon-user"> </i>
+	</div>
+	{{!--
+	<p class="profile-name-card"> Lokendra Rawat </p> --}}
 	<form class="form-signin"><span class="reauth-email"> </span>
-		<input class="form-control" type="email" required="" placeholder="Email address" autofocus="" id="inputEmail">
-		<input class="form-control" type="password" required="" placeholder="Password" id="inputPassword">
+		<input class="form-control" type="email" required placeholder="Email address" autofocus="" id="inputEmail">
+		<input class="form-control" type="password" required placeholder="Password" id="inputPassword">
 		<div class="checkbox">
 			<div class="checkbox">
 				<label><input type="checkbox">Remember me</label>
@@ -13,4 +18,5 @@
 		<button class="btn btn-primary btn-block btn-lg btn-signin" type="submit">SIGN IN</button>
 	</form>
 	<a href="#" class="forgot-password">Forgot your password?</a>
+	<p> New User <a class="forgot-password" href="/users/signup">Sign up</a></p>
 </div>

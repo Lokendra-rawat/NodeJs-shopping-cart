@@ -56,16 +56,15 @@ router.delete('/delete/:id', function (req, res) {
 });
 
 router.get('/api', function (req, res) {
-	// res.send({
-	// 	name: "lokendra rawat",
-	// 	hobby: "programming",
-	// 	best: "javascript",
-	// 	comment: {
-	// 		name: "alex gerret",
-	// 		comment: "hey there this is cool"
-	// 	}
-	// });
-	res.render('buy1');
+	res.send({
+		name: "lokendra rawat",
+		hobby: "programming",
+		best: "javascript",
+		comment: {
+			name: "alex gerret",
+			comment: "hey there this is cool"
+		}
+	});
 });
 
 router.get('/', function (req, res, next) {

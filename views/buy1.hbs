@@ -27,7 +27,8 @@
 		<div class="col-md-5 col-md-offset-0"><img class="img-responsive" src="/images/suit_jacket.jpg"></div>
 		<div class="col-md-7">
 			<h2>{{pro.name}}</h2>
-			<p>Sed mollis, urna eu tempus facilisis, diam tellus aliquam tortor, et vestibulum ante quam non justo. Nullam luctus rutrum
+			<p>
+				Sed mollis, urna eu tempus facilisis, diam tellus aliquam tortor, et vestibulum ante quam non justo. Nullam luctus rutrum
 				mattis. Maecenas in pharetra mi, vel mollis odio. Morbi non mauris massa.
 			</p>
 			<select>
@@ -153,20 +154,10 @@
 		</div>
 	</div>
 </footer>
-{{>signin}}
-
+{{>signin}} {{>signup}}
 <script>
-	// $("#login-card").hide(); 
 	function openm(a) {
 		$(".review-form").slideDown().show();
 	}
-	$("#signup-btn").click(function () {
-		console.dir(this);
-		var logincard = $("#login-card");
-		$("#login-card").fadeIn().show();
-		window.onclick = function (event) {
-			
-		}
-	});
 
 </script>

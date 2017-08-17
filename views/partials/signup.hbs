@@ -1,0 +1,34 @@
+<div style="{{#unless displayForm}}display:none;{{/unless}}" id="signup-card" class="login-card">
+	{{#unless displayForm}} <button type="button" style="font-size:34px;position:absolute;right:10px;top:10px;" class="close"
+	 data-dismiss="login-card" onclick="$('#signup-card').fadeOut();" aria-label="Close"><span class="" aria-hidden="true">×</span></button>{{/unless}}
+	<div style="font-size:46px;text-align:center;color:#eb6864">
+		<i class="glyphicon glyphicon-user"> </i>
+	</div>
+	{{!--
+	<p class="profile-name-card"> Lokendra Rawat </p> --}}
+	<form class="form-signin"><span class="reauth-email"> </span>
+		<input class="form-control" type="text" required placeholder="User Name" autofocus="" id="inputEmail">
+		<input class="form-control" type="email" required placeholder="Email address" autofocus="" id="inputEmail">
+		<input class="form-control" type="password" required placeholder="Password" autofocus="" id="inputEmail">
+		<input class="form-control" type="password" required placeholder="Password Again" id="inputPassword">
+		<input type="hidden" name="_csrf" value="{{ csrfToken }}">
+		<div class="checkbox">
+			<div class="checkbox">
+				<label><input type="checkbox">Remember me</label>
+			</div>
+		</div>
+		<button class="btn btn-primary btn-block btn-lg btn-signin" type="submit">SIGN UP</button>
+	</form>
+	<a href="#" class="forgot-password">Forgot your password?</a>
+	<p> Already a User <a id="change" class="forgot-password"  href="/users/signin">Sign In</a></p>
+</div>
+
+<script>
+	var urla = document.getElementById('change');
+	console.log(urla);
+	$("#change").click(function(event) {
+		event.preventDefault();
+		$('#signup-card').fadeOut().delay(1000);
+		$('#login-card').delay(300).fadeIn();
+	});
+</script>

@@ -146,7 +146,7 @@ div#hero{
 }
 .review-form textarea:focus ,.review-form input:focus{
   border: 0;
-   box-shadow: 0 0 3px 1px red; 
+   box-shadow: 0 0 3px 1px #eb6864; 
   outline: 0;
 }
 .product-image{
@@ -167,11 +167,14 @@ div#hero{
   display: block;
 }
 
+.close:focus {
+   outline: 0px; 
+}
+
 /*
   ------------------------------
   Google style login form styles
   ------------------------------
-
 */
 
 .login-card{
@@ -182,7 +185,7 @@ div#hero{
   background: white;
   font-family: Arial, Helvetica, sans-serif;
    max-width:350px; 
-   padding:40px 40px; 
+   padding:10px 30px; 
   /* margin:0 auto 25px; */
   /* margin-top:50px; */
   border-radius:2px;
@@ -191,13 +194,14 @@ div#hero{
 
 @media (max-width:768px) {
   .login-card{
-    left: 0%;
-    top: 0%;
-    transform: translate(0%,0%);
-     left: calc(0% + 20px); 
-     top: calc(0% + 20px);
+    /* left: 0%; */
+    /* top: 0%; */
+    /* transform: translate(0%,0%); */
+     /* left: calc(0% + 20px); 
+     top: calc(0% + 20px); */
     margin: 0 auto;
-    width: calc(100% - 40px);
+    /* width: calc(100% - 40px); */
+    padding: 15px 10px;
   }
 }
 
@@ -253,8 +257,8 @@ div#hero{
   /* outline:0; */
   /* -webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162); */
   /* box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162); */
-      box-shadow:inset 0 0 0 0 rgba(0, 0, 0, 0.3) , 0 0 1px 0px rgba(255, 0, 0, 0.7);
-      border: 1px solid rgba(255, 0, 0, 0.7);
+      box-shadow:inset 0 0 0 0 rgba(0, 0, 0, 0.3) , 0 0 1px 0px #eb6864;
+      border: 1px solid #eb6864;
     /* border: 0; */
 }
 

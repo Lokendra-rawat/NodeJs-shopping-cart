@@ -23,9 +23,10 @@ router.use('/', notLoggedin, function (rea, res, next) {
 
 router.get('/signup', function(req, res, next) {
   var message = req.flash('error');
-  res.render('user/signup', {
+  res.render('partials/signup', {
     csrfToken: req.csrfToken(),
-    messages: message
+    messages: message,
+    displayForm: true
   });
 });
 
@@ -37,9 +38,10 @@ router.post('/signup', passport.authenticate('local.signup', {
 
 router.get('/signin', function(req, res, next) {
   var message = req.flash('error');
-  res.render('user/signin', {
+  res.render('partials/signin', {
     csrfToken: req.csrfToken(),
-    messages: message
+    messages: message,
+    displayForm: true
   });
 });
 

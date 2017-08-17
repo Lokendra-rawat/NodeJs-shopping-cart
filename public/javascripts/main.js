@@ -15,11 +15,23 @@
 //   }, 5000);
 // }
 
+/**
+ * 
+ *  DOCUMENT FUCNTIONS
+ */
+$("#signup-btn").click(function (event) {
+	//console.dir(this); 
+	event.preventDefault();
+	var logincard = $("#signup-card");
+	$("#signup-card").fadeIn().show();
+});
 
 /**
  * this function will return the main file to the server
  * 
  */
+
+
 function ajaxTest() {
 	$.ajax({
 		url: "/api",
@@ -72,7 +84,7 @@ function addToCart(a) {
 				$("#cartBox").html("");
 				for (var x in it) {
 					var box = document.createElement('div');
-					box.setAttribute("class" , "cell shadow clearfix large-12 subheader");
+					box.setAttribute("class", "cell shadow clearfix large-12 subheader");
 					box.innerHTML = '<img style="height:60px;float: left" src="/images/' + it[x].item.image + '"><p style="line- height:1.2"><small>Name : ' + it[x].item.name + '</small></p><p style="line- height:1.2"><small>Price : ' + it[x].item.price + ' </small></p><small>Qty : ' + it[x].qty + ' </small>';
 					$("#cartBox").append(box);
 					$("#tq").html('<b>Total quantity : </b>' + data.totalqty);

@@ -17,13 +17,13 @@ var mongoStore = require('connect-mongo')(session);
 //console.log(passwordHash.verify('loki', 'sha1$b1b7e59f$1$5c3cc682a9d2afccd48d7bc324087b146a70d5b1'));
 //mongodb://<dbuser>:<dbpassword>@ds115573.mlab.com:15573/cart
 
-//mongoose.connect('mongodb://127.0.0.1:27017/cart', function (err) {
-//if (err) console.log(err.name + " => " + err.message);
-//});
-
- mongoose.connect('mongodb://lokendra:mlab@ds115573.mlab.com:15573/cart', function (err) {
-  if (err) console.log(err.name + " => " + err.message);
+mongoose.connect('mongodb://127.0.0.1:27017/cart', function (err) {
+	if (err) console.log(err.name + " => " + err.message);
 });
+
+//  mongoose.connect('mongodb://lokendra:mlab@ds115573.mlab.com:15573/cart', function (err) {
+//   if (err) console.log(err.name + " => " + err.message);
+// });
 
 require('./config/passport');
 
@@ -47,11 +47,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(session({
-  secret: 'mysupersecret',
-  resave: false,
-  saveUninitialized: false,
-  store: new mongoStore({ mongooseConnection: mongoose.connection }),
-  cookie: { maxAge: 60 * 60 * 1000 }
+	secret: 'mysupersecret',
+	resave: false,
+	saveUninitialized: false,
+	store: new mongoStore({ mongooseConnection: mongoose.connection }),
+	cookie: { maxAge: 60 * 60 * 1000 }
 }));
 app.use(flash());
 app.use(passport.initialize());
@@ -68,42 +68,44 @@ app.use('/checkouts', checkout);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+	var err = new Error('Not Found');
+	err.status = 404;
+	next(err);
 });
 
 // error handler
 app.use(function (err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-  res.locals.session = req.session;
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+	// set locals, only providing error in development
+	res.locals.message = err.message;
+	res.locals.error = req.app.get('env') === 'development' ? err : {};
+	res.locals.session = req.session;
+	// render the error page
+	res.status(err.status || 500);
+	res.render('error');
 });
 
 module.exports = app;
 
-/*
-loki
-playig ground
-*/
+
+/**
+ * 
+ * 
+ * PLAYING GROUND
+ */
 
 var n = [3, 9, 7, -2];
 
 function product(n) {
-  var al = n.length;
-  var aarr = [];
-  var product = 1;
-  for (var j = 0; j < al; j++) {
-    if (n[j] !== 0) {
-      product *= n[j];
-    }
-  }
-  for (var i = 0; i < al; i++) {
-    (n[i] == 0) ? aarr.push(0) : aarr.push(product / n[i]);
-  }
-  console.log(aarr);
+	var al = n.length;
+	var aarr = [];
+	var product = 1;
+	for (var j = 0; j < al; j++) {
+		if (n[j] !== 0) {
+			product *= n[j];
+		}
+	}
+	for (var i = 0; i < al; i++) {
+		(n[i] == 0) ? aarr.push(0) : aarr.push(product / n[i]);
+	}
+	console.log(aarr);
 }
