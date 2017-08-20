@@ -17,13 +17,13 @@ var mongoStore = require('connect-mongo')(session);
 //console.log(passwordHash.verify('loki', 'sha1$b1b7e59f$1$5c3cc682a9d2afccd48d7bc324087b146a70d5b1'));
 //mongodb://<dbuser>:<dbpassword>@ds115573.mlab.com:15573/cart
 
-//mongoose.connect('mongodb://127.0.0.1:27017/cart', function (err) {
-//	if (err) console.log(err.name + " => " + err.message);
-//});
+// mongoose.connect('mongodb://127.0.0.1:27017/cart', function (err) {
+// 	if (err) console.log(err.name + " => " + err.message);
+// });
 
-  mongoose.connect('mongodb://lokendra:mlab@ds115573.mlab.com:15573/cart', function (err) {
-   if (err) console.log(err.name + " => " + err.message);
- });
+mongoose.connect('mongodb://lokendra:mlab@ds115573.mlab.com:15573/cart', function (err) {
+	if (err) console.log(err.name + " => " + err.message);
+});
 
 require('./config/passport');
 
@@ -89,7 +89,7 @@ module.exports = app;
 
 /**
  * 
- * 
+ * LOKI PLAYING GROUND... 
  * PLAYING GROUND
  */
 
@@ -109,3 +109,14 @@ function product(n) {
 	}
 	console.log(aarr);
 }
+
+function product1(n) {
+	var al = n.length;
+	var arr = [];
+	var val;
+	for (var i = 0; i < al; i++) {
+
+	}
+}
+
+// product(n);
