@@ -8,11 +8,17 @@
 				<li role="presentation"><a href="#">Fall 2015</a></li>
 				<li role="presentation"><a href="#">Top Sellers</a></li>
 				<li id="cart" role="presentation">
-					<a href="#">Cart</a>
-					<ul class="list list-group hidden">
+					<a href="#" onclick="$('#cart-item').toggle().css('opacity','1'); return false">Cart</a>
+					<ul id="cart-item" class="list list-group" style="display:none;z-index:100">
 						<li class="list-group-item"><span>List Group Item 1</span></li>
 						<li class="list-group-item"><span>List Group Item 2</span></li>
 						<li class="list-group-item"><span>List Group Item 3</span></li>
+						<li class="list-group-item">
+							<small> Total Price : $233.3 </small>
+						</li>
+						<li class="list-group-item">
+							<small> Total Quantity : 3 </small>
+						</li>
 					</ul>
 				</li>
 			</ul>
@@ -21,18 +27,19 @@
 	</div>
 </nav>
 <div id="hero" class="container">
-	<h1 class="text-uppercase text-center text-primary bg-primary">fashion store</h1>
+	<div class="text-center container" id="hero-text">
+		<h1 class="text-uppercase"><a href="/"> start shopping </a></h1>
+	</div>
 </div>
 <div class="container">
-	<h2 class="text-center">Featured Collection </h2>
+	<h3 class="text-center">Featured Collection </h3>
 	<p class="text-center">
 		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua.
-		Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure
-		dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-		nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat.
 	</p>
 	<hr>
-
+	<h1 id="best-selling" class="text-center"> Best Selling Products </h1>
+	<hr>
 	<div>
 		{{> content1 }}
 	</div>

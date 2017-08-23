@@ -13,6 +13,14 @@ var passwordHash = require('password-hash');
 var expressHbs = require('express-handlebars');
 var mongoStore = require('connect-mongo')(session);
 
+var faker = require('faker');
+
+var randomName = faker.name.findName(); // Rowan Nikolaus
+var randomEmail = faker.internet.email(); // Kassandra.Haley@erich.biz
+var randomCard = faker.helpers.createCard(); // random contact card containing many properties
+var product = faker.commerce.product();
+//setInterval(function(){ console.log('' + faker.lorem.paragraph()); }, 1000);
+// console.log(product);
 
 //console.log(passwordHash.verify('loki', 'sha1$b1b7e59f$1$5c3cc682a9d2afccd48d7bc324087b146a70d5b1'));
 //mongodb://<dbuser>:<dbpassword>@ds115573.mlab.com:15573/cart
@@ -21,9 +29,20 @@ var mongoStore = require('connect-mongo')(session);
 // 	if (err) console.log(err.name + " => " + err.message);
 // });
 
-mongoose.connect('mongodb://lokendra:mlab@ds115573.mlab.com:15573/cart', function (err) {
-	if (err) console.log(err.name + " => " + err.message);
-});
+var obj = {
+	firstname: [],
+	email: []
+};
+
+for (i = 0; i < 5; i++) {
+	obj.firstname.push(faker.name.firstName());
+	obj.email.push(faker.internet.ip());
+}
+// console.log(obj);
+
+// mongoose.connect('mongodb://lokendra:mlab@ds115573.mlab.com:15573/cart', function (err) {
+// 	if (err) console.log(err.name + " => " + err.message);
+// });			
 
 require('./config/passport');
 
@@ -87,36 +106,19 @@ app.use(function (err, req, res, next) {
 module.exports = app;
 
 
-/**
+/**	
  * 
- * LOKI PLAYING GROUND... 
- * PLAYING GROUND
+ * LOKI PLAYING GROUND...PLAYING GROUND
+ * 
  */
 
-var n = [3, 9, 7, -2];
 
-function product(n) {
-	var al = n.length;
-	var aarr = [];
+var n = [3, 9, 7, -2, 0];
+
+var product = function (n) {
 	var product = 1;
-	for (var j = 0; j < al; j++) {
-		if (n[j] !== 0) {
-			product *= n[j];
-		}
-	}
-	for (var i = 0; i < al; i++) {
-		(n[i] == 0) ? aarr.push(0) : aarr.push(product / n[i]);
-	}
-	console.log(aarr);
-}
+	n.filter(x => x !== 0).forEach(x => product *= x);
+	return n.filter(x => x !== 0).map(x => product / x);
+};
 
-function product1(n) {
-	var al = n.length;
-	var arr = [];
-	var val;
-	for (var i = 0; i < al; i++) {
-
-	}
-}
-
-// product(n);
+console.log(product(n));

@@ -1,19 +1,31 @@
-h1.text-uppercase.text-center.text-primary.bg-primary{
-  opacity:0.6;
+#hero-text h1 a{
+  opacity:0.8;
+  color: rgba(255, 255, 255, 0.63);
   display:inline-block;
-  text-align: center;
-  margin-top:150px;
-  padding:10px 20px;
+  background: rgba(26, 24, 24, 0.63);
+  margin-top:15%;
+  padding:20px 30px;
+  text-decoration: none;
+}
+#hero-text a {
+  background: black;
+  font-family: Arial, Helvetica, sans-serif;
+  transition: 150ms ease-in;
+}
+#hero-text a:hover{
+  background: rgba(255, 255, 255, 0.63);
+  color: black;
 }
 .form-logo{
-  color: white;
-  background: rgba(255,0,0,0.4);
+  background: inherit;
+  border: 1px solid black;
+  opacity: 0.7;
   padding: 10px 0;
   border-radius: 2px;
   /* opacity: 0.4; */
 }
 .product .details h3{
-   margin-bottom:0; 
+   margin-bottom:0;
 }
 
 nav.navbar.navbar-default{
@@ -24,7 +36,7 @@ nav.navbar.navbar-default{
 .breadcrumb{
   text-align:center;
   background-color:transparent;
-  border-bottom:1px solid #eee;
+  border-bottom:1px solid #EEEEEE;
   padding-top:12px;
   padding-bottom:12px;
   margin-bottom:40px;
@@ -146,6 +158,16 @@ div#hero{
   background-size:cover;
   height:500px;
 }
+@media (max-width:450px) {
+  div#hero{
+    height: 300px;
+  }
+  #hero-text h1 {
+    font-size: 18px;
+    margin-top: 30%;
+    
+  }
+}
 .review-form{
   padding: 10px;
   border-radius: 3px;
@@ -153,7 +175,7 @@ div#hero{
 }
 .review-form textarea:focus ,.review-form input:focus{
   border: 0;
-   box-shadow: 0 0 3px 1px #eb6864; 
+  box-shadow: 0 0 3px 1px #eb6864;
   outline: 0;
 }
 .product-image{
@@ -170,7 +192,7 @@ div#hero{
   width: 200px;
 }
 #cart:hover .list{
-  background: red;
+  /* background: red; */
   display: block;
 }
 
@@ -178,6 +200,18 @@ div#hero{
    outline: 0px; 
 }
 
+#best-selling{
+  clear: both;
+  padding: 10px 20px;
+  border-radius: 3px;
+}
+#best-selling::before{
+  content: "";
+  width: 200px;
+  height: 20px;
+  color: black;
+
+}
 /*
   ------------------------------
   Google style login form styles
@@ -210,10 +244,10 @@ div#hero{
     /* margin: 0 auto; */
     /* width: calc(100% - 40px); */
     /* padding: 15px 10px; */
-    height: 60vh;
+    /* height: 60vh; */
     min-height: 80vh;
-    overflow-y: scroll;
-    min-width: 300px;
+    /* overflow-y: scroll; */
+    min-width: 250px;
   }
 }
 
