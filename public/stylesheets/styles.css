@@ -110,6 +110,7 @@ nav.navbar.navbar-default{
   box-shadow: 0 0 2px 0px rgba(0,0,0,0.2);
   border-radius: 2px;
 }
+
 .items .product-image img{
   max-width:100%;
   min-height:100px;
@@ -188,8 +189,7 @@ h1,h2,h3{
 .product-image{
   max-height:250px;
   max-width: 350px;
-  height: 200px;
-   /* height: 40vw;  */
+  height: auto;
   overflow: hidden;
   margin-left: auto;
   margin-right: auto;
@@ -272,7 +272,7 @@ h1,h2,h3{
     /* width: calc(100% - 40px); */
     /* padding: 15px 10px; */
     /* height: 60vh; */
-    min-height: 80vh;
+    /* min-height: 80vh; */
     /* overflow-y: scroll; */
     min-width: 250px;
   }

@@ -28,6 +28,9 @@ console.log(product);
 // mongoose.connect('mongodb://127.0.0.1:27017/cart', function (err) {
 // 	if (err) console.log(err.name + " => " + err.message);
 // });
+mongoose.connect('mongodb://lokendra:mlab@ds115573.mlab.com:15573/cart', function (err) {
+	if (err) console.log(err.name + " => " + err.message);
+});
 
 var obj = {
 	firstname: [],
@@ -40,9 +43,6 @@ for (i = 0; i < 5; i++) {
 }
 // console.log(obj);
 
-mongoose.connect('mongodb://lokendra:mlab@ds115573.mlab.com:15573/cart', function (err) {
-	if (err) console.log(err.name + " => " + err.message);
-});			
 
 require('./config/passport');
 
