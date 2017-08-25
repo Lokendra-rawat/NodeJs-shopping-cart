@@ -1,6 +1,6 @@
 <div style="{{#unless displayForm}}display:none;{{/unless}}" id="signup-card" class="login-card">
-	{{#unless displayForm}} <button type="button" style="font-size:34px;position:absolute;left:4px;top:0px;" class="close"
-	 data-dismiss="login-card" onclick="$('#signup-card').fadeOut();" aria-label="Close"><span class="" aria-hidden="true">×</span></button>{{/unless}}
+	{{#unless displayForm}} <button type="button" style="font-size:34px;position:absolute;left:4px;top:0px;" class="close" data-dismiss="login-card"
+	 onclick="$('#signup-card').fadeOut();" aria-label="Close"><span class="" aria-hidden="true">×</span></button>{{/unless}}
 	<div style="font-size:46px;text-align:center;color:#eb6864">
 		{{!-- <i class="glyphicon glyphicon-user"> </i> --}}
 		<h4 class="form-logo"> FASHION STORE </h3>
@@ -21,15 +21,16 @@
 		<button class="btn btn-primary btn-block btn-lg btn-signin" type="submit">SIGN UP</button>
 	</form>
 	<a href="#" class="forgot-password">Forgot your password?</a>
-	<p> Already a User <a id="change" class="forgot-password"  href="/users/signin">Sign In</a></p>
+	<p> Already a User <a id="change" class="forgot-password" href="/users/signin">Sign In</a></p>
 </div>
 
 <script>
 	var urla = document.getElementById('change');
 	console.log(urla);
-	$("#change").click(function(event) {
+	$("#change").click(function (event) {
 		event.preventDefault();
 		$('#signup-card').fadeOut().delay(100);
 		$('#login-card').delay(300).slideDown();
 	});
+
 </script>

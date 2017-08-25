@@ -1,13 +1,17 @@
 {{#data}}
 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 box">
 	<div class="product items">
-		<div class="product-image"><img src="/images/suit_jacket.jpg"></div>
+		<a href="../buy/{{this._id}}">
+			<div class="product-image"><img src="/images/suit_jacket.jpg"></div>
+		</a>
 		<div class="details">
 			<h4 style="font-weight:100;">{{this.name}}</h4>
 			{{!--
-			<p> $ {{this.discount}} </p>
-			<p> $ {{this.price }} </p> --}}
+			<p> $ {{this.discount}} </p> --}}
+			<span> $ {{this.price }} </span>
+			<a href="/" id="{{this._id}}" style="float:right;color:inherit;margin: 0px 0px;" onclick="addToCart('{{this._id}}'); return false"><i style="float:right;font-size: 28px;" class="fa fa-shopping-cart"></i></a>			{{!--
 			<p>${{this.price}}<a href="../buy/{{ this._id }}" class="btn btn-default btn-sm" role="button" href="#">Buy Now</a></p>
+			--}}
 		</div>
 	</div>
 </div>

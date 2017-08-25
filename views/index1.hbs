@@ -8,18 +8,29 @@
 				<li role="presentation"><a href="#">Fall 2015</a></li>
 				<li role="presentation"><a href="#">Top Sellers</a></li>
 				<li id="cart" role="presentation">
-					<a href="#" onclick="$('#cart-item').toggle().css('opacity','1'); return false">Cart</a>
-					<ul id="cart-item" class="list list-group" style="display:none;z-index:100">
-						<li class="list-group-item"><span>List Group Item 1</span></li>
-						<li class="list-group-item"><span>List Group Item 2</span></li>
-						<li class="list-group-item"><span>List Group Item 3</span></li>
+					<a href="#" onclick="$('#cartModal').slideToggle().css('opacity','1'); return false">Cart
+					<span id="cartInfo" style="background:#eb6864;" class="badge {{#unless session.cart.totalqty}}hide{{/unless}}">{{session.cart.totalqty}}</span> </a>
+					<ul id="cartModal" class="list list-group" style="display:none;z-index:100;font-size:14px;">
+						<div id="cartBox">
+							{{#each session.cart.items}}
+							<div id="{{this.item._id}}" class="box clearfix list-group-item">
+								<img style="height:60px;float:left;margin-right:10px;" src="/images/{{this.item.image}}">
+								<small>Name : {{this.item.name}} </small><br>
+								<small>Price : {{this.item.price}} </small><br>
+								<small>Qty : {{this.qty}} </small> {{!-- <button id="remove" onclick="removeFromList('{{this.item._id}}')" style="float:right;"
+								 class="btn btn-primary btn-xs"><img id="remove-img" style="display:none" src="images/uload.gif"> Remove </button>--}}
+							</div>
+							{{/each}}
+						</div>
 						<li class="list-group-item">
-							<small> Total Price : $233.3 </small>
-						</li>
-						<li class="list-group-item">
-							<small> Total Quantity : 3 </small>
+							<p id="tq"> Total Quantity : {{#unless session.cart.totalqty}} 0 {{/unless}} </p>
+							<p id="tp">Total Price : ${{#unless session.cart.totalprice}} 0 {{/unless}} </p>
+							<a href="/checkouts/new" class="btn btn-info btn-sm">Go To CheckOut </a>
 						</li>
 					</ul>
+				</li>
+				<li>
+					{{>signup}} {{>signin}}
 				</li>
 			</ul>
 			<a id="signup-btn" href="users/signup" class="btn btn-primary navbar-btn navbar-right" type="button"><i class="glyphicon glyphicon-user"></i> SIGN IN</a>
@@ -44,7 +55,7 @@
 		{{> content1 }}
 	</div>
 </div>
-<div class="container">
+<div class="conainer">
 	<footer class="site-footer">
 		<div class="container">
 			<hr>
@@ -74,4 +85,6 @@
 		</div>
 	</div>
 </div>
-{{>signup}} {{>signin}}
+
+<h1 id="panal" style="animation:loki infinite 700ms; position:fixed; top:40px; left:2px;display:inline-block;padding:10px 10px; font-size:14px;display:none;font-weight:normal"
+ class="label label-success"> Item Added to cart </h1>

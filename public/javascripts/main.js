@@ -26,11 +26,6 @@ $("#signup-btn").click(function (event) {
 	$("#signup-card").fadeIn().show();
 });
 
-/**
- * this function will return the main file to the server
- * 
- */
-
 
 function ajaxTest() {
 	$.ajax({
@@ -67,14 +62,22 @@ function fetccart() {
 	xhttp.send();
 }
 
+
+
+/**
+ * 
+ *  send ajax request to the server 
+ *	and recieve the object and
+ *	append it to the dom
+ *   
+ */
+
 function addToCart(a) {
 	$.ajax({
 		url: "/add-to-cart/" + a,
-		// data: a,
 		beforeSend: function (xhr) {
 			xhr.overrideMimeType("text/plain; charset=x-user-defined");
-			// setTimeout(_ => document.write('loding...'), 1000);
-			console.log('Loding...');
+			console.log('Loading...');
 		}
 	})
 		.done(function (data) {
@@ -84,49 +87,36 @@ function addToCart(a) {
 				$("#cartBox").html("");
 				for (var x in it) {
 					var box = document.createElement('div');
-					box.setAttribute("class", "cell shadow clearfix large-12 subheader");
-					box.innerHTML = '<img style="height:60px;float: left" src="/images/' + it[x].item.image + '"><p style="line- height:1.2"><small>Name : ' + it[x].item.name + '</small></p><p style="line- height:1.2"><small>Price : ' + it[x].item.price + ' </small></p><small>Qty : ' + it[x].qty + ' </small>';
+					console.log(it[x].item._id);
+					box.setAttribute("class", "box clearfix list-group-item");
+					box.innerHTML = '<img style="height:60px;float:left;margin-right:10px" src="/images/' + it[x].item.image + '"><small>Name : ' + it[x].item.name + '</small><br> <small>Price : ' + it[x].item.price + ' </small> <br><small>Qty : ' + it[x].qty + ' </small>';
 					$("#cartBox").append(box);
-					$("#tq").html('<b>Total quantity : </b>' + data.totalqty);
-					$("#tp").html('<b>Total price : </b>' + data.totalprice);
+					$("#tq").html('Total quantity : ' + Data.totalqty);
+					$("#tp").html('Total price : ' + Data.totalprice);
+					// $("#remove").setAttribute('onclick', 'remove(' + it[x].item._id +')');
 				}
-				$("#cartInfo").text(data.totalqty);
+				$("#cartInfo").text(Data.totalqty);
 				$("#cartInfo").removeClass('hide');
 				$("#cartInfo").addClass('badge');
-				$(a).html("<i class='fi-shopping-cart size-14'> </i> ");
+				showPanal();
 			}
 		});
 }
 
 
-function addTooCart(a) {
-	xhttp.onreadystatechange = function () {
-		if (this.readyState == 4 && this.status == 200) {
-			let data = JSON.parse(this.responseText);
-			let it = data.items;
-			document.getElementById('cartBox').innerHTML = "";
-			for (var x in it) {
-				var box = document.createElement('div');
-				box.setAttribute('class', 'cell shadow clearfix large-12 subheader');
-				box.innerHTML = '<img style="height:60px;float:left" src="/images/' + it[x].item.image + '"><p style="line-height:1.2"><small>Name : ' + it[x].item.name + '</small></p><p style="line-height:1.2"><small>Price : ' + it[x].item.price + ' </small></p><small>Qty : ' + it[x].qty + ' </small>';
-				document.getElementById('cartBox').appendChild(box);
-				document.getElementById('tq').innerHTML = '<b>Total quantity : </b>' + data.totalqty;
-				document.getElementById('tp').innerHTML = '<b>Total price : </b>' + data.totalprice;
-			}
-			document.getElementById('cartInfo').innerText = data.totalqty;
-			document.getElementById('cartInfo').removeAttribute('class', 'hide');
-			document.getElementById('cartInfo').setAttribute('class', 'badge');
-			document.getElementById(a).innerHTML = "<i class='fi-shopping-cart size-14'> </i> ";
-		}
-	};
-	xhttp.open("GET", "/add-to-cart/" + a, true);
-	document.getElementById('model').style.display = "block";
-	document.getElementById('model').innerHTML = "<img style='height:150px;margin:0 auto' src='/images/load.gif'>";
-	setTimeout(() => {
-		xhttp.send();
-	}, 1000);
+function showPanal(message) {
+	$("#panal").fadeIn();
+	setTimeout(function () {
+		$("#panal").fadeOut();
+	}, 2500);
 }
 
+
+/**
+ * 
+ *  Send the ajax request and append the object information to the dom ..
+ * 
+ */
 function loadDoc(a) {
 	xhttp.onreadystatechange = function () {
 		if (this.readyState == 4 && this.status == 200) {
@@ -146,6 +136,12 @@ function loadDoc(a) {
 }
 
 
+
+/**
+ * takes the product id and sends the ajax req.
+ * and update the Product in the ADMIN PANAL
+ *
+ */
 function update(a) {
 	xhttp.onreadystatechange = function () {
 		if (this.readyState == 4 && this.status == 200) {
@@ -166,6 +162,14 @@ function update(a) {
 	xhttp.send();
 }
 
+
+
+/**
+ * sends the ajax req. with the product id and 
+ * DELETE the products from the admin panal
+ * 
+ */
+
 function del(a) {
 	xhttp.onreadystatechange = function () {
 		if (this.readyState == 4 && this.status == 200) {
@@ -183,10 +187,44 @@ function del(a) {
 	}
 }
 
+
+function removeFromList(a) {
+	$.ajax({
+		url: "/reduce/" + a,
+		beforeSend: function (xhr) {
+			xhr.overrideMimeType("text/plain; charset=x-user-defined");
+			$("#" + a + " img").show();
+		}
+	})
+		.done(function (data) {
+			if (console && console.log) {
+				var Data = JSON.parse(data);
+				console.log(Data);
+				$("#" + a + " img").hide();
+				if (!Data[0]) {
+					$("#" + a).hide();
+				} else {
+					var box = $("#" + a);
+					box.children[2].text = 'hello';
+					box.children[3].text = 'hello';
+				}
+			}
+		});
+}
+
+
+
+/**
+ * 
+ * REMOVE the product from the checkout page One by One
+ * and if all the products are removed from the cart
+ * then it redirects to the HOME page
+ * 
+ */
+
 function remove(a) {
 	xhttp.onreadystatechange = function () {
 		if (this.readyState == 4 && this.status == 200) {
-			// window.location.assign('/checkouts/new');
 			var data = JSON.parse(this.responseText);
 			if (data[0]) {
 				document.getElementById(data[1]).children[1].innerHTML = "Item Quantity : " + data[0].itemqty;
@@ -229,7 +267,7 @@ function openmodel() {
 const model = document.getElementById('model');
 
 var open = function (p) {
-	return p.style.display = "flex";
+	return (p.style.display = "flex");
 };
 var close = function (p) {
 	return (p.style.display = "none");
