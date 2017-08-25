@@ -78,6 +78,7 @@ function addToCart(a) {
 		beforeSend: function (xhr) {
 			xhr.overrideMimeType("text/plain; charset=x-user-defined");
 			console.log('Loading...');
+			$(".details #"+a + " img").show();
 		}
 	})
 		.done(function (data) {
@@ -99,6 +100,7 @@ function addToCart(a) {
 				$("#cartInfo").removeClass('hide');
 				$("#cartInfo").addClass('badge');
 				showPanal();
+				$(".details #" + a + " img").hide();
 			}
 		});
 }

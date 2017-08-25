@@ -110,7 +110,7 @@ nav.navbar.navbar-default{
   box-shadow: 0 0 2px 0px rgba(0,0,0,0.2);
   border-radius: 2px;
 }
-.items img{
+.items .product-image img{
   max-width:100%;
   min-height:100px;
   width: 100%;
@@ -351,3 +351,90 @@ h1,h2,h3{
 }
 
 /* End google style login styles */
+
+
+/* LOADER */
+
+@keyframes lds-gear {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes lds-gear {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.lds-gear > div {
+  -webkit-transform-origin: 100px 100px;
+  transform-origin: 100px 100px;
+  -webkit-animation: lds-gear 2s infinite linear;
+  animation: lds-gear 2s infinite linear;
+  position: relative;
+  margin: 20px auto;
+}
+.lds-gear > div div {
+  position: absolute;
+  width: 26px;
+  height: 192px;
+  background: #e4332e;
+  left: 100px;
+  top: 100px;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.lds-gear > div div:nth-child(1) {
+  width: 152px;
+  height: 152px;
+  border-radius: 50%;
+}
+.lds-gear > div div:nth-child(3) {
+  -webkit-transform: translate(-50%, -50%) rotate(30deg);
+  transform: translate(-50%, -50%) rotate(30deg);
+}
+.lds-gear > div div:nth-child(4) {
+  -webkit-transform: translate(-50%, -50%) rotate(60deg);
+  transform: translate(-50%, -50%) rotate(60deg);
+}
+.lds-gear > div div:nth-child(5) {
+  -webkit-transform: translate(-50%, -50%) rotate(90deg);
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+.lds-gear > div div:nth-child(6) {
+  -webkit-transform: translate(-50%, -50%) rotate(120deg);
+  transform: translate(-50%, -50%) rotate(120deg);
+}
+.lds-gear > div div:nth-child(7) {
+  -webkit-transform: translate(-50%, -50%) rotate(150deg);
+  transform: translate(-50%, -50%) rotate(150deg);
+}
+.lds-gear > div div:nth-child(8) {
+  width: 80px;
+  height: 80px;
+  background: #fff;
+  border-radius: 50%;
+}
+.lds-gear {
+  width: 59px !important;
+  height: 59px !important;
+  -webkit-transform: translate(-29.5px, -29.5px) scale(0.295) translate(29.5px, 29.5px);
+  transform: translate(-29.5px, -29.5px) scale(0.295) translate(29.5px, 29.5px);
+}
