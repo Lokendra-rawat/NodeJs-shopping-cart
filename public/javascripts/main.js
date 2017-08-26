@@ -19,6 +19,11 @@
  * 
  *  DOCUMENT FUCNTIONS
  */
+$.when($.ready).then(function () {
+	// Document is ready.
+	// $("#hero").delay(2000).fadeIn(1000);
+});
+
 $("#signup-btn").click(function (event) {
 	//console.dir(this); 
 	event.preventDefault();
