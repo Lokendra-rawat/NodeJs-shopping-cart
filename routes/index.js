@@ -4,6 +4,7 @@ var router = express.Router();
 var product = require('./../models/model');
 var Cart = require('./../models/cart');
 var app = require('../app');
+var faker = require('faker');
 
 // router.use(function timeLog(req, res, next) {
 // 	console.log('Time: ', Date.now());
@@ -56,15 +57,23 @@ router.delete('/delete/:id', function (req, res) {
 });
 
 router.get('/api', function (req, res) {
-	res.send({
-		name: "lokendra rawat",
-		hobby: "programming",
-		best: "javascript",
-		comment: {
-			name: "alex gerret",
-			comment: "hey there this is cool"
-		}
-	});
+	// res.send({
+	// 	name: "lokendra rawat",
+	// 	hobby: "programming",
+	// 	best: "javascript",
+	// 	comment: {
+	// 		name: "alex gerret",
+	// 		comment: "hey there this is cool"
+	// 	}
+	// });
+	var arr = [];
+	for (i = 0; i < 3; i++){
+		arr.push({
+			img: faker.image.people(300, 300),
+			name: faker.commerce.productName()
+		});
+	}
+	res.render("error" , { img : arr});
 });
 
 router.get('/', function (req, res, next) {
