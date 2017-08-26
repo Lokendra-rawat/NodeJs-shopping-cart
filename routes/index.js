@@ -67,13 +67,13 @@ router.get('/api', function (req, res) {
 	// 	}
 	// });
 	var arr = [];
-	for (i = 0; i < 3; i++){
+	for (i = 0; i < 3; i++) {
 		arr.push({
-			img: faker.image.people(300, 300),
+			img: faker.image.food(300, 300),
 			name: faker.commerce.productName()
 		});
 	}
-	res.render("error" , { img : arr});
+	res.render("error", { img: arr });
 });
 
 router.get('/', function (req, res, next) {
