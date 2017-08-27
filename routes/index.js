@@ -69,8 +69,9 @@ router.get('/api', function (req, res) {
 	var arr = [];
 	for (i = 0; i < 3; i++) {
 		arr.push({
-			img: faker.image.food(300, 300),
-			name: faker.commerce.productName()
+			img: faker.image.business(400, 400),
+			name: faker.commerce.productName(),
+			price: faker.commerce.price()
 		});
 	}
 	res.render("error", { img: arr });

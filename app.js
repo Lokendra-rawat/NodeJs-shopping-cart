@@ -12,6 +12,7 @@ var session = require('express-session');
 var passwordHash = require('password-hash');
 var expressHbs = require('express-handlebars');
 var mongoStore = require('connect-mongo')(session);
+var compression = require('compression');
 
 var faker = require('faker');
 
@@ -60,8 +61,10 @@ app.set('view engine', '.hbs');
 // hello this was edited from vim text editor nigga
 // uncomment after placing your favicon in /public
 
+app.use(compression());
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 // app.use(logger('dev'));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());

@@ -1,6 +1,6 @@
 <h1 style="margin:20px; text-align: center;color:#eb6864;"><b> 404 <br> Not Found </b></h1>
 
-<div class="lds-css">
+{{!-- <div class="lds-css">
   <div class="lds-gear" style="100%;height:100%">
     <div>
       <div></div>
@@ -13,11 +13,26 @@
       <div></div>
     </div>
   </div>
+</div> --}}
+
+<img src="{{img1}}"> {{#img}}
+<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 box">
+  <div class="product items">
+    <a href="../buy/{{this._id}}">
+      <div class="product-image"><img src="{{this.img}}"></div>
+    </a>
+    <div class="details">
+      <h4 style="font-weight:100;">{{this.name}}</h4>
+      {{!--
+      <p> $ {{this.discount}} </p> --}}
+      <span> $212 </span>
+      <a href="/" id="{{this._id}}" style="float:right;color:inherit;margin: 0px 0px;" onclick="addToCart('{{this._id}}');">  
+			<i style="float:right;font-size: 28px;" class="fa fa-shopping-cart"></i>
+			<img class="loader" style="display:none;position:absolute;right:38px;bottom:2px;" src="images/loader1.gif">
+			</a> {{!--
+      <p>${{this.price}}<a href="../buy/{{ this._id }}" class="btn btn-default btn-sm" role="button" href="#">Buy Now</a></p>
+      --}}
+    </div>
+  </div>
 </div>
-{{#img}}
-  <img src="{{this.img}}" >
-  <h3> {{this.name}} </h3>
 {{/img}}
-<p> {{img1}} </p>
-<img src="{{img1}}" >
-{{> content }}

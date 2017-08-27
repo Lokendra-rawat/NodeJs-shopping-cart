@@ -17,8 +17,7 @@
 								<img style="height:60px;float:left;margin-right:10px;" src="/images/{{this.item.image}}">
 								<small>Name : {{this.item.name}} </small><br>
 								<small>Price : {{this.item.price}} </small><br>
-								<small>Qty : {{this.qty}} </small> {{!-- <button id="remove" onclick="removeFromList('{{this.item._id}}')" style="float:right;"
-								 class="btn btn-primary btn-xs"><img id="remove-img" style="display:none" src="images/uload.gif"> Remove </button>--}}
+								<small>Qty : {{this.qty}} </small>
 							</div>
 							{{/each}}
 						</div>
@@ -49,9 +48,9 @@
 		Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat.
 	</p>
 	<hr>
-	<h1 id="best-selling" class="text-center"> Best Selling Products </h1>
-	<hr>
-	<div >
+	<h3 id="best-selling" class="text-center"> Best Selling Products </h3>
+	<hr>	
+	<div>
 		{{> content1 }}
 	</div>
 </div>
