@@ -64,6 +64,8 @@ Temporary Items
 
 # Windows
 # =========================
+.idea
+.vscode
 
 # Windows image file caches
 Thumbs.db
