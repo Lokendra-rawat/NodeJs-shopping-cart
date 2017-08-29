@@ -1,44 +1,7 @@
-<nav class="navbar navbar-default">
-	<div class="container">
-		<div class="navbar-header"><a class="navbar-brand navbar-link" href="#">FASHION STORE</a>
-			<button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-		</div>
-		<div class="collapse navbar-collapse" id="navcol-1">
-			<ul class="nav navbar-nav">
-				<li role="presentation"><a href="#">Fall 2015</a></li>
-				<li role="presentation"><a href="#">Top Sellers</a></li>
-				<li id="cart" role="presentation">
-					<a href="#" onclick="$('#cartModal').slideToggle().css('opacity','1'); return false">Cart
-					<span id="cartInfo" style="background:#eb6864;" class="badge {{#unless session.cart.totalqty}}hide{{/unless}}">{{session.cart.totalqty}}</span> </a>
-					<ul id="cartModal" class="list list-group" style="display:none;z-index:100;font-size:14px;">
-						<div id="cartBox">
-							{{#each session.cart.items}}
-							<div id="{{this.item._id}}" class="box clearfix list-group-item">
-								<img style="height:60px;float:left;margin-right:10px;" src="/images/{{this.item.image}}">
-								<small>Name : {{this.item.name}} </small><br>
-								<small>Price : {{this.item.price}} </small><br>
-								<small>Qty : {{this.qty}} </small>
-							</div>
-							{{/each}}
-						</div>
-						<li class="list-group-item">
-							<p id="tq"> Total Quantity : {{#unless session.cart.totalqty}} 0 {{/unless}} </p>
-							<p id="tp">Total Price : ${{#unless session.cart.totalprice}} 0 {{/unless}} </p>
-							<a href="/checkouts/new" class="btn btn-info btn-sm">Go To CheckOut </a>
-						</li>
-					</ul>
-				</li>
-				<li>
-					{{>signup}} {{>signin}}
-				</li>
-			</ul>
-			<a id="signup-btn" href="users/signup" class="btn btn-primary navbar-btn navbar-right" type="button"><i class="fa fa-user"></i> SIGN IN</a>
-		</div>
-	</div>
-</nav>
+{{>header}}
 <div id="hero" class="container">
 	<div class="text-center container" id="hero-text">
-		<h1 class="text-uppercase"><a href="/"> start shopping </a></h1>
+		<h1 class="text-uppercase"><a href="/api"> start shopping </a></h1>
 	</div>
 </div>
 <div class="container">
@@ -49,41 +12,9 @@
 	</p>
 	<hr>
 	<h3 id="best-selling" class="text-center"> Best Selling Products </h3>
-	<hr>	
+	<hr>
 	<div>
 		{{> content1 }}
 	</div>
 </div>
-<div class="conainer">
-	<footer class="site-footer">
-		<div class="container">
-			<hr>
-			<div class="row">
-				<div class="col-sm-6">
-					<h5>Fashion Store © 2016</h5>
-				</div>
-				<div class="col-sm-6 social-icons"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
-			</div>
-		</div>
-	</footer>
-</div>
-<div class="modal fade" role="dialog" tabindex="-1">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-				<h4 class="modal-title">Modal Title</h4>
-			</div>
-			<div class="modal-body">
-				<p>The content of your modal.</p>
-			</div>
-			<div class="modal-footer">
-				<button class="btn btn-default" type="button" data-dismiss="modal">Close</button>
-				<button class="btn btn-primary" type="button">Save</button>
-			</div>
-		</div>
-	</div>
-</div>
-
-<h1 id="panal" style="animation:loki infinite 700ms; position:fixed; top:40px; left:2px;display:inline-block;padding:10px 10px; font-size:14px;display:none;font-weight:normal"
- class="label label-success"> Item Added to cart </h1>
+{{>footer1}}

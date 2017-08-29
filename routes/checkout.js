@@ -64,19 +64,21 @@ function createResultObject(transaction) {
 }
 
 router.get('/new', function (req, res) {
-  if (req.session.cart.totalqty) {
+  if (req.session.cart) {
+    console.log("in here");
     // console.log(req.session.cart.find({}));
     // gateway.clientToken.generate({}, function (err, response) {
     // if (response === undefined) { res.render('checkouts/new', { data: req.session }); return };
-    res.render('checkouts/new', {
+    res.render('checkouts/checkouts', {
       clientToen: 'response.clientToken',
       auth: req.isAuthenticated(),
       data: req.session,
-      messages: req.flash('error')
+      messages: req.flash('error'),
+      session : req.session
     });
     // });
   } else {
-    res.redirect('/');
+    res.send('Please Add Some Product in the cart...');
   }
 });
 

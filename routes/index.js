@@ -66,15 +66,21 @@ router.get('/api', function (req, res) {
 	// 		comment: "hey there this is cool"
 	// 	}
 	// });
-	var arr = [];
-	for (i = 0; i < 3; i++) {
-		arr.push({
-			img: faker.image.business(400, 400),
-			name: faker.commerce.productName(),
-			price: faker.commerce.price()
+	// var arr = [];
+	// for (i = 0; i < 3; i++) {
+	// 	arr.push({
+	// 		img: faker.image.business(400, 400),
+	// 		name: faker.commerce.productName(),
+	// 		price: faker.commerce.price()
+	// 	});
+	// }
+	product.find({}, function (err, data) {
+		res.render('shop', {
+			data: data,
+			flash: req.flash(),
+			session: req.session
 		});
-	}
-	res.render("error", { img: arr });
+	});
 });
 
 router.get('/', function (req, res, next) {
@@ -84,7 +90,7 @@ router.get('/', function (req, res, next) {
 			flash: req.flash(),
 			session: req.session
 		});
-	});
+	}).limit(6);
 });
 
 router.get('/admin', function (req, res, next) {
@@ -157,7 +163,8 @@ router.get('/buy/:id', function (req, res, next) {
 		product.find({}, function (err, data) {
 			res.render('buy1', {
 				pro: pro,
-				data: data
+				data: data,
+				session: req.session
 			});
 		}).limit(3);
 	});
@@ -167,4 +174,4 @@ router.get('/test', function (req, res) {
 	res.render('test');
 });
 
-module.exports = router;
+module.exports = router; 

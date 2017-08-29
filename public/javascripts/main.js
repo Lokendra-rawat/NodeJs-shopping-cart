@@ -95,10 +95,10 @@ function addToCart(a) {
 					var box = document.createElement('div');
 					console.log(it[x].item._id);
 					box.setAttribute("class", "box clearfix list-group-item");
-					box.innerHTML = '<img style="height:60px;float:left;margin-right:10px" src="/images/' + it[x].item.image + '"><small>Name : ' + it[x].item.name + '</small><br> <small>Price : ' + it[x].item.price + ' </small> <br><small>Qty : ' + it[x].qty + ' </small>';
+					box.innerHTML = '<img style="height:60px;float:left;margin-right:10px" src="/images/' + it[x].item.image + '"><small>Name : ' + it[x].item.name + '</small><br> <small>Price : $' + it[x].item.price + ' </small> <br><small>Qty : ' + it[x].qty + ' </small>';
 					$("#cartBox").append(box);
 					$("#tq").html('Total quantity : ' + Data.totalqty);
-					$("#tp").html('Total price : ' + Data.totalprice);
+					$("#tp").html('Total price : $' + Data.totalprice);
 					// $("#remove").setAttribute('onclick', 'remove(' + it[x].item._id +')');
 				}
 				$("#cartInfo").text(Data.totalqty);
