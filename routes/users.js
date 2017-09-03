@@ -3,6 +3,7 @@ var router = express.Router();
 var csrf = require('csurf');
 var passport = require('passport');
 let product = require('./../models/model');
+let user = require('./../models/user');
 
 
 var csrfProtection = csrf();
@@ -13,15 +14,17 @@ router.get('/logout', function (req, res, next) {
   res.redirect('/');
 });
 
-router.get('/profile', isLoggedin, function(req, res, next) {
-  res.render('user/profile');
+router.get('/profile', isLoggedin, function (req, res, next) {
+  res.render('user/profile', {
+    auth: req.isAuthenticated()
+  });
 });
 
 router.use('/', notLoggedin, function (rea, res, next) {
   next();
 });
 
-router.get('/signup', function(req, res, next) {
+router.get('/signup', function (req, res, next) {
   var message = req.flash('error');
   res.render('partials/signup', {
     csrfToken: req.csrfToken(),
@@ -29,14 +32,14 @@ router.get('/signup', function(req, res, next) {
     displayForm: true
   });
 });
-
 router.post('/signup', passport.authenticate('local.signup', {
   successRedirect: '/users/signin',
   failureRedirect: '/users/signup',
   failureFlash: true
 }));
 
-router.get('/signin', function(req, res, next) {
+
+router.get('/signin', function (req, res, next) {
   var message = req.flash('error');
   res.render('partials/signin', {
     csrfToken: req.csrfToken(),
@@ -44,17 +47,17 @@ router.get('/signin', function(req, res, next) {
     displayForm: true
   });
 });
-
 router.post('/signin', passport.authenticate('local.signin', {
   successRedirect: '/users/profile',
   failureRedirect: '/users/signin',
   failureFlash: true
 }));
 
-router.get('/buy/:id', function(req, res, next) {
-  product.find({ _id: req.params.id }, function(err, pro) {
+router.get('/buy/:id', function (req, res, next) {
+  product.find({ _id: req.params.id }, function (err, pro) {
     res.render('buy', {
-      pro: pro
+      pro: pro,
+      auth: req.isAuthenticated()
     });
   });
 });

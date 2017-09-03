@@ -15,24 +15,82 @@
 //   }, 5000);
 // }
 
+
+
+
+/**
+ * Ajax signup and login request
+ * 
+ */
+
+function signup() {
+	xhttp.onreadystatechange = function () {
+		if (this.readyState == 4 && this.status == 200) {
+			console.log(this.responseText);
+		}
+	};
+	xhttp.open("POST", "/users/signup", true);
+	xhttp.send();
+}
+
+
+/**
+ * 
+ *  LOGIN AND SIGNUP FORM HIDE AND SHOW 
+ *
+**/
+
+$("#change").click(function (event) {
+	event.preventDefault();
+	$('#signup-card').fadeOut();
+	$('#login-card').slideDown();
+});
+$("#changeSignin").click(function (event) {
+	event.preventDefault();
+	$('#login-card').fadeOut();
+	$('#signup-card').slideDown();
+});
+$("#signup-btn").click(function (event) {
+	event.preventDefault();
+	var logincard = $("#signup-card");
+	$("#signup-card").slideDown().show();
+});
+
+
+/**
+ * shows the added to
+ * cart green panal
+ * when we add something
+ * to the cart
+ * 
+ * @param {any} message
+ * message-> string that displays
+ */
+
+function showPanal(message) {
+	$("#panal").fadeIn();
+	setTimeout(function () {
+		$("#panal").fadeOut();
+	}, 2500);
+}
+
+
+
 /**
  * 
  *  DOCUMENT FUCNTIONS
- */
+ *
+**/
+
 $.when($.ready).then(function () {
-	// Document is ready.
-	// $("#hero").delay(2000).fadeIn(1000);
+
 });
 
-$("#signup-btn").click(function (event) {
-	//console.dir(this); 
-	event.preventDefault();
-	var logincard = $("#signup-card");
-	$("#signup-card").fadeIn().show();
-});
+
 
 
 function ajaxTest() {
+	// 'use strict';
 	$.ajax({
 		url: "/api",
 		beforeSend: function (xhr) {
@@ -67,23 +125,46 @@ function fetccart() {
 	xhttp.send();
 }
 
+/**
+ * 
+ * LOGIN AJAX REQUEST
+ * 
+ */
+
+function login(a) {
+	$.ajax({
+		url: "/api",
+		method: "post",
+		beforeSend: function (xhr) {
+			xhr.overrideMimeType("text/plain; charset=x-user-defined");
+			// setTimeout(_ => document.write('loding...'), 1000);
+			console.log('Loding...');
+		}
+	})
+		.done(function (data) {
+			if (console && console.log) {
+				var nd = JSON.parse(data);
+				console.log("Sample of data:", nd);
+			}
+		});
+}
 
 
 /**
  * 
- *  send ajax request to the server 
+ *  send ajax request to the server
  *	and recieve the object and
  *	append it to the dom
- *   
+ *  
  */
 
 function addToCart(a) {
 	$.ajax({
-		url: "/add-to-cart/" + a,
+		url: "/ajax/add-to-cart/" + a,
 		beforeSend: function (xhr) {
 			xhr.overrideMimeType("text/plain; charset=x-user-defined");
 			console.log('Loading...');
-			$(".details #"+a + " img").show();
+			$(".details #" + a + " img").show();
 		}
 	})
 		.done(function (data) {
@@ -111,14 +192,6 @@ function addToCart(a) {
 }
 
 
-function showPanal(message) {
-	$("#panal").fadeIn();
-	setTimeout(function () {
-		$("#panal").fadeOut();
-	}, 2500);
-}
-
-
 /**
  * 
  *  Send the ajax request and append the object information to the dom ..
@@ -138,7 +211,7 @@ function loadDoc(a) {
 			openmodel();
 		}
 	};
-	xhttp.open("GET", "/user-ajax/" + a, true);
+	xhttp.open("GET", "/ajax/user-ajax/" + a, true);
 	xhttp.send();
 }
 
@@ -165,7 +238,7 @@ function update(a) {
 			update.style.display = "block";
 		}
 	};
-	xhttp.open("GET", "/user-ajax/" + a, true);
+	xhttp.open("GET", "/ajax/user-ajax/" + a, true);
 	xhttp.send();
 }
 
@@ -183,7 +256,7 @@ function del(a) {
 			// window.location.assign('/admin');
 		}
 	};
-	xhttp.open("DELETE", "/delete/" + a, true);
+	xhttp.open("DELETE", "/ajax/delete/" + a, true);
 	// let r = confirm('Item ' + a + '  Will be Deleted ');
 	let r = 1;
 	if (r == true) {
@@ -197,7 +270,7 @@ function del(a) {
 
 function removeFromList(a) {
 	$.ajax({
-		url: "/reduce/" + a,
+		url: "/ajax/reduce/" + a,
 		beforeSend: function (xhr) {
 			xhr.overrideMimeType("text/plain; charset=x-user-defined");
 			$("#" + a + " img").show();
@@ -246,7 +319,7 @@ function remove(a) {
 			}
 		}
 	};
-	xhttp.open("get", "/reduce/" + a, true);
+	xhttp.open("get", "/ajax/reduce/" + a, true);
 	xhttp.send();
 }
 
@@ -260,25 +333,6 @@ function refresh(a) {
 	xhttp.send();
 }
 
-function closemodel() {
-	document.getElementById('model').style.display = "none";
-	document.getElementsByClassName('model')[0].style.display = "none";
-}
-
-function openmodel() {
-	var model = document.getElementById('model');
-	model.style.display = "flex";
-	clickAnywhere("#model", "#model");
-}
-
-const model = document.getElementById('model');
-
-var open = function (p) {
-	return (p.style.display = "flex");
-};
-var close = function (p) {
-	return (p.style.display = "none");
-};
 
 const clickAnywhere = function (a, b) {
 	$('body').click(function (event) {
@@ -286,4 +340,4 @@ const clickAnywhere = function (a, b) {
 			$(b).hide();
 		}
 	});
-}; 
+};

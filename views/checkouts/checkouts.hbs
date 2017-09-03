@@ -34,7 +34,7 @@
 					<form id="payment-form" method="POST" action="/checkouts">
 						<label style="color:red;" class="help-text">{{#each messages}} {{this.error}} {{/each }}</label><br>
 						<label style="pointer-events:none"><b> Payable Amount </b></label>
-						<input id="amount" name="amount" type="number" value="{{ data.cart.totalprice }}" placeholder="Enter you amount">
+						<input id="amount" name="amount" type="number" aria-invalid="true" value="{{ data.cart.totalprice }}" placeholder="Enter you amount">
 						<div id="dropin-container"></div>
 						<input id="nonce" type="hidden" name="payment_method_nonce">
 						<button id="submit-button" type="submit" class="button"> Checkout </button>

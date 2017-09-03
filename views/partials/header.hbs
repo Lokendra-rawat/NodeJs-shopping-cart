@@ -3,11 +3,12 @@
 		<div class="navbar-header"><a class="navbar-brand navbar-link" href="/">FASHION STORE</a>
 			<button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
 		</div>
+
 		<div class="collapse navbar-collapse" id="navcol-1">
 			<ul class="nav navbar-nav">
 				<li role="presentation"><a href="#">Fall 2015</a></li>
 				<li role="presentation"><a href="#">Top Sellers</a></li>
-				<li id="cart" role="presentation">
+				<li class="" id="cart" role="presentation">
 					<a href="#" onclick="$('#cartModal').slideToggle().css('opacity','1'); return false">Cart
 					<span id="cartInfo" style="background:#eb6864;" class="badge {{#unless session.cart.totalqty}}hide{{/unless}}">{{session.cart.totalqty}}</span> </a>
 					<ul id="cartModal" class="list list-group" style="display:none;z-index:100;font-size:14px;">
@@ -22,17 +23,16 @@
 							{{/each}}
 						</div>
 						<li class="list-group-item">
-							<p id="tq"> Total Quantity : {{#if session.cart.totalqty}}{{session.cart.totalqty}}{{else}}0{{/if}}</p>
-							<p id="tp">Total Price : ${{#if session.cart.totalprice}}{{session.cart.totalprice}}{{else}}0{{/if}}</p>
-							<a href="/checkouts/new" class="btn btn-primary btn-sm">Go To CheckOut </a>
+							<span id="tq"> Total Quantity : {{#if session.cart.totalqty}}{{session.cart.totalqty}}{{else}}0{{/if}}</span><br>
+							<span id="tp">Total Price : ${{#if session.cart.totalprice}}{{session.cart.totalprice}}{{else}}0{{/if}}</span>
+							<span style="display:block;margin:5px 0 "><a href="/checkouts/new" class="btn btn-primary btn-sm">Go To CheckOut </a> </span>
 						</li>
 					</ul>
 				</li>
-				<li>
-					{{>signup}} {{>signin}}
-				</li>
 			</ul>
-			<a id="signup-btn" href="users/signup" class="btn btn-primary navbar-btn navbar-right" type="button"><i class="fa fa-user"></i> SIGN IN</a>
+			{{#unless auth}}
+			<a id="signup-btn" href="users/signup" class="btn btn-primary navbar-btn navbar-right" type="button"><i class="fa fa-user"></i> SIGN IN</a>			{{/unless}} {{#if auth}}
+			<a href="/users/Profile" class="btn btn-primary navbar-btn navbar-right" type="button"><i class="fa fa-gear"></i> Profile</a>			{{/if}}
 		</div>
 	</div>
 </nav>

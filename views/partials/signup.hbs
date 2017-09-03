@@ -3,34 +3,26 @@
 	 onclick="$('#signup-card').fadeOut();" aria-label="Close"><span class="" aria-hidden="true">×</span></button>{{/unless}}
 	<div style="font-size:46px;text-align:center;color:#eb6864">
 		{{!-- <i class="glyphicon glyphicon-user"> </i> --}}
-		<h4 class="form-logo"> FASHION STORE </h3>
+		<h6 class="form-logo"> FASHION STORE </h6>
 	</div>
 	{{!--
 	<p class="profile-name-card"> Lokendra Rawat </p> --}}
-	<form class="form-signin"><span class="reauth-email"> </span>
-		<input class="form-control" type="text" required placeholder="User Name" autofocus="" id="inputEmail">
-		<input class="form-control" type="email" required placeholder="Email address" autofocus="" id="inputEmail">
-		<input class="form-control" type="password" required placeholder="Password" autofocus="" id="inputEmail">
-		<input class="form-control" type="password" required placeholder="Password Again" id="inputPassword">
-		<input type="hidden" name="_csrf" value="{{ csrfToken }}">
+	<form method="post" action="/users/signup" class="form-signin">
+	{{!-- <span class="reauth-email"> </span> --}}
+		<label style="color:red;" class="help-text">{{messages}}</label>
+		<input class="form-control" name="name" type="text" required placeholder="User Name" autofocus value="loki" id="inputEmail">
+		<input class="form-control" name="email" type="email" required placeholder="Email address" value="lavcool9999@gmail.com"
+		 autofocus="" id="inputEmail">
+		<input class="form-control" name="password" type="password" required placeholder="Password" value="testtest" id="inputEmail">
+		<input class="form-control" type="password" required placeholder="Password Again" value="testtest" id="inputPassword">
+		<input type="hidden" name="_csrf" value="{{csrfToken}}"> {{!--
 		<div class="checkbox">
 			<div class="checkbox">
 				<label><input type="checkbox">Remember me</label>
 			</div>
-		</div>
-		<button class="btn btn-primary btn-block btn-lg btn-signin" type="submit">SIGN UP</button>
+		</div> --}}
+		<button onclick="signup();" class="btn btn-primary btn-block btn-lg btn-signin">SIGN UP</button>
 	</form>
 	<a href="#" class="forgot-password">Forgot your password?</a>
 	<p> Already a User <a id="change" class="forgot-password" href="/users/signin">Sign In</a></p>
 </div>
-
-<script>
-	var urla = document.getElementById('change');
-	console.log(urla);
-	$("#change").click(function (event) {
-		event.preventDefault();
-		$('#signup-card').fadeOut();
-		$('#login-card').slideDown();
-	});
-
-</script>

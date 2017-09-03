@@ -8,6 +8,10 @@ let userSchema =  mongoose.Schema({
   password: {
     type: String,
     required: true
+  },
+  cart: {
+    type: Object,
+    required: true
   }
 });
 

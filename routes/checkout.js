@@ -74,7 +74,7 @@ router.get('/new', function (req, res) {
       auth: req.isAuthenticated(),
       data: req.session,
       messages: req.flash('error'),
-      session : req.session
+      session: req.session
     });
     // });
   } else {

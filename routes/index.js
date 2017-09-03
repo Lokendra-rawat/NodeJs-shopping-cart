@@ -1,10 +1,14 @@
 var express = require('express');
-// var csrf = require('csurf');
 var router = express.Router();
 var product = require('./../models/model');
 var Cart = require('./../models/cart');
 var app = require('../app');
 var faker = require('faker');
+var csrf = require('csurf');
+var passport = require('passport');
+
+var csrfProtection = csrf();
+router.use(csrfProtection);
 
 // router.use(function timeLog(req, res, next) {
 // 	console.log('Time: ', Date.now());
@@ -12,145 +16,43 @@ var faker = require('faker');
 // });
 
 /* GET home page. Data for Modal  */
-router.get('/fetchcart', function (req, res) {
-	res.send(req.session.cart);
-});
-
-router.get('/add-to-cart/:id', function (req, res) {
-	var id = req.params.id;
-	var cart = new Cart(req.session.cart ? req.session.cart : {});
-	product.findById(id, function (err, product) {
-		if (err) { res.redirect('/'); }
-		cart.add(product, product.id);
-		req.session.cart = cart;
-		res.send(req.session.cart);
-	});
-});
-
-router.get('/reduce/:id', function (req, res) {
-	var id = req.params.id;
-	var cart = new Cart(req.session.cart ? req.session.cart : {});
-	cart.remove(id);
-	var fin = cart.find(id);
-	req.session.cart = cart;
-	res.send([fin, id]);
-});
-
-router.get('/user-ajax/:id', function (req, res) {
-	product.findOne({ _id: req.params.id }, function (err, data) {
-		res.send(data);
-	});
-});
-
-router.delete('/delete/:id', function (req, res) {
-	var id = req.params.id;
-	var Cat = new Cart(req.session.cart ? req.session.cart : {});
-	if (Cat.bfind(id)) {
-		Cat.remove(id);
-	}
-	product.remove({ _id: req.params.id }, function (err) {
-		if (err) {
-			res.send({ product: "not found" });
-		}
-		res.sendStatus(200);
-	});
-});
-
-router.get('/api', function (req, res) {
-	// res.send({
-	// 	name: "lokendra rawat",
-	// 	hobby: "programming",
-	// 	best: "javascript",
-	// 	comment: {
-	// 		name: "alex gerret",
-	// 		comment: "hey there this is cool"
-	// 	}
-	// });
-	// var arr = [];
-	// for (i = 0; i < 3; i++) {
-	// 	arr.push({
-	// 		img: faker.image.business(400, 400),
-	// 		name: faker.commerce.productName(),
-	// 		price: faker.commerce.price()
-	// 	});
-	// }
-	product.find({}, function (err, data) {
-		res.render('shop', {
-			data: data,
-			flash: req.flash(),
-			session: req.session
-		});
-	});
-});
-
 router.get('/', function (req, res, next) {
+	var message = req.flash('error');
 	product.find({}, function (err, data) {
 		res.render('index1', {
 			data: data,
 			flash: req.flash(),
-			session: req.session
+			session: req.session,
+			messages: message,
+			csrfToken: req.csrfToken(),
+			auth: req.isAuthenticated()
 		});
-	}).limit(6);
+	}).limit(3).skip(3);
 });
+
+router.get('/api', function (req, res) {
+	product.find({}, function (err, data) {
+		res.render('shop', {
+			data: data,
+			flash: req.flash(),
+			session: req.session,
+			csrfToken: req.csrfToken()
+		});
+		// res.json(data);
+	});
+});
+// router.post('/api', function (req, res) {
+// 	// product.find({}, function (err, data) {
+// 	// 	res.send(data);
+// 	// });
+// 	res.send('hello bitch');
+// });
 
 router.get('/admin', function (req, res, next) {
 	product.find({}, function (err, data) {
 		res.render('admin/dashboard', {
 			data: data
 		});
-	});
-});
-
-router.get('/admin/update/:id', function (req, res, next) {
-	product.findOne({ _id: req.params.id }, function (err, data) {
-		res.render('admin/update', {
-			data: data,
-		});
-	});
-});
-
-router.post('/admin/update/:id', function (req, res, next) {
-	var pro = {};
-	pro.name = req.body.name;
-	pro.description = req.body.description;
-	pro.price = req.body.price;
-	pro.quantity = req.body.quantity;
-	pro.discount = req.body.discount;
-	pro.image = req.body.image;
-
-	product.update({ _id: req.params.id }, pro, function (err) {
-		if (err) {
-			console.log(err.name, err._message);
-			res.send(err.name + " <br> " + err._message + "<br><b> Every product is required </b> ");
-		} else {
-			console.log('Data Updated');
-			res.redirect('/admin');
-		}
-	});
-});
-
-router.get('/admin/add', function (req, res) {
-	res.render('admin/add', { admin: " lokendra rawat" });
-});
-
-router.post('/admin', function (req, res, next) {
-
-	var pro = new product();
-	pro.name = req.body.name;
-	pro.description = req.body.description;
-	pro.price = Math.floor(Math.random() * 10000);
-	pro.quantity = Math.floor(Math.random() * 500);
-	pro.discount = Math.floor(Math.random() * 10);
-	pro.image = req.body.image;
-
-	pro.save(function (err) {
-		if (err) {
-			console.log(err.name, err._message);
-			res.send(err.name + " <br> " + err._message + "<br><b> Every product is required </b> ");
-		} else {
-			console.log('Data saved');
-			res.redirect('/admin');
-		}
 	});
 });
 
@@ -164,7 +66,9 @@ router.get('/buy/:id', function (req, res, next) {
 			res.render('buy1', {
 				pro: pro,
 				data: data,
-				session: req.session
+				session: req.session,
+				auth: req.isAuthenticated(),
+				csrfToken: req.csrfToken(),
 			});
 		}).limit(3);
 	});
@@ -174,4 +78,4 @@ router.get('/test', function (req, res) {
 	res.render('test');
 });
 
-module.exports = router; 
+module.exports = router;
