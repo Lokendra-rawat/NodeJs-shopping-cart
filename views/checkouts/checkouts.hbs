@@ -5,8 +5,8 @@
 <div class="container">
 	<div class="col-md-8">
 		<h3>Products In Cart</h3>
-		<hr> {{#each data.cart.items}}
-
+		<hr>
+		{{#each data.cart.items}}
 		<div id="{{this.item._id}}" class="clearfix">
 			<div class="col-md-6 col-sm-6"><img class="img-thumbnail img-responsive" src="/images/suit_jacket.jpg"></div>
 			<div class="col-md-6 col-sm-6">
@@ -15,24 +15,24 @@
 				<h5 class="text-muted">Quantity : {{this.qty }}</h5>
 				<button class="btn btn-primary btn-sm" onclick="remove('{{this.item._id}}')" type="button"><i class="fa fa-remove"></i> Remove Item</button>
 			</div>
-		</div> <br> {{/each}}
-
+		</div><br>
+		{{/each}}
 		<hr>
 		<div id="total" class="panal warning">
 			<h4> Total Quantity : {{ data.cart.totalqty }} </h4>
 			<h4> Total Price : {{ data.cart.totalprice }} </h4>
 		</div>
 
-
 	</div>
 	<div class="col-md-4 text-center">
 		<h3 class="text-center">Payments Options </h3>
-		<hr> {{#if auth}}
+		<hr>
+		{{#if auth}}
 		<div class="cell large-5 medium-5 ">
 			<div class="grid-x clearfix callout">
 				<div class="large-12 medium-12 small-12">
 					<form id="payment-form" method="POST" action="/checkouts">
-						<label style="color:red;" class="help-text">{{#each messages}} {{this.error}} {{/each }}</label><br>
+						<label style="color:red;" class="help-text">{{#each messages}} {{this.error}}{{/each }}</label><br>
 						<label style="pointer-events:none"><b> Payable Amount </b></label>
 						<input id="amount" name="amount" type="number" aria-invalid="true" value="{{ data.cart.totalprice }}" placeholder="Enter you amount">
 						<div id="dropin-container"></div>
@@ -52,5 +52,4 @@
 		{{/if}}
 	</div>
 </div>
-
 {{>footer1}}
