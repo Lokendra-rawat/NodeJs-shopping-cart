@@ -1,0 +1,26 @@
+<div class="clearfix">
+	<div style="border-left: 1px solid #ddd" class="clearfix float-left large-4 small-12 medium-12">
+
+		<div class="popular-tags clearfix column large-12 medium-6">
+			<div>
+				<h4 class="text-center">Popular Tags</h4>
+				<hr>
+				<div>
+					{{#data}}
+					<a href="/catagory/{{this.articlesection}}" class="tag button hollow">{{this.articlesection}}</a>
+					{{/data}}
+				</div>
+			</div>
+		</div>
+
+		<div class="best-stories column large-12 medium-6">
+			<h4 class="text-center"> Best Stories</h4>
+			<hr> {{#best}}
+			<p>
+				<a href="/stories/{{this}}/{{this}}"> {{this}}</a>
+			</p>
+			{{/best}}
+		</div>
+
+	</div>
+</div>

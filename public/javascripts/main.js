@@ -1,343 +1,96 @@
-// if (Notification.permission == "default") {
-//   console.log("We want to request notification");
-//   Notification.requestPermission();
-//   if (Notification.permission == "denied") {
-//     console.log("your notification Permission is Set on Block")
-//   }
-// } else if (Notification.permission == "denied") {
-//   console.log("you have denied the permission")
-//   Notification.requestPermission();
-//   console.log('why would you do that')
-// } else if (Notification.permission == "granted") {
-//   setInterval(function () {
-//     console.log("sent the notification");
-//     new Notification("The Robin Store", { body: "you are also a amazing human being " });
-//   }, 5000);
-// }
+//@ts-check
 
+(function () {
+  var tab = $("#tab")[0];
+  var contentBox = $("#content-box")[0];
+  var tabWidth = tab.offsetWidth;
+  var boxWidth = contentBox.offsetWidth;
+  window.onscroll = function () {
+    if (window.scrollY > 320) {
+      $("#tab").css('position', 'fixed');
+      $("#tab").css('width', tabWidth);
+    } else {
+      $("#tab").css('position', 'static');
+    }
+  }
+}());
 
+(function () {
+  var obj = {
+    name: 'lokendra',
+    game: 'call of duty',
+    func: function () {
+      return this.name + this.game;
+    }
+  }
+  var loki = function (a) {
+    var choki = function () {
+      return a;
+    }
+  }
+  loki('some key');
+  obj.func();
+})();
 
+function getData() {
+  $("#loader").css('display', 'inline-block');
 
-/**
- * Ajax signup and login request
- * 
- */
-
-function signup() {
-	xhttp.onreadystatechange = function () {
-		if (this.readyState == 4 && this.status == 200) {
-			console.log(this.responseText);
-		}
-	};
-	xhttp.open("POST", "/users/signup", true);
-	xhttp.send();
+  var jqxhr = $.get("/", function (data) {
+    console.log('success');
+  })
+    .done(function (data) {
+      console.log(data);
+      setTimeout(_ => {
+        $("#loader").css("display", "none");
+        data.forEach(x => {
+          $("#content-box").append('<div class="col-6 col-sm-4 col-lg-3 col-xl-3 p-0 outer-box"><div class="box border"><img src="images/fkm.jpg" style="width: 100%;"><br><p><a href="#">Last 4 Days to Save - Shop For Rs. 250 & Get Flat Rs. 75 Cashback </a></p><div class=""><div class=""><p class="cut-price"><del><i>₹</i>250 </del><i>₹</i>175<div class="text-right"><p class="store-name"><a href="https://freekaamaal.com/amazon-coupons">amazon</a></p></div></p><p class="main-price"><i> ₹ </i>' + x + '</p></div></div></br></img></div></div>');
+        });
+      }, 500);
+    })
+    .fail(function (err) {
+      $("#loader").css("display", "none");
+      console.log(err);
+    })
+    .always(function () { });
 }
 
+var showResults = debounce(function (value) {
+  if (value == "") $("#search-results").fadeOut();
+  else $("#search-results").fadeIn();
 
-/**
- * 
- *  LOGIN AND SIGNUP FORM HIDE AND SHOW 
- *
-**/
+  // $("#search-loader").show();
+  var jqxhr = $.get('/xhr/search?q=' + value, function (data) {
+    $("#search-results").html("");
+  })
+    .done(function (data) {
+      console.log(data);
+      // $("#search-loader").hide();
 
-$("#change").click(function (event) {
-	event.preventDefault();
-	$('#signup-card').fadeOut();
-	$('#login-card').slideDown();
-});
-$("#changeSignin").click(function (event) {
-	event.preventDefault();
-	$('#login-card').fadeOut();
-	$('#signup-card').slideDown();
-});
-$("#signup-btn").click(function (event) {
-	event.preventDefault();
-	var logincard = $("#signup-card");
-	$("#signup-card").slideDown().show();
-});
+      if (data.length === 0) {
+        $("#search-results").append('<p class="lead text-center mt-2">No results</p>');
+      } else {
+        data.forEach(x => {
+          $("#search-results").append('<a href="#"><p class="alert m-2 border"><img style="width:60px;" src="images/fkm.jpg" > ' + x.title + '</p> </a>');
+        });
+      }
+    })
+    .fail(function (err) {
+      console.log(err);
+    })
+}, 200);
 
-
-/**
- * shows the added to
- * cart green panal
- * when we add something
- * to the cart
- * 
- * @param {any} message
- * message-> string that displays
- */
-
-function showPanal(message) {
-	$("#panal").fadeIn();
-	setTimeout(function () {
-		$("#panal").fadeOut();
-	}, 2500);
-}
-
-
-
-/**
- * 
- *  DOCUMENT FUCNTIONS
- *
-**/
-
-$.when($.ready).then(function () {
-
-});
-
-
-
-
-function ajaxTest() {
-	// 'use strict';
-	$.ajax({
-		url: "/api",
-		beforeSend: function (xhr) {
-			xhr.overrideMimeType("text/plain; charset=x-user-defined");
-			// setTimeout(_ => document.write('loding...'), 1000);
-			console.log('Loding...');
-		}
-	})
-		.done(function (data) {
-			if (console && console.log) {
-				var nd = JSON.parse(data);
-				console.log("Sample of data:", nd);
-			}
-		});
-}
-
-// ajaxTest();
-
-const xhttp = new XMLHttpRequest();
-
-function fetccart() {
-	xhttp.onreadystatechange = function () {
-		if (this.readyState == 4 && this.status == 200) {
-			let data = JSON.parse(this.responseText);
-			for (var i = 0; data.length <= 4; i++) {
-				// console.log('hello')
-			}
-			// document.getElementById('cartModal').innerText = data;
-		}
-	};
-	xhttp.open("GET", "/fetchcart", true);
-	xhttp.send();
-}
-
-/**
- * 
- * LOGIN AJAX REQUEST
- * 
- */
-
-function login(a) {
-	$.ajax({
-		url: "/api",
-		method: "post",
-		beforeSend: function (xhr) {
-			xhr.overrideMimeType("text/plain; charset=x-user-defined");
-			// setTimeout(_ => document.write('loding...'), 1000);
-			console.log('Loding...');
-		}
-	})
-		.done(function (data) {
-			if (console && console.log) {
-				var nd = JSON.parse(data);
-				console.log("Sample of data:", nd);
-			}
-		});
-}
-
-
-/**
- * 
- *  send ajax request to the server
- *	and recieve the object and
- *	append it to the dom
- *  
- */
-
-function addToCart(a) {
-	$.ajax({
-		url: "/ajax/add-to-cart/" + a,
-		beforeSend: function (xhr) {
-			xhr.overrideMimeType("text/plain; charset=x-user-defined");
-			console.log('Loading...');
-			$(".details #" + a + " img").show();
-		}
-	})
-		.done(function (data) {
-			if (console && console.log) {
-				var Data = JSON.parse(data);
-				var it = Data.items;
-				$("#cartBox").html("");
-				for (var x in it) {
-					var box = document.createElement('div');
-					console.log(it[x].item._id);
-					box.setAttribute("class", "box clearfix list-group-item");
-					box.innerHTML = '<img style="height:60px;float:left;margin-right:10px" src="/images/' + it[x].item.image + '"><small>Name : ' + it[x].item.name + '</small><br> <small>Price : $' + it[x].item.price + ' </small> <br><small>Qty : ' + it[x].qty + ' </small>';
-					$("#cartBox").append(box);
-					$("#tq").html('Total quantity : ' + Data.totalqty);
-					$("#tp").html('Total price : $' + Data.totalprice);
-					// $("#remove").setAttribute('onclick', 'remove(' + it[x].item._id +')');
-				}
-				$("#cartInfo").text(Data.totalqty);
-				$("#cartInfo").removeClass('hide');
-				$("#cartInfo").addClass('badge');
-				showPanal();
-				$(".details #" + a + " img").hide();
-			}
-		});
-}
-
-
-/**
- * 
- *  Send the ajax request and append the object information to the dom ..
- * 
- */
-function loadDoc(a) {
-	xhttp.onreadystatechange = function () {
-		if (this.readyState == 4 && this.status == 200) {
-			var data = JSON.parse(this.responseText);
-			document.getElementById("price").innerHTML = "<b>Price : </b>" + data.price;
-			document.getElementById("discount").innerHTML = "<b>Discount : </b>" + data.discount + "%";
-			document.getElementById("description").innerHTML = data.description;
-			document.getElementById("pro-name").innerHTML = data.name;
-			document.getElementById("image").setAttribute('src', "../images/" + data.image);
-			document.getElementById("buy").setAttribute('href', "../buy/" + data._id);
-			document.getElementById("amount").innerHTML = "<b>Payable Amount : </b>" + Math.floor(data.price - (data.price * data.discount) / 100);
-			openmodel();
-		}
-	};
-	xhttp.open("GET", "/ajax/user-ajax/" + a, true);
-	xhttp.send();
-}
-
-
-
-/**
- * takes the product id and sends the ajax req.
- * and update the Product in the ADMIN PANAL
- *
- */
-function update(a) {
-	xhttp.onreadystatechange = function () {
-		if (this.readyState == 4 && this.status == 200) {
-			let data = JSON.parse(this.responseText);
-			console.log(data);
-			let update = document.getElementById("update");
-			console.log('/admin/update/' + data._id);
-			update.children[1].children[0].setAttribute('action', '/admin/update/' + data._id);
-			update.children[1].children[0].children[1].value = data.name;
-			update.children[1].children[0].children[3].innerHTML = data.description;
-			update.children[1].children[0].children[5].value = data.price;
-			update.children[1].children[0].children[7].value = data.quantity;
-			update.children[1].children[0].children[9].value = data.discount;
-			update.style.display = "block";
-		}
-	};
-	xhttp.open("GET", "/ajax/user-ajax/" + a, true);
-	xhttp.send();
-}
-
-
-
-/**
- * sends the ajax req. with the product id and 
- * DELETE the products from the admin panal
- * 
- */
-
-function del(a) {
-	xhttp.onreadystatechange = function () {
-		if (this.readyState == 4 && this.status == 200) {
-			// window.location.assign('/admin');
-		}
-	};
-	xhttp.open("DELETE", "/ajax/delete/" + a, true);
-	// let r = confirm('Item ' + a + '  Will be Deleted ');
-	let r = 1;
-	if (r == true) {
-		xhttp.send();
-		document.getElementById(a).style.display = "none";
-	} else {
-		return false;
-	}
-}
-
-
-function removeFromList(a) {
-	$.ajax({
-		url: "/ajax/reduce/" + a,
-		beforeSend: function (xhr) {
-			xhr.overrideMimeType("text/plain; charset=x-user-defined");
-			$("#" + a + " img").show();
-		}
-	})
-		.done(function (data) {
-			if (console && console.log) {
-				var Data = JSON.parse(data);
-				console.log(Data);
-				$("#" + a + " img").hide();
-				if (!Data[0]) {
-					$("#" + a).hide();
-				} else {
-					var box = $("#" + a);
-					box.children[2].text = 'hello';
-					box.children[3].text = 'hello';
-				}
-			}
-		});
-}
-
-
-
-/**
- * 
- * REMOVE the product from the checkout page One by One
- * and if all the products are removed from the cart
- * then it redirects to the HOME page
- * 
- */
-
-function remove(a) {
-	xhttp.onreadystatechange = function () {
-		if (this.readyState == 4 && this.status == 200) {
-			var data = JSON.parse(this.responseText);
-			if (data[0]) {
-				document.getElementById(data[1]).children[1].innerHTML = "Item Quantity : " + data[0].itemqty;
-				document.getElementById(data[1]).children[2].innerHTML = "Item Price : " + data[0].itemprice;
-				document.getElementById('total').children[0].innerText = "Total Quantity : " + data[0].totalqty;
-				document.getElementById('total').children[1].innerText = "Total Price : " + data[0].totalprice;
-				document.getElementById('amount').value = data[0].totalprice;
-				document.getElementById('tq').innerHTML = '<b>Total quantity :</b>' + data[0].totalqty;
-				document.getElementById('tp').innerHTML = '<b>Total price :</b>' + data[0].totalprice;
-			} else {
-				window.location.assign('/checkouts/new');
-			}
-		}
-	};
-	xhttp.open("get", "/ajax/reduce/" + a, true);
-	xhttp.send();
-}
-
-function refresh(a) {
-	xhttp.onreadystatechange = function () {
-		if (this.readyState == 4 && this.status == 200) {
-			console.log('refresh done');
-		}
-	};
-	xhttp.open("GET", '/admin', true);
-	xhttp.send();
-}
-
-
-const clickAnywhere = function (a, b) {
-	$('body').click(function (event) {
-		if (!$(event.target).closest(b).length && !$(event.target).is(a)) {
-			$(b).hide();
-		}
-	});
+function debounce(func, wait, immediate) {
+  var timeout;
+  return function () {
+    var context = this,
+      args = arguments;
+    var later = function () {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+    var callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
 };

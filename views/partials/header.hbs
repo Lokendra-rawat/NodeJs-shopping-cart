@@ -1,38 +1,105 @@
-<nav class="navbar navbar-default">
-	<div class="container">
-		<div class="navbar-header"><a class="navbar-brand navbar-link" href="/">FASHION STORE</a>
-			<button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-		</div>
+<nav style="padding: 0.5rem 0;margin-bottom:10px" class="navbar navbar-expand-lg navbar-light">
+  <a class="navbar-brand" href="/">
+    <img style="width:120px;margin-left:-5px;" src="images/supreme1.jpg">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-		<div class="collapse navbar-collapse" id="navcol-1">
-			<ul class="nav navbar-nav">
-				<li role="presentation"><a href="#">Fall 2015</a></li>
-				<li role="presentation"><a href="#">Top Sellers</a></li>
-				<li class="" id="cart" role="presentation">
-					<a href="#" onclick="$('#cartModal').slideToggle().css('opacity','1'); return false">Cart
-					<span id="cartInfo" style="background:#eb6864;" class="badge {{#unless session.cart.totalqty}}hide{{/unless}}">{{session.cart.totalqty}}</span> </a>
-					<ul id="cartModal" class="list list-group" style="display:none;z-index:100;font-size:14px;">
-						<div id="cartBox">
-							{{#each session.cart.items}}
-							<div id="{{this.item._id}}" class="box clearfix list-group-item">
-								<img style="height:60px;float:left;margin-right:10px;" src="/images/{{this.item.image}}">
-								<small>Name : {{this.item.name}} </small><br>
-								<small>Price : ${{this.item.price}} </small><br>
-								<small>Qty : {{this.qty}} </small>
-							</div>
-							{{/each}}
-						</div>
-						<li class="list-group-item">
-							<span id="tq"> Total Quantity : {{#if session.cart.totalqty}}{{session.cart.totalqty}}{{else}}0{{/if}}</span><br>
-							<span id="tp">Total Price : ${{#if session.cart.totalprice}}{{session.cart.totalprice}}{{else}}0{{/if}}</span>
-							<span style="display:block;margin:5px 0 "><a href="/checkouts/new" class="btn btn-primary btn-sm">Go To CheckOut </a> </span>
-						</li>
-					</ul>
-				</li>
-			</ul>
-			{{#unless auth}}
-			<a id="signup-btn" href="users/signup" class="btn btn-primary navbar-btn navbar-right" type="button"><i class="fa fa-user"></i> SIGN IN</a>			{{/unless}} {{#if auth}}
-			<a href="/users/Profile" class="btn btn-primary navbar-btn navbar-right" type="button"><i class="fa fa-gear"></i> Profile</a>			{{/if}}
-		</div>
-	</div>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          Stores
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          Catagories
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          Coupons
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+
+      <li class="nav-item d-none">
+        <a type="" class="nav-link" data-toggle="modal" data-target="#exampleModal">
+          Launch demo modal
+        </a>
+        {{!--
+        <a class="nav-link disabled" href="#">Disabled</a> --}}
+      </li>
+    </ul>
+    <form class="form-inline my-0 my-lg-0">
+      <img style="position: absolute; right: 5px;top: 5px;display: none" id="search-loader" class="loader mt-3" src="images/darkLoader.svg">
+      <input style="min-width: 280px" onkeyup="showResults(this.value)" class="form-control mr-sm-0" type="search" placeholder="Search Deals & Coupons"
+        aria-label="Search">
+
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <!-- <span aria-hidden="true">&times;</span> -->
+      </button>
+      {{!--
+      <button class="btn btn-dark my-2 my-sm-0" type="submit">Search</button> --}}
+      <div style="position: relative;width: 100%;top:-1px">
+        <div id="search-results" class="border">
+        </div>
+      </div>
+    </form>
+  </div>
 </nav>
+
+<!-- Button trigger modal -->
+{{!--
+<button type="button" class="btn btn-primary rounded" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button> --}}
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+        aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

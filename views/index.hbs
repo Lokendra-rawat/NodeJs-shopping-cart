@@ -1,76 +1,182 @@
-<div id="index" class="row">
-	<div class="grid-x grid-padding-x">
-		<div style="margin: 0 auto; overflow:hidden" class="cell large-12 medium-12">
-			<div class="pad cell">
-				<h1><b> Robin </b> <small> </small></h1>
-				<span> The Summer Clothing Store</span>
-				<ul class="menu  float-right shw-for-medium">
-					<li><a href="/"><span class="fi-home size-16"> Home</span></a></li>
-					<li id="catt" style="padding:8px">
-						{{!-- <a href="/checkouts/new">  --}}
-						 <span id="cartt" class="fi-shopping-cart size-16"> Cart </span> 
-						 <span id="cartInfo" class="badge {{#unless session.cart.totalqty}}hide{{/unless}}">{{session.cart.totalqty}}</span> 
-						 {{!-- </a> --}}
-					</li>
-					<div id="cartModal" class="scroll">
-						<div id="cartBox" class="grid-x pad">
-							{{#each session.cart.items}}
-							<div class="cell shadow clearfix large-12 subheader">
-								<img style="height:60px;float:left" src="/images/{{this.item.image}}">
-								<p style="line-height:1.2"><small>Name : {{this.item.name}} </small></p>
-								<p style="line-height:1.2"><small>Price : {{this.item.price}} </small></p>
-								<small>Qty : {{this.qty}} </small>
-							</div>
-							{{/each}}
-						</div>
+{{>header}}
+<div class="contaner-fluid">
+  <div class="text-center" id="hero">
+    <div class="banner">
+      <a href="#">
+        <img src="images/banner1.jpg">
+        </img>
+      </a>
+    </div>
+  </div>
 
-						<div style="padding: 0 10px 5px 10px;">
-							<div class="cell large-12">
-								<small id="tq"><b> Total Quantity : </b>{{session.cart.totalqty}}</small>
-							</div>
-							<div class="cell large-12">
-								<small id="tp"><b> Total Price : </b>{{session.cart.totalprice}}</small>
-							</div>
-							<div class="large-12 cell clearfix">
-								<button class="button alert small float-left">Remove all </button>
-								<a href="/checkouts/new" class="button small float-right">Checkout </a>
-							</div>
-						</div>
-					</div>
-					<li class="drop"><a><span class="fi-arrow-right size-16"> Account </span></a>
-						<ul class="hi">
-							<li><a href="/users/profile">  <i class="fi-torso size-14"></i> profile </a> </li>
-							<li><a href="/admin"> <i class="fi-torso size-14"></i> my products</a> </li>
-							<li><a href="/users/logout"> <i class="fi-torso size-14"></i> logout </a> </li>
-						</ul>
-					</li>
-				</ul>
-			</div>
-			<div id="hero"></div>
-		</div>
+  <div class="catagories">
+    <h4 style="font-weight:300" class="text-center p-1"> Browse Popular Catagories </h4>
+    <div class="row p-0 m-0">
+      <figure class="col text-center">
+        <img src="images/Catagories/food.png">
+        <figcaption>
+          <h6>
+            <b> Restaurants </b>
+          </h6>
+        </figcaption>
+      </figure>
 
-		<div class="cell row large-10 medium-12 small-12">
-			<h3 class="text-center"> Featured Collection </h3>
-			<div class="medium-10 small-11 text-center" style="margin: 0 auto;">
-				<small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero sapiente ullam natus eaque cum ex, quia dicta dolores mollitia inventore eius ipsa accusantium magni? Debitis maxime et totam praesentium quos? </small>
-			</div>
-			<hr> {{> content }} {{> model}}
-		</div>
-	</div>
-	{{> footer }}
+      <figure class="col text-center">
+        <img src="images/Catagories/beauty.png">
+        <figcaption>
+          <h6>
+            <b> Beauty & Spas </b>
+          </h6>
+        </figcaption>
+      </figure>
+
+      <figure class="col text-center">
+        <img src="images/Catagories/car.png">
+        <figcaption>
+          <h6>
+            <b> Automative </b>
+          </h6>
+        </figcaption>
+      </figure>
+
+      <figure class="col text-center">
+        <img src="images/Catagories/goods.png">
+        <figcaption>
+          <h6>
+            <b> Goods </b>
+          </h6>
+        </figcaption>
+      </figure>
+
+      {{!-- <figure class="col text-center">
+        <img src="images/Catagories/health.png">
+        <figcaption>
+          <h6>
+            <b> Health & Fitness </b>
+          </h6>
+        </figcaption>
+      </figure> --}}
+
+      <figure class="col text-center">
+        <img src="images/Catagories/sale.png">
+        <figcaption>
+          <h6>
+            <b> Sale </b>
+          </h6>
+        </figcaption>
+      </figure>
+
+      <figure class="col text-center">
+        <img src="images/Catagories/travel.png">
+        <figcaption>
+          <h6>
+            <b> Travel </b>
+          </h6>
+        </figcaption>
+      </figure>
+
+    </div>
+  </div>
+
+  <div class="text-center d-none" id="tab" style="margin-bottom: 15px">
+    <h4 class="btn" style="margin: 0;width:100%">
+      <span class="dropdown-toggle active">
+        Deals
+      </span>
+      <span class="dropdown-toggle">
+        Coupons
+      </span>
+      <span class="dropdown-toggle">
+        Offers
+      </span>
+    </h4>
+  </div>
+
+  <h4 class="text-center" style="font-weight:300">Today's Deals </h4>
+  
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 col-sm-3 side-content" style="display:none">
+        <h6 class="text-center">
+          Popular Deals
+        </h6>
+        <div id="left-box">
+          {{!--
+          <div class="side-offers" style="padding: 10px;">
+            <img src="images/banner.jpg" style="width: 100%;">
+            <br>
+            <h6 class="">
+              Product name
+            </h6>
+            <small>
+              <b>
+                Description
+              </b>
+              : Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+            </small>
+            </br>
+            </img>
+          </div>
+          <div class="side-offers" style="padding: 10px;">
+            <img src="images/banner1.jpg" style="width: 100%;">
+            <br>
+            <h6 class="">
+              Product name
+            </h6>
+            <small>
+              <b>
+                Description
+              </b>
+              : Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+            </small>
+            </br>
+            </img>
+          </div>
+          --}}
+        </div>
+      </div>
+      <br>
+      <div class="col content-box">
+        <div id="content-box" class="row">
+          {{#each loop}}
+          <div class="col-6 col-sm-4 col-lg-3 col-xl-3 boder p-0 outer-box">
+            <div class="box border border-left-0 border-top-0 border-right-0">
+              <img src="images/fkm.jpg" onerror="this.src='images/supreme.jpg'" style="width: 100%;">
+              <br>
+              <p>
+                <a href="#">Last 4 Days to Save - Shop For Rs. 250 & Get Flat Rs. 75 Cashback </a>
+              </p>
+              <div class="box-text">
+                <div class="text-center">
+                  <div class="cut-price text-left">
+                    <p>
+                      <del>250</del>175
+                      <span class="text-right">
+                        <a href="https://freekaamaal.com/amazon-coupons">amazon</a>
+                      </span>
+                    </p>
+                  </div>
+                  <button class="btn btn-outline-dark btn-sm">Shop Now</button>
+                  <br>
+                  <br>
+                </div>
+              </div>
+              </img>
+            </div>
+          </div>
+          {{/each}}
+        </div>
+        <br/>
+        <div class="text-center">
+          <button class="btn btn-dark" onclick='getData()'>
+            View More Deals
+            <img id="loader" src="images/loader.svg">
+            </img>
+          </button>
+        </div>
+      </div>
+      </br>
+    </div>
+  </div>
 </div>
-<script>
-	(function () {
-		var cart = document.getElementById('cartt');
-		var cartm = document.getElementById('cartModal');
-		cart.addEventListener("mouseenter", function () {
-			cartm.style.display = "inline-block"
-			//fetchcart();
-			clickAnywhere("#cartt", "#cartModal");
-		});
-		cartm.addEventListener("mouseleave", function () {
-			cartm.style.display = "none";
-		});
-	}());
-
-</script>
+{{>footer}}

@@ -1,0 +1,18 @@
+<div class="clearfix container border column large-8">
+	{{#data}}
+	<div class="column border large-12 small-12">
+		<div class="box">
+			<h2 class="title">
+				<a href="/stories/{{this.url}}/{{this.id}}"> {{this.name}}</a>
+			</h2>
+			<div class="info">
+				<p class="catagory">
+					<a style="color: #66757F" href="/catagory/{{this.articlesection}}">{{{this.articlesection}}}</a>
+					<span class="float-right">{{this.views}} views </span>
+				</p>
+				<p class="description" style="color: #66757f"> {{this.description }} </p>
+			</div>
+		</div>
+	</div>
+	{{/data}} {{>paginate}}
+</div>
