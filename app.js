@@ -14,11 +14,11 @@ var xhr = require('./routes/xhr');
 
 var app = express();
 
-mongodb.connect('mongodb://127.0.0.1:27017/populate', {
-  useMongoClient: true
-}, function (err) {
-  if (err) throw err;
-});
+// mongodb.connect('mongodb://127.0.0.1:27017/populate', {
+//   useMongoClient: true
+// }, function (err) {
+//   if (err) throw err;
+// });
 
 // view engine setup
 

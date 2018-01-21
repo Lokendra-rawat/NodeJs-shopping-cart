@@ -1,6 +1,9 @@
 body {
   padding: 0 0px;
 }
+.btn{
+  border-radius: 0;
+}
 .form-control{
   border-radius: 0;
 }
@@ -76,7 +79,7 @@ a {
   z-index: 100;
   width: 100%;
   background: white;
-  height: 350px;
+  max-height: 350px;
   position: absolute;
   left: 0;
   display: none;
@@ -190,10 +193,11 @@ a {
 
 @media (max-width: 576px) {
   #hero {
-    height: auto;
+    height: ;
   }
   .banner img {
-    height: auto;
+    height: au;
+    width: auto
   }
   .content-box {
     padding-left: 15px;
