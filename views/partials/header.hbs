@@ -57,13 +57,12 @@
       </li>
     </ul>
     <form class="form-inline my-0 my-lg-0">
-      <img style="position: absolute; right: 5px;top: 5px;display: none" id="search-loader" class="loader mt-3" src="images/darkLoader.svg">
-      <input style="min-width: 280px" onkeyup="showResults(this.value)" class="form-control mr-sm-0" type="search" placeholder="Search Deals & Coupons"
-        aria-label="Search">
-
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <!-- <span aria-hidden="true">&times;</span> -->
-      </button>
+      <div class="group">
+        <input style="width:" onkeyup="showResults(this.value)" class="form-control mr-sm-0" type="search" placeholder="Search Deals & Coupons"
+          aria-label="Search">
+        <span class="highlight"></span>
+        <span class="bar"></span>
+      </div>
       {{!--
       <button class="btn btn-dark my-2 my-sm-0" type="submit">Search</button> --}}
       <div style="position: relative;width: 100%;top:-1px">
