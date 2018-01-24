@@ -36,8 +36,8 @@ function getData() {
   $("#loader").css('display', 'inline-block');
 
   var jqxhr = $.get("/", function (data) {
-    console.log('success');
-  })
+      console.log('success');
+    })
     .done(function (data) {
       console.log(data);
       setTimeout(_ => {
@@ -51,17 +51,24 @@ function getData() {
       $("#loader").css("display", "none");
       console.log(err);
     })
-    .always(function () { });
+    .always(function () {});
 }
 
-var showResults = debounce(function (value) {
-  if (value == "") $("#search-results").fadeOut();
-  else $("#search-results").fadeIn();
+var showResults = debounce(function (arg) {
+  var value = arg.trim();
+  if (value == "" || value.length <= 2) {
+    $("#search-results").fadeOut();
+    return;
+  }
+  // else if (value.length <= 2) return;
+  else {
+    $("#search-results").fadeIn();
+  };
 
   // $("#search-loader").show();
   var jqxhr = $.get('/xhr/search?q=' + value, function (data) {
-    $("#search-results").html("");
-  })
+      $("#search-results").html("");
+    })
     .done(function (data) {
       console.log(data);
       // $("#search-loader").hide();
@@ -70,7 +77,7 @@ var showResults = debounce(function (value) {
         $("#search-results").append('<p class="lead text-center mt-2">No results</p>');
       } else {
         data.forEach(x => {
-          $("#search-results").append('<a href="#"><p class="alert m-2 border"><img style="width:60px;" src="images/fkm.jpg" > ' + x.title + '</p> </a>');
+          $("#search-results").append('<a href="#"><p class="m-2 lead"><img style="width:60px;" src="images/fkm.jpg" > ' + x.storeName + '</p> </a>');
         });
       }
     })

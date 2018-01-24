@@ -14,7 +14,7 @@ var xhr = require('./routes/xhr');
 
 var app = express();
 
-// mongodb.connect('mongodb://127.0.0.1:27017/populate', {
+// mongodb.connect('mongodb://127.0.0.1:27017/supreme', {
 //   useMongoClient: true
 // }, function (err) {
 //   if (err) throw err;
@@ -36,7 +36,7 @@ app.set('view engine', '.hbs');
 
 // uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
+// app.use(logger('dev'));
 
 app.use(compression());
 app.use(bodyParser.json());

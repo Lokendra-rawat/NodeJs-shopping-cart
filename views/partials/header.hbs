@@ -1,92 +1,175 @@
-<nav style="padding: 0.5rem 0;margin-bottom:10px" class="navbar navbar-expand-lg navbar-light">
+<nav class="navbar navbar-expand-lg navbar-light" style="padding: 0.5rem 0;margin-bottom:10px">
   <a class="navbar-brand" href="/">
-    <img style="width:120px;margin-left:-5px;" src="images/supreme1.jpg">
+    <img src="images/supreme1.jpg" style="width:120px;margin-left:-5px;">
+    </img>
   </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-    aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+  <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+    <span class="navbar-toggler-icon">
+    </span>
   </button>
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false">
+        <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="navbarDropdown" role="button">
           Stores
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+        <div aria-labelledby="navbarDropdown" class="dropdown-menu row">
+          <p class="text-center lead m-0">
+            Top Stores
+          </p>
+          <div class="dropdown-divider">
+          </div>
+          <a class="dropdown-item" href="#">
+            flipkart
+          </a>
+          <a class="dropdown-item" href="#">
+            snapdeal
+          </a>
+          <a class="dropdown-item" href="#">
+            amazon
+          </a>
+          <a class="dropdown-item" href="#">
+            jabong
+          </a>
+          <a class="dropdown-item" href="#">
+            makemytrip
+          </a>
+          <a class="dropdown-item" href="#">
+            airbnb
+          </a>
+          <a class="dropdown-item" href="#">
+            cleartrip
+          </a>
+          <a class="dropdown-item" href="#">
+            myntra
+          </a>
+          <div class="dropdown-divider">
+          </div>
+          <a class="dropdown-item" href="/all-stores">
+            Show all Stores
+          </a>
         </div>
       </li>
-
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false">
+        <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="navbarDropdown" role="button">
           Catagories
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+        <div aria-labelledby="navbarDropdown" class="dropdown-menu">
+          <p class="text-center lead m-0">
+            Popular Catagories
+          </p>
+          <div class="dropdown-divider">
+          </div>
+          <a class="dropdown-item" href="#">
+            Action
+          </a>
+          <a class="dropdown-item" href="#">
+            Another action
+          </a>
+          <div class="dropdown-divider">
+          </div>
+          <a class="dropdown-item" href="#">
+            Show All Catagories
+          </a>
         </div>
       </li>
-
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false">
+        <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="navbarDropdown" role="button">
           Coupons
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+        <div aria-labelledby="navbarDropdown" class="dropdown-menu clearfix">
+          <p class="text-center lead m-0">
+            Top Coupons
+          </p>
+          <div class="dropdown-divider">
+          </div>
+          <a class="dropdown-item" href="#">
+            Jabong
+            <span class="badge badge-primary float-right mt-1">
+              1
+            </span>
+          </a>
+          <a class="dropdown-item" href="#">
+            Flipkart
+            <span class="badge badge-primary float-right mt-1">
+              3
+            </span>
+          </a>
+          <a class="dropdown-item" href="#">
+            Myntra
+            <span class="badge badge-primary float-right mt-1">
+              2
+            </span>
+          </a>
+          <a class="dropdown-item" href="#">
+            Adda52
+            <span class="badge badge-primary float-right mt-1">
+              5
+            </span>
+          </a>
+          <a class="dropdown-item" href="#">
+            Snapdeal
+            <span class="badge badge-primary float-right mt-1">
+              7
+            </span>
+          </a>
+          <div class="dropdown-divider">
+          </div>
+          <a class="dropdown-item" href="#">
+            Show More Coupons
+          </a>
         </div>
       </li>
-
       <li class="nav-item d-none">
-        <a type="" class="nav-link" data-toggle="modal" data-target="#exampleModal">
+        <a class="nav-link" data-target="#exampleModal" data-toggle="modal" type="">
           Launch demo modal
         </a>
         {{!--
-        <a class="nav-link disabled" href="#">Disabled</a> --}}
+        <a class="nav-link disabled" href="#">
+          Disabled
+        </a>
+        --}}
       </li>
     </ul>
     <form class="form-inline my-0 my-lg-0">
       <div class="group">
-        <input style="width:" onkeyup="showResults(this.value)" class="form-control mr-sm-0" type="search" placeholder="Search Deals & Coupons"
-          aria-label="Search">
-        <span class="highlight"></span>
-        <span class="bar"></span>
+        <input aria-label="Search" class="form-control mr-sm-0" onkeyup="showResults(this.value)" placeholder="Search Deals & Coupons" type="search">
+          <span class="highlight">
+          </span>
+          <span class="bar">
+          </span>
+        </input>
       </div>
       {{!--
-      <button class="btn btn-dark my-2 my-sm-0" type="submit">Search</button> --}}
+      <button class="btn btn-dark my-2 my-sm-0" type="submit">
+        Search
+      </button>
+      --}}
       <div style="position: relative;width: 100%;top:-1px">
-        <div id="search-results" class="border">
+        <div class="border" id="search-results">
         </div>
       </div>
     </form>
   </div>
 </nav>
-
 <!-- Button trigger modal -->
 {{!--
-<button type="button" class="btn btn-primary rounded" data-toggle="modal" data-target="#exampleModal">
+<button class="btn btn-primary rounded" data-target="#exampleModal" data-toggle="modal" type="button">
   Launch demo modal
-</button> --}}
-
+</button>
+--}}
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="exampleModal" role="dialog" tabindex="-1">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+        <h5 class="modal-title" id="exampleModalLabel">
+          Modal title
+        </h5>
+        <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+          <span aria-hidden="true">
+            ×
+          </span>
         </button>
       </div>
       <div class="modal-body">
@@ -96,8 +179,12 @@
         occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button class="btn btn-secondary" data-dismiss="modal" type="button">
+          Close
+        </button>
+        <button class="btn btn-primary" type="button">
+          Save changes
+        </button>
       </div>
     </div>
   </div>
