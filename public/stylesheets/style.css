@@ -1,29 +1,68 @@
   body {
     padding: 0 0px;
   }
+
+  .dropdown-menu.show {
+    display: inline-flex;
+  }
+
+  h3,
+  h4 {
+    font-size: 1.2rem;
+  }
+
+  .dropdown-menu {
+    border-radius: 0;
+    width: 25rem;
+  }
+
+  .dropdown-item {
+    font-size: 0.9rem;
+    font-weight: 400;
+    padding: 0.2rem 0.8rem;
+  }
+
   .btn {
     border-radius: 0;
   }
-  .form-control {
-    border-radius: 0;
+
+  nav .form-control {
+    border-radius: 20px;
     transition: 200ms ease-in-out;
-    border: 0;
+    /* border: 0;/ */
   }
+
+  nav .form-control:focus {
+    border-color: #ddd;
+    /* outline: #f8f9fa; */
+    box-shadow: 0 0 0.1rem 0.05rem rgba(35, 39, 43, 0.4);
+    /* border: 0; */
+    /* background: #f8f9fa; */
+    /*width: 450px;*/
+  }
+
+  .form-control {
+    border-radius: 0px;
+    transition: 200ms ease-in-out;
+  }
+
   .form-control:focus {
     border-color: #ddd;
     outline: #f8f9fa;
-    box-shadow: 0 0 0 0rem rgba(35, 39, 43, 0.4);
-    border: 0;
+    box-shadow: 0 0 0rem 0rem rgba(35, 39, 43, 0.4);
     /* background: #f8f9fa; */
+    /*width: 450px;*/
   }
+
   /* VENDOR CODEPEN CODE FROM THE INTERNET */
 
   .group {
     position: relative;
     /* margin-bottom: 45px; */
     width: 100%;
-    border-bottom: 1px solid #ddd;
+    min-width: 280px;
   }
+
   input {
     /* font-size: 18px;
   padding: 10px 10px 10px 5px;
@@ -32,9 +71,11 @@
   border: none; */
     border-bottom: 1px solid #757575;
   }
+
   input:focus {
     outline: none;
   }
+
   /* LABEL ======================================= */
 
   label {
@@ -47,22 +88,27 @@
     top: 10px;
     transition: 0.2s ease all;
   }
+
   /* active state */
 
-  input:focus~label, input:valid~label {
+  input:focus~label,
+  input:valid~label {
     top: -20px;
     font-size: 14px;
     color: #868e96;
   }
+
   /* BOTTOM BARS ================================= */
 
   .bar {
     position: relative;
     display: block;
-    width: 100%;
+    width: 90%;
     min-width: 280px;
   }
-  .bar:before, .bar:after {
+
+  .bar:before,
+  .bar:after {
     content: '';
     height: 2px;
     width: 0;
@@ -71,17 +117,22 @@
     background: #868e96;
     transition: 0.3s ease-out;
   }
+
   .bar:before {
     left: 50%;
   }
+
   .bar:after {
     right: 50%;
   }
+
   /* active state */
 
-  input:focus~.bar:before, input:focus~.bar:after {
+  input:focus~.bar:before,
+  input:focus~.bar:after {
     width: 50%;
   }
+
   /* HIGHLIGHTER ================================== */
 
   .highlight {
@@ -92,13 +143,16 @@
     top: 0%;
     left: 0;
     pointer-events: none;
-    opacity: 0.3
+    opacity: 0.3, border-radius: 20px;
   }
+
   /* active state */
 
   input:focus~.highlight {
-    animation: inputHighlighter 0.5s ease;
+    animation: inputHighlighter 0.5s ease-out;
+    border-radius: 20px;
   }
+
   /* ANIMATIONS ================ */
 
   @keyframes inputHighlighter {
@@ -110,26 +164,32 @@
       background: transparent;
     }
   }
+
   /* js update */
 
   /* active state */
 
-  input:focus~label, input:valid~label {
+  input:focus~label,
+  input:valid~label {
     top: -20px;
     font-size: 14px;
     color: #343a40;
   }
+
   /* END VENDOR CODE FROM THE CODEPEN */
 
   a {
     color: #a3a3a3;
   }
+
   a:hover {
     color: #444
   }
+
   #loader {
     display: none;
   }
+
   #tab {
     top: 0;
     /* left: 15px; */
@@ -140,6 +200,7 @@
     z-index: 1000;
     /* box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1); */
   }
+
   /* SCROLL FIX */
 
   *::-webkit-scrollbar-track {
@@ -148,22 +209,26 @@
     border-radius: 0px;
     background-color: #fff;
   }
+
   *::-webkit-scrollbar {
     width: 2px;
     border-radius: 4px;
     background-color: #fff;
   }
+
   *::-webkit-scrollbar-thumb {
     border-radius: 10px;
     /*-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);*/
     /*box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);*/
-    background-color: #444;
+    background-color: #ddd;
   }
+
   /* END SCROLL FIX */
 
   a {
     /*color: #00B7FF;*/
   }
+
   #search-results {
     overflow-y: scroll;
     overflow-x: hidden;
@@ -172,37 +237,46 @@
     background: white;
     max-height: 350px;
     position: absolute;
+    top: 5px;
     left: 0;
     display: none;
   }
+
   #hero {
     margin-bottom: 15px;
     height: 250px;
     overflow: hidden
   }
+
   .banner img {
     width: 100%;
     height: 250px;
   }
+
   .catagories {
     background: ;
   }
+
   .catagories figure {
     display: inline-block;
   }
+
   .catagories figure img {
     width: 40px;
     min-height: 40px;
   }
+
   .bg-light {
     background-color: transparent;
   }
+
   .content-box {
     padding: 0;
     padding-top: 20px;
     padding-bottom: 20px;
     /*background: hsva(0, 0%, 97%, 1.);*/
   }
+
   .box {
     /* margin-top: 10px; */
     /* margin-bottom: 10px; */
@@ -217,6 +291,7 @@
     /*border-bottom: 1px solid #ddd;*/
     /* box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3) */
   }
+
   .box img {
     padding-top: 10px;
     padding-bottom: 10px;
@@ -226,20 +301,24 @@
     height: auto;
     height: 100%;
   }
+
   .outer-box {
     margin-bottom: 30px;
     transition: 150ms ease-in;
     border-radius: 3px;
   }
+
   .box:hover {
     border-radius: 0px;
     box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.2);
     cursor: pointer;
   }
+
   .side-content {
     margin-bottom: 15px;
     /* position: relative; */
   }
+
   #left-box {
     left: 30px;
     /* right: 0; */
@@ -253,36 +332,48 @@
     margin-right: -15px;
     overflow-y: scroll;
   }
+
   .side-offers {
     padding: 10px;
     /*box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.3); */
   }
+
   .footer {
     margin-top: 100px;
     padding: 0;
   }
+
   .footer h3 {
     font-size: 1.2em;
     margin-top: 10px;
   }
+
   .footer ul {
     list-style: none;
-    padding: 0;
+    padding: 0 2px;
     margin: 0;
   }
+
   .footer li {
     margin-bottom: 5px;
+    font-size: 0.9rem;
   }
+
   .footer li a {
     color: #a3a3a3;
   }
+
   .social-media li {
     display: inline-block;
     /* width: 10%; */
   }
+
   /*   ALL THE MEDIA QUERIES USED ARE BELOW   */
 
   @media (max-width: 576px) {
+    .dropdown-menu {
+      width: 100%;
+    }
     #hero {
       height: ;
     }
@@ -319,6 +410,7 @@
       text-align: center;
     }
   }
+
   @media (min-width: 576px) {
     .form-inline .form-control {
       display: block;
@@ -329,6 +421,9 @@
 
   @media (min-width: 1200px) {
     .container {
+      max-width: 1200px;
+    }
+    .container-fluid {
       max-width: 1100px;
     }
   }

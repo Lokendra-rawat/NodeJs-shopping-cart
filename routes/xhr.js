@@ -11,6 +11,8 @@ var stores = require("../Models/stores");
 router.get('/search', function (req, res, next) {
 	var q = req.query.q;
 
+	// FULL TEXT SEARCH USING $text
+
 	// stores.find({
 	// 	$text: {
 	// 		$search: q
@@ -21,6 +23,8 @@ router.get('/search', function (req, res, next) {
 	// }, function (err, data) {
 	// 	res.json(data);
 	// });
+
+	// PARTIAL TEXT SEARCH USING REGEX
 
 	stores.find({
 		storeName: {

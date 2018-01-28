@@ -20,6 +20,10 @@ var app = express();
 //   if (err) throw err;
 // });
 
+mongodb.connect('mongodb://lokendra:lokendra@ds115166.mlab.com:15166/stories', { useMongoClient: true }, function (err) {
+  if (err) console.log(err.name + " => " + err.message);
+});
+
 // view engine setup
 
 app.use(function (req, res, next) {
@@ -55,6 +59,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 app.use('/xhr', xhr);
+
 
 // catch 404 and forward to error handler
 

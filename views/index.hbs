@@ -1,5 +1,6 @@
 {{>header}}
-<div class="contaner-fluid">
+<div class="container-fluid">
+
   <div class="text-center" id="hero">
     <div class="banner">
       <a href="#">
@@ -16,7 +17,7 @@
         <img src="images/Catagories/food.png"/>
         <figcaption>
           <h6>
-            <b> Restaurants </b>
+            <small> Restaurants </small>
           </h6>
         </figcaption>
       </figure>
@@ -25,7 +26,7 @@
         <img src="images/Catagories/beauty.png"/>
         <figcaption>
           <h6>
-            <b> Beauty & Spas </b>
+            <small> Beauty & Spas </small>
           </h6>
         </figcaption>
       </figure>
@@ -34,7 +35,7 @@
         <img src="images/Catagories/car.png"/>
         <figcaption>
           <h6>
-            <b> Automative </b>
+             <small> Automative </small>
           </h6>
         </figcaption>
       </figure>
@@ -43,26 +44,25 @@
         <img src="images/Catagories/goods.png"/>
         <figcaption>
           <h6>
-            <b> Goods </b>
+            <small> Goods </small>
           </h6>
         </figcaption>
       </figure>
 
-      {{!--
       <figure class="col text-center">
         <img src="images/Catagories/health.png">
         <figcaption>
           <h6>
-            <b> Health & Fitness </b>
+            <small> Health & Fitness </small>
           </h6>
         </figcaption>
-      </figure> --}}
+      </figure>
 
       <figure class="col text-center">
         <img src="images/Catagories/sale.png"/>
         <figcaption>
           <h6>
-            <b> Sale </b>
+            <small> Sale </small>
           </h6>
         </figcaption>
       </figure>
@@ -71,7 +71,7 @@
         <img src="images/Catagories/travel.png"/>
         <figcaption>
           <h6>
-            <b> Travel </b>
+            <small> Travel </small>
           </h6>
         </figcaption>
       </figure>
@@ -119,8 +119,8 @@
             </img>
           </div>
           <div class="side-offers" style="padding: 10px;">
-            <img src="images/banner1.jpg" style="width: 100%;">
-            <br>
+            <img src="images/banner1.jpg" style="width: 100%;"/>
+            <br/>
             <h6 class="">
               Product name
             </h6>
@@ -130,8 +130,7 @@
               </b>
               : Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
             </small>
-            </br>
-            </img>
+            <br/>
           </div>
           --}}
         </div>
@@ -142,27 +141,29 @@
           {{#each loop}}
           <div class="col-6 col-sm-4 col-lg-3 col-xl-3 boder p-0 outer-box">
             <div class="box border border-left-0 border-top-0 border-right-0">
-              <img src="images/fkm.jpg" onerror="this.src='images/supreme.jpg'" style="width: 100%;">
-              <br>
+              <img src="images/fkm.jpg" onerror="this.src='images/fkm.jpg'" style="width: 100%;height: auto">
+              <br/>
               <p>
                 <a href="#">Last 4 Days to Save - Shop For Rs. 250 & Get Flat Rs. 75 Cashback </a>
               </p>
               <div class="box-text">
                 <div class="text-center">
                   <div class="cut-price text-left">
-                    <p>
-                      <del>250</del>175
-                      <span class="text-right">
+                    <div class="clearfix row">
+                      <div class="col">
+                        <del>$250 </del> $175
+                      </div>
+                      <div class="col text-right">
                         <a href="https://freekaamaal.com/amazon-coupons">amazon</a>
-                      </span>
-                    </p>
+                      </div>
+                    </div>
+                    <br/>
                   </div>
                   <button class="btn btn-outline-dark btn-sm">Shop Now</button>
-                  <br>
-                  <br>
+                  <br/>
+                  <br/>
                 </div>
               </div>
-              </img>
             </div>
           </div>
           {{/each}}
@@ -171,12 +172,11 @@
         <div class="text-center">
           <button class="btn btn-dark" onclick='getData()'>
             View More Deals
-            <img id="loader" src="images/loader.svg">
-            </img>
+            <img id="loader" src="images/loader.svg"/>
           </button>
         </div>
       </div>
-      </br>
+      <br/>
     </div>
   </div>
 </div>

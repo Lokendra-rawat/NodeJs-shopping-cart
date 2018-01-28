@@ -1,4 +1,4 @@
-//@ts-check
+// @hts-check
 
 (function () {
   var tab = $("#tab")[0];
@@ -43,7 +43,7 @@ function getData() {
       setTimeout(_ => {
         $("#loader").css("display", "none");
         data.forEach(x => {
-          $("#content-box").append('<div class="col-6 col-sm-4 col-lg-3 col-xl-3 p-0 outer-box"><div class="box border"><img src="images/fkm.jpg" style="width: 100%;"><br><p><a href="#">Last 4 Days to Save - Shop For Rs. 250 & Get Flat Rs. 75 Cashback </a></p><div class=""><div class=""><p class="cut-price"><del><i>₹</i>250 </del><i>₹</i>175<div class="text-right"><p class="store-name"><a href="https://freekaamaal.com/amazon-coupons">amazon</a></p></div></p><p class="main-price"><i> ₹ </i>' + x + '</p></div></div></br></img></div></div>');
+          $("#content-box").append('<div class="col-6 col-sm-4 col-lg-3 col-xl-3 boder p-0 outer-box"><div class="box border border-left-0 border-top-0 border-right-0"><img src="images/fkm.jpg" onerror="this.src="images/supreme.jpg"" style="width: 100%;height: auto"><br><p><a href="#">Last 4 Days to Save - Shop For Rs. 250 & Get Flat Rs. 75 Cashback </a></p><div class="box-text"><div class="text-center"><div class="cut-price text-left"><div class="clearfix row"><div class="col"><del>$250 </del> $175</div><div class="col text-right"><a href="https://freekaamaal.com/amazon-coupons">amazon</a></div></div><br></div><button class="btn btn-outline-dark btn-sm">Shop Now</button><br><br></div></div></img></div></div>');
         });
       }, 500);
     })
@@ -54,30 +54,26 @@ function getData() {
     .always(function () {});
 }
 
+//CODE FOR THE SEARCH RESULTS XHR
+
 var showResults = debounce(function (arg) {
   var value = arg.trim();
-  if (value == "" || value.length <= 2) {
+  if (value == "" || value.length <= 0) {
     $("#search-results").fadeOut();
     return;
   }
-  // else if (value.length <= 2) return;
   else {
     $("#search-results").fadeIn();
   };
-
-  // $("#search-loader").show();
   var jqxhr = $.get('/xhr/search?q=' + value, function (data) {
       $("#search-results").html("");
     })
     .done(function (data) {
-      console.log(data);
-      // $("#search-loader").hide();
-
       if (data.length === 0) {
         $("#search-results").append('<p class="lead text-center mt-2">No results</p>');
       } else {
         data.forEach(x => {
-          $("#search-results").append('<a href="#"><p class="m-2 lead"><img style="width:60px;" src="images/fkm.jpg" > ' + x.storeName + '</p> </a>');
+          $("#search-results").append('<a href="#"><p class="m-2 lead"><img style="width:60px;" src="images/supreme1.jpg" > ' + x.storeName + '</p> </a>');
         });
       }
     })
@@ -101,3 +97,4 @@ function debounce(func, wait, immediate) {
     if (callNow) func.apply(context, args);
   };
 };
+
