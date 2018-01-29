@@ -3,8 +3,13 @@
 (function () {
   var tab = $("#tab")[0];
   var contentBox = $("#content-box")[0];
-  var tabWidth = tab.offsetWidth;
-  var boxWidth = contentBox.offsetWidth;
+  try {
+    var tabWidth = tab.offsetWidth;
+    var boxWidth = contentBox.offsetWidth;
+  } catch (e) {
+    console.table(e);
+  }
+
   window.onscroll = function () {
     if (window.scrollY > 320) {
       $("#tab").css('position', 'fixed');
@@ -56,13 +61,13 @@ function getData() {
 
 //CODE FOR THE SEARCH RESULTS XHR
 
+
 var showResults = debounce(function (arg) {
   var value = arg.trim();
   if (value == "" || value.length <= 0) {
     $("#search-results").fadeOut();
     return;
-  }
-  else {
+  } else {
     $("#search-results").fadeIn();
   };
   var jqxhr = $.get('/xhr/search?q=' + value, function (data) {
@@ -72,6 +77,8 @@ var showResults = debounce(function (arg) {
       if (data.length === 0) {
         $("#search-results").append('<p class="lead text-center mt-2">No results</p>');
       } else {
+        console.table(data);
+        $("#search-results").append('<p class="text-center m-0 lead">Stores</p>');
         data.forEach(x => {
           $("#search-results").append('<a href="#"><p class="m-2 lead"><img style="width:60px;" src="images/supreme1.jpg" > ' + x.storeName + '</p> </a>');
         });
@@ -80,7 +87,8 @@ var showResults = debounce(function (arg) {
     .fail(function (err) {
       console.log(err);
     })
-}, 200);
+}, 300);
+
 
 function debounce(func, wait, immediate) {
   var timeout;
@@ -97,4 +105,3 @@ function debounce(func, wait, immediate) {
     if (callNow) func.apply(context, args);
   };
 };
-

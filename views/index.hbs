@@ -1,6 +1,5 @@
 {{>header}}
 <div class="container-fluid">
-
   <div class="text-center" id="hero">
     <div class="banner">
       <a href="#">
@@ -9,76 +8,84 @@
       </a>
     </div>
   </div>
-
   <div class="catagories">
-    <h4 style="font-weight:300" class="text-center p-1"> Browse Popular Catagories </h4>
+    <h4 class="text-center p-1" style="font-weight:300">
+      Browse Popular Catagories
+    </h4>
     <div class="row p-0 m-0">
       <figure class="col text-center">
         <img src="images/Catagories/food.png"/>
         <figcaption>
           <h6>
-            <small> Restaurants </small>
+            <small>
+              Restaurants
+            </small>
           </h6>
         </figcaption>
       </figure>
-
       <figure class="col text-center">
         <img src="images/Catagories/beauty.png"/>
         <figcaption>
           <h6>
-            <small> Beauty & Spas </small>
+            <small>
+              Beauty & Spas
+            </small>
           </h6>
         </figcaption>
       </figure>
-
       <figure class="col text-center">
         <img src="images/Catagories/car.png"/>
         <figcaption>
           <h6>
-             <small> Automative </small>
+            <small>
+              Automative
+            </small>
           </h6>
         </figcaption>
       </figure>
-
       <figure class="col text-center">
         <img src="images/Catagories/goods.png"/>
         <figcaption>
           <h6>
-            <small> Goods </small>
+            <small>
+              Goods
+            </small>
           </h6>
         </figcaption>
       </figure>
-
       <figure class="col text-center">
         <img src="images/Catagories/health.png">
-        <figcaption>
-          <h6>
-            <small> Health & Fitness </small>
-          </h6>
-        </figcaption>
+          <figcaption>
+            <h6>
+              <small>
+                Health & Fitness
+              </small>
+            </h6>
+          </figcaption>
+        </img>
       </figure>
-
       <figure class="col text-center">
         <img src="images/Catagories/sale.png"/>
         <figcaption>
           <h6>
-            <small> Sale </small>
+            <small>
+              Sale
+            </small>
           </h6>
         </figcaption>
       </figure>
-
       <figure class="col text-center">
         <img src="images/Catagories/travel.png"/>
         <figcaption>
           <h6>
-            <small> Travel </small>
+            <small>
+              Travel
+            </small>
           </h6>
         </figcaption>
       </figure>
-
     </div>
   </div>
-
   <div class="text-center d-none" id="tab" style="margin-bottom: 15px">
     <h4 class="btn" style="margin: 0;width:100%">
       <span class="dropdown-toggle active">
@@ -92,9 +99,9 @@
       </span>
     </h4>
   </div>
-
-  <h4 class="text-center" style="font-weight:300">Today's Deals </h4>
-
+  <h4 class="text-center" style="font-weight:300">
+    Today's Deals
+  </h4>
   <div class="container-fluid">
     <div class="row">
       <div class="col-12 col-sm-3 side-content" style="display:none">
@@ -105,17 +112,17 @@
           {{!--
           <div class="side-offers" style="padding: 10px;">
             <img src="images/banner.jpg" style="width: 100%;">
-            <br>
-            <h6 class="">
-              Product name
-            </h6>
-            <small>
-              <b>
-                Description
-              </b>
-              : Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-            </small>
-            </br>
+              <br>
+                <h6 class="">
+                  Product name
+                </h6>
+                <small>
+                  <b>
+                    Description
+                  </b>
+                  : Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                </small>
+              </br>
             </img>
           </div>
           <div class="side-offers" style="padding: 10px;">
@@ -136,47 +143,62 @@
         </div>
       </div>
       <br>
-      <div class="col content-box">
-        <div id="content-box" class="row">
-          {{#each loop}}
-          <div class="col-6 col-sm-4 col-lg-3 col-xl-3 boder p-0 outer-box">
-            <div class="box border border-left-0 border-top-0 border-right-0">
-              <img src="images/fkm.jpg" onerror="this.src='images/fkm.jpg'" style="width: 100%;height: auto">
-              <br/>
-              <p>
-                <a href="#">Last 4 Days to Save - Shop For Rs. 250 & Get Flat Rs. 75 Cashback </a>
-              </p>
-              <div class="box-text">
-                <div class="text-center">
-                  <div class="cut-price text-left">
-                    <div class="clearfix row">
-                      <div class="col">
-                        <del>$250 </del> $175
+        <div class="col content-box">
+          <div class="row" id="content-box">
+            <a href="https://www.amazon.in/gp/product/B01FXJI1OY/ref=as_li_tl?ie=UTF8&camp=3638&creative=24630&creativeASIN=B01FXJI1OY&linkCode=as2&tag=supremedeals-21&linkId=ed834f81abd7496243eed07a084b08e3" target="_blank">
+              <img border="0" src="//ws-in.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=IN&ASIN=B01FXJI1OY&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=supremedeals-21"/>
+            </a>
+            <img alt="" border="0" height="1" src="//ir-in.amazon-adsystem.com/e/ir?t=supremedeals-21&l=am2&o=31&a=B01FXJI1OY" style="border:none !important; margin:0px !important;" width="1"/>
+            {{#each loop}}
+            <div class="col-6 col-sm-4 col-lg-3 col-xl-3 boder p-0 outer-box">
+              <div class="box border border-left-0 border-top-0 border-right-0">
+                <img onerror="this.src='images/fkm.jpg'" src="images/fkm.jpg" style="width: 100%;height: auto">
+                  <br/>
+                  <p>
+                    <a href="#">
+                      Last 4 Days to Save - Shop For Rs. 250 & Get Flat Rs. 75 Cashback
+                    </a>
+                  </p>
+                  <div class="box-text">
+                    <div class="text-center">
+                      <div class="cut-price text-left">
+                        <div class="clearfix row">
+                          <div class="col">
+                            <del>
+                              $250
+                            </del>
+                            $175
+                          </div>
+                          <div class="col text-right">
+                            <a href="https://freekaamaal.com/amazon-coupons">
+                              amazon
+                            </a>
+                          </div>
+                        </div>
+                        <br/>
                       </div>
-                      <div class="col text-right">
-                        <a href="https://freekaamaal.com/amazon-coupons">amazon</a>
-                      </div>
+                      <button class="btn btn-outline-dark btn-sm">
+                        Shop Now
+                      </button>
+                      <br/>
+                      <br/>
                     </div>
-                    <br/>
                   </div>
-                  <button class="btn btn-outline-dark btn-sm">Shop Now</button>
-                  <br/>
-                  <br/>
-                </div>
+                </img>
               </div>
             </div>
+            {{/each}}
           </div>
-          {{/each}}
+          <br/>
+          <div class="text-center">
+            <button class="btn btn-dark" onclick="getData()">
+              View More Deals
+              <img id="loader" src="images/loader.svg"/>
+            </button>
+          </div>
         </div>
         <br/>
-        <div class="text-center">
-          <button class="btn btn-dark" onclick='getData()'>
-            View More Deals
-            <img id="loader" src="images/loader.svg"/>
-          </button>
-        </div>
-      </div>
-      <br/>
+      </br>
     </div>
   </div>
 </div>

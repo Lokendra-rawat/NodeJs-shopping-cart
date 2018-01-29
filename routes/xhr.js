@@ -35,7 +35,7 @@ router.get('/search', function (req, res, next) {
 		__v: 0
 	}, function (err, data) {
 		res.json(data);
-	}).limit(10);
+	}).limit(20);
 
 });
 
