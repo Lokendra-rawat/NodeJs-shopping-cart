@@ -83,3 +83,23 @@ app.use(function (err, req, res, next) {
 });
 
 module.exports = app;
+
+
+var loki = (function () {
+  return {
+    name: 'loki',
+    email: 'lavcool9999@gmail.com',
+    phone: [
+      22343242342,
+      34234324234,
+      23442343243
+    ],
+    posts: {
+      id: {
+        name: "post1"
+      }
+    }
+  }
+})();
+
+console.log(loki);
