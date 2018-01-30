@@ -1,15 +1,17 @@
 <nav class="navbar navbar-expand-lg navbar-light" style="padding: 0.5 1 rem 0;margin-bottom:  0px">
   <a class="navbar-brand" href="/">
-    <img src="images/supreme1.jpg" style="width:120px;margin-left:-5px;"/>
+    <img src="images/supreme1.jpg" style="width:120px;margin-left:-5px;" />
   </a>
-  <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+  <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
+    data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
     <span class="navbar-toggler-icon">
     </span>
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item dropdown">
-        <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="navbarDropdown" role="button">
+        <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="navbarDropdown"
+          role="button">
           Stores
         </a>
         <div aria-labelledby="navbarDropdown" class="dropdown-menu row p-1">
@@ -26,7 +28,8 @@
         </div>
       </li>
       <li class="nav-item dropdown">
-        <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="navbarDropdown" role="button">
+        <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="navbarDropdown"
+          role="button">
           Catagories
         </a>
         <div aria-labelledby="navbarDropdown" class="dropdown-menu row">
@@ -46,15 +49,16 @@
         </div>
       </li>
       <li class="nav-item dropdown">
-        <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="navbarDropdown" role="button">
+        <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="navbarDropdown"
+          role="button">
           Coupons
         </a>
         <div aria-labelledby="navbarDropdown" class="dropdown-menu clearfix row">
           {{#each stores}}
           <a class="dropdown-item col-6" href="#">
             {{this.storeName}}
-            <span class="badge badge-primary float-right mt-1">
-              new
+            <span class="badge ml-2 badge-primary badge-pill mt-1">
+              2
             </span>
           </a>
           {{/each}}
@@ -70,7 +74,8 @@
     </ul>
     <form class="form-inline my-0 my-lg-0">
       <div class="group">
-        <input aria-label="Search" class="form-control mr-sm-0" onkeyup="showResults(this.value)" placeholder="Search Deals & Coupons" type="search"/>
+        <input aria-label="Search" class="form-control mr-sm-0" onkeyup="showResults(this.value)" placeholder="Search Deals & Coupons"
+          type="search" />
         <span class="highlight">
         </span>
         <!-- <span class="bar">

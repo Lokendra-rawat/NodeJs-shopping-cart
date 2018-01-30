@@ -80,7 +80,7 @@ var showResults = debounce(function (arg) {
         console.table(data);
         $("#search-results").append('<p class="text-center m-0 lead">Stores</p>');
         data.forEach(x => {
-          $("#search-results").append('<a href="#"><p class="m-2 lead"><img style="width:60px;" src="images/supreme1.jpg" > ' + x.storeName + '</p> </a>');
+          $("#search-results").append('<a href="#"><p class="m-2 mt-0 lead"><img style="width:60px;" src="images/supreme1.jpg" > ' + x.storeName + '</p> </a>');
         });
       }
     })

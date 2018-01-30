@@ -20,7 +20,7 @@ router.get('/', function (req, res, next) {
         loop: [1, 2, 3, 2, 3, 4, 2, 2, 3, 1, 1, 1, 1, 1, 4, 5],
         loop1: [1, 2, 3, 4]
       });
-    }).limit(30);
+    }).limit(20);
   }
 });
 
@@ -36,7 +36,7 @@ router.get('/all-stores', function (req, res, next) {
     });
   }).sort({
     storeName: 1
-  }).limit(50);
+  }).limit(30);
 });
 
 module.exports = router;

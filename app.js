@@ -20,7 +20,9 @@ var app = express();
 //   if (err) throw err;
 // });
 
-mongodb.connect('mongodb://lokendra:lokendra@ds115166.mlab.com:15166/stories', { useMongoClient: true }, function (err) {
+mongodb.connect('mongodb://lokendra:lokendra@ds115166.mlab.com:15166/stories', {
+  useMongoClient: true
+}, function (err) {
   if (err) console.log(err.name + " => " + err.message);
 });
 
