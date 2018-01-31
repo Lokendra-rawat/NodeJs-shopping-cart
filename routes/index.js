@@ -39,4 +39,8 @@ router.get('/all-stores', function (req, res, next) {
   }).limit(30);
 });
 
+router.get('/all-categories', function (req, res, next) {
+  res.render('catagory' , {});
+});
+
 module.exports = router;

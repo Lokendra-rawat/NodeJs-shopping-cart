@@ -3,8 +3,7 @@
   <div class="text-center" id="hero">
     <div class="banner">
       <a href="#">
-        <img src="images/banner1.jpg">
-        </img>
+        <img src="images/banner1.jpg" />
       </a>
     </div>
   </div>
@@ -14,8 +13,8 @@
     </h4>
     <div class="row p-0 m-0">
       <figure class="col text-center">
-        <!-- <img src="images/Cat agories/food.png" /> -->
-        <div class="electronics"></div>
+        <div class="mouse">
+        </div>
         <figcaption>
           <h6>
             <small>
@@ -25,8 +24,8 @@
         </figcaption>
       </figure>
       <figure class="col text-center">
-        <!-- <img src="images/Catagories/beauty.png" /> -->
-        <div class="monitor"></div>
+        <div class="monitor">
+        </div>
         <figcaption>
           <h6>
             <small>
@@ -36,8 +35,8 @@
         </figcaption>
       </figure>
       <figure class="col text-center">
-        <!-- <img src="images/Catagories/car.png" /> -->
-        <div class="car"></div>
+        <div class="car">
+        </div>
         <figcaption>
           <h6>
             <small>
@@ -47,109 +46,68 @@
         </figcaption>
       </figure>
       <figure class="col text-center">
-        <!-- <img src="images/Catagories/goods.png" /> -->
-        <div class="fashion"></div>
+        <div class="shirt">
+        </div>
         <figcaption>
           <h6>
             <small>
-              Fasion & Clothing
+              Fasion
             </small>
           </h6>
         </figcaption>
       </figure>
       <figure class="col text-center">
-        <!-- <img src="images/Catagories/health.png"> -->
-        <div class="book"></div>
+        <div class="food">
+        </div>
         <figcaption>
           <h6>
             <small>
-              Books
+              Food & Drinks
             </small>
           </h6>
         </figcaption>
-        </img>
       </figure>
       <figure class="col text-center">
-        <!-- <img src="images/Catagories/sale.png" /> -->
-        <div class="toys"></div>
+        <div class="dog">
+        </div>
         <figcaption>
           <h6>
             <small>
-              Kids & Toys
-            </small>
-          </h6>
-        </figcaption>
-      </figure>
-      <figure class="col text-center d-none">
-        <!-- <img src="images/Catagories/travel.png" /> -->
-        <div class="camera"></div>
-        <figcaption>
-          <h6>
-            <small>
-              Camera
+              Pets
             </small>
           </h6>
         </figcaption>
       </figure>
     </div>
   </div>
-  <div class="text-center d-none" id="tab" style="margin-bottom: 15px">
-    <h4 class="btn" style="margin: 0;width:100%">
-      <span class="dropdown-toggle active">
-        Deals
-      </span>
-      <span class="dropdown-toggle">
-        Coupons
-      </span>
-      <span class="dropdown-toggle">
-        Offers
-      </span>
-    </h4>
-  </div>
-  <h4 class="text-center m-0" style="font-weight:300">
-    Today's Deals
+</div>
+
+<div class="text-center d-none" id="tab" style="margin-bottom: 15px">
+  <h4 class="btn" style="margin: 0;width:100%">
+    <span class="dropdown-toggle active">
+      Deals
+    </span>
+    <span class="dropdown-toggle">
+      Coupons
+    </span>
+    <span class="dropdown-toggle">
+      Offers
+    </span>
   </h4>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-12 col-sm-3 side-content" style="display:none">
-        <h6 class="text-center">
-          Popular Deals
-        </h6>
-        <div id="left-box">
-          {{!--
-          <div class="side-offers" style="padding: 10px;">
-            <img src="images/banner.jpg" style="width: 100%;">
-            <br>
-            <h6 class="">
-              Product name
-            </h6>
-            <small>
-              <b>
-                Description
-              </b>
-              : Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-            </small>
-            </br>
-            </img>
-          </div>
-          <div class="side-offers" style="padding: 10px;">
-            <img src="images/banner1.jpg" style="width: 100%;" />
-            <br/>
-            <h6 class="">
-              Product name
-            </h6>
-            <small>
-              <b>
-                Description
-              </b>
-              : Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-            </small>
-            <br/>
-          </div>
-          --}}
-        </div>
-      </div>
-      <br>
+</div>
+
+<h4 class="text-center m-0" style="font-weight:300">
+  Today's Deals
+</h4>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 col-sm-3 side-content" style="display:none">
+      <h6 class="text-center">
+        Popular Deals
+      </h6>
+    </div>
+    <div class="side-offers" style="padding: 10px;">
       <div class="col content-box">
         <div class="row" id="content-box">
           {{#each loop}}
@@ -191,7 +149,6 @@
                   <br/>
                 </div>
               </div>
-              </img>
             </div>
           </div>
           {{/each}}
@@ -205,8 +162,8 @@
         </div>
       </div>
       <br/>
-      </br>
+      <br/>
     </div>
   </div>
-</div>
-{{>footer}}
+
+  {{>footer}}

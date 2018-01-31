@@ -1,20 +1,50 @@
+<style>
+  .img-001-shirt, .img-001-sunglasses, .img-002-mouse, .img-002-plane, .img-003-monitor, 
+.img-003-soccer-ball-variant, .img-004-dog, .img-004-photo-camera, .img-005-open-book, .img-005-smartphone-call, 
+.img-006-blender, .img-006-sedan-car-front, .img-007-heartbeat, .img-007-teddy-bear, .img-008-groceries, 
+.img-009-gift, .img-010-free, .img-011-sneaker, .img-012-fast-food, .img-013-video-camera, 
+.img-014-credit-card
+{ display: inline-block; background: url('png.png') no-repeat; overflow: hidden; text-indent: -9999px; text-align: left; }
+ 
+.img-001-shirt { background-position: -0px -0px; width: 64px; height: 64px; }
+.img-001-sunglasses { background-position: -64px -0px; width: 64px; height: 64px; }
+.img-002-mouse { background-position: -128px -0px; width: 64px; height: 64px; }
+.img-002-plane { background-position: -192px -0px; width: 64px; height: 64px; }
+.img-003-monitor { background-position: -0px -64px; width: 64px; height: 64px; }
+.img-003-soccer-ball-variant { background-position: -64px -64px; width: 64px; height: 64px; }
+.img-004-dog { background-position: -128px -64px; width: 64px; height: 64px; }
+.img-004-photo-camera { background-position: -192px -64px; width: 64px; height: 64px; }
+.img-005-open-book { background-position: -0px -128px; width: 64px; height: 64px; }
+.img-005-smartphone-call { background-position: -64px -128px; width: 64px; height: 64px; }
+.img-006-blender { background-position: -128px -128px; width: 64px; height: 64px; }
+.img-006-sedan-car-front { background-position: -192px -128px; width: 64px; height: 64px; }
+.img-007-heartbeat { background-position: -0px -192px; width: 64px; height: 64px; }
+.img-007-teddy-bear { background-position: -64px -192px; width: 64px; height: 64px; }
+.img-008-groceries { background-position: -128px -192px; width: 64px; height: 64px; }
+.img-009-gift { background-position: -192px -192px; width: 64px; height: 64px; }
+.img-010-free { background-position: -0px -256px; width: 64px; height: 64px; }
+.img-011-sneaker { background-position: -64px -256px; width: 64px; height: 64px; }
+.img-012-fast-food { background-position: -128px -256px; width: 64px; height: 64px; }
+.img-013-video-camera { background-position: -192px -256px; width: 64px; height: 64px; }
+.img-014-credit-card { background-position: -0px -320px; width: 64px; height: 64px; }
+</style>
 {{>header}}
-
 <div class="container-fluid">
-
   <h3 class="lead text-center">
     All Stores
   </h3>
   <hr>
-
-  <div>
-    <ul class="row p-1">
-      {{#each data}}
-      <li style="list-style:none" class="list-item col-md-3"> <a href="/{{this.storeName}}">{{this.storeName}}</a> </li>
-      {{/each}}
-    </ul>
-  </div>
-
+    <div>
+      <ul class="row p-1">
+        {{#each data}}
+        <li class="list-item col-md-3" style="list-style:none">
+          <a href="/{{this.storeName}}">
+            {{this.storeName}}
+          </a>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+  </hr>
 </div>
-
 {{>footer}}
