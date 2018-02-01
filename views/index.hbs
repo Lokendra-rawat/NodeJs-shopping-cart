@@ -12,7 +12,7 @@
       Browse Popular Catagories
     </h4>
     <div class="row p-0 m-0">
-      <figure class="col-4 text-center">
+      <figure class="col-4 col-md text-center">
         <div class="mouse">
         </div>
         <figcaption>
@@ -23,7 +23,7 @@
           </h6>
         </figcaption>
       </figure>
-      <figure class="col-4 text-center">
+      <figure class="col-4 col-md text-center">
         <div class="monitor">
         </div>
         <figcaption>
@@ -34,7 +34,7 @@
           </h6>
         </figcaption>
       </figure>
-      <figure class="col-4 text-center">
+      <figure class="col-4 col-md text-center">
         <div class="car">
         </div>
         <figcaption>
@@ -45,7 +45,7 @@
           </h6>
         </figcaption>
       </figure>
-      <figure class="col-4 text-center">
+      <figure class="col-4 col-md text-center">
         <div class="shirt">
         </div>
         <figcaption>
@@ -56,7 +56,7 @@
           </h6>
         </figcaption>
       </figure>
-      <figure class="col-4 text-center">
+      <figure class="col-4 col-md text-center">
         <div class="food">
         </div>
         <figcaption>
@@ -67,7 +67,7 @@
           </h6>
         </figcaption>
       </figure>
-      <figure class="col-4 text-center">
+      <figure class="col-4 col-md text-center">
         <div class="dog">
         </div>
         <figcaption>
@@ -111,9 +111,9 @@
       <div class="col content-box">
         <div class="row" id="content-box">
           {{#each imageUrl}}
-          <div class="col-6 col-sm-4 col-lg-3 col-xl-3 boder p-0 outer-box">
+          <div class="col-6 col-sm-4 col-lg-3 col-xl-3 boder p-1 outer-box">
             <div class="box border border-left-0 border-top-0 border-right-0">
-              <img onerror="this.src='images/error.png'" src="" style="width: 100%;height: auto">
+              <img onerror="this.src='images/error.png'" src="{{this.imageUrl}}" style="width: 100%;height: auto">
               <br/>
               <p>
                 <a href="#">
