@@ -8,6 +8,9 @@ var expressHbs = require('express-handlebars');
 var compression = require('compression');
 var mongodb = require('mongoose');
 
+var faker = require('faker');
+var deal = require('./Models/deals.js');
+
 var index = require('./routes/index');
 var users = require('./routes/users');
 var xhr = require('./routes/xhr');
@@ -83,3 +86,21 @@ app.use(function (err, req, res, next) {
 });
 
 module.exports = app;
+
+
+// deal.find({},{_i:0,__v:0},function(err,data){
+//   console.log(data);
+// });
+
+// setInterval(_ => {
+//   var newDeal = new deal({
+//     imageUrl: faker.image.image(200,150)
+//   });
+
+//   newDeal.save(function (err, data) {
+//     if (err) console.log(err);
+//     else console.log('data saved');
+//   })
+// }, 1000);
+
+// console.log(faker.image.image(200,150));

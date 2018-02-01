@@ -1,12 +1,13 @@
 var express = require('express');
 var router = express.Router();
+var faker = require('faker');
 
 var stores = require("../Models/stores");
+var deals = require("../Models/deals");
 
 /* GET home page. */
 
 router.get('/', function (req, res, next) {
-
   if (req.xhr === true) res.json([1, 2, 3, 2, 3, 4, 2, 2, 3, 1, 1, 1, 1, 1, 4, 5, 1, 1, 1, 1, 1, 1, 1, 1]);
   else {
     stores.find({}, {
@@ -14,12 +15,18 @@ router.get('/', function (req, res, next) {
       __v: 0
     }, function (err, data) {
       if (err) throw err;
-      res.render('index', {
-        title: 'Express',
-        stores: data,
-        loop: [1, 2, 3, 2, 3, 4, 2, 2, 3, 1, 1, 1, 1, 1, 4, 5],
-        loop1: [1, 2, 3, 4]
-      });
+      deals.find({}, {
+        _id: 0,
+        __v: 0
+      }, function (err, imageUrl) {
+        res.render('index', {
+          title: 'Express',
+          stores: data,
+          loop: [1, 2, 3, 2, 3, 4, 2, 2, 3, 1, 1, 1, 1, 1, 4, 5],
+          loop1: [1, 2, 3, 4],
+          imageUrl: imageUrl
+        });
+      }).limit(20);
     }).limit(20);
   }
 });
@@ -40,7 +47,7 @@ router.get('/all-stores', function (req, res, next) {
 });
 
 router.get('/all-categories', function (req, res, next) {
-  res.render('catagory' , {});
+  res.render('catagory', {});
 });
 
 module.exports = router;

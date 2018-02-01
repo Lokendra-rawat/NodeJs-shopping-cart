@@ -28,7 +28,7 @@
           Catagories
         </a>
         <div aria-labelledby="navbarDropdown" class="dropdown-menu row p-1">
-          <a class="dropdown-item col-4 col-md-3 ml-auto mr-auto" href="#">
+          <a class="dropdown-item col-4 col-md-4 p-2 ml-auto mr-auto" href="#">
             <div style="margin: 0 auto ; text-align: center;">
               <div class="mouse">
               </div>
@@ -37,7 +37,7 @@
               </p>
             </div>
           </a>
-          <a class="dropdown-item col-4 col-md-3 ml-auto mr-auto" href="#">
+          <a class="dropdown-item col-4 col-md-4 p-2 ml-auto mr-auto" href="#">
             <div style="margin: 0 auto ; text-align: center;">
               <div class="shirt">
               </div>
@@ -46,7 +46,7 @@
               </p>
             </div>
           </a>
-          <a class="dropdown-item col-4 col-md-3 ml-auto mr-auto" href="#">
+          <a class="dropdown-item col-4 col-md-4 p-2 ml-auto mr-auto" href="#">
             <div style="margin: 0 auto ; text-align: center;">
               <div class="car">
               </div>
@@ -55,7 +55,7 @@
               </p>
             </div>
           </a>
-          <a class="dropdown-item col-4 col-md-3 ml-auto mr-auto" href="#">
+          <a class="dropdown-item col-4 col-md-4 p-2 ml-auto mr-auto" href="#">
             <div style="margin: 0 auto ; text-align: center;">
               <div class="monitor">
               </div>
@@ -64,7 +64,7 @@
               </p>
             </div>
           </a>
-          <a class="dropdown-item col-4 col-md-3 ml-auto mr-auto" href="#">
+          <a class="dropdown-item col-4 col-md-4 p-2 ml-auto mr-auto" href="#">
             <div style="margin: 0 auto ; text-align: center;">
               <div class="sunglasses">
               </div>
@@ -73,7 +73,7 @@
               </p>
             </div>
           </a>
-          <a class="dropdown-item col-4 col-md-3 ml-auto mr-auto" href="#">
+          <a class="dropdown-item col-4 col-md-4 p-2 ml-auto mr-auto" href="#">
             <div style="margin: 0 auto ; text-align: center;">
               <div class="plane">
               </div>
@@ -82,7 +82,7 @@
               </p>
             </div>
           </a>
-          <a class="dropdown-item col-4 col-md-3 ml-auto mr-auto" href="#">
+          <a class="dropdown-item col-4 col-md-4 p-2 ml-auto mr-auto" href="#">
             <div style="margin: 0 auto ; text-align: center;">
               <div class="camera">
               </div>
@@ -91,7 +91,7 @@
               </p>
             </div>
           </a>
-          <a class="dropdown-item col-4 col-md-3 ml-auto mr-auto" href="#">
+          <a class="dropdown-item col-4 col-md-4 p-2 ml-auto mr-auto" href="#">
             <div style="margin: 0 auto ; text-align: center;">
               <div class="ball">
               </div>
@@ -100,16 +100,7 @@
               </p>
             </div>
           </a>
-          <a class="dropdown-item col-4 col-md-3 ml-auto mr-auto" href="#">
-            <div style="margin: 0 auto ; text-align: center;">
-              <div class="dog">
-              </div>
-              <p class="m-0 text-center">
-                Pets
-              </p>
-            </div>
-          </a>
-          <a class="dropdown-item col-4 col-md-3 ml-auto mr-auto" href="#">
+          <a class="dropdown-item col-4 col-md-4 p-2 ml-auto mr-auto" href="#">
             <div style="margin: 0 auto ; text-align: center;">
               <div class="blender">
               </div>
@@ -118,16 +109,7 @@
               </p>
             </div>
           </a>
-          <a class="dropdown-item col-4 col-md-3 ml-auto mr-auto" href="#">
-            <div style="margin: 0 auto ; text-align: center;">
-              <div class="heartbeat">
-              </div>
-              <p class="m-0 text-center">
-                Health
-              </p>
-            </div>
-          </a>
-          <a class="dropdown-item col-4 col-md-3 ml-auto mr-auto" href="#">
+          <a class="dropdown-item col-4 col-md-4 p-2 ml-auto mr-auto" href="#">
             <div style="margin: 0 auto ; text-align: center;">
               <div class="groceries">
               </div>
@@ -136,16 +118,7 @@
               </p>
             </div>
           </a>
-          <a class="dropdown-item col-4 col-md-3 ml-auto mr-auto" href="#">
-            <div style="margin: 0 auto ; text-align: center;">
-              <div class="sneaker">
-              </div>
-              <p class="m-0 text-center">
-                Shoes
-              </p>
-            </div>
-          </a>
-          <a class="dropdown-item col-4 col-md-3 ml-auto mr-auto" href="#">
+          <a class="dropdown-item col-4 col-md-4 p-2 ml-auto mr-auto" href="#">
             <div style="margin: 0 auto ; text-align: center;">
               <div class="free">
               </div>
@@ -154,7 +127,7 @@
               </p>
             </div>
           </a>
-          <a class="dropdown-item col-4 col-md-3 ml-auto mr-auto" href="#">
+          <a class="dropdown-item col-4 col-md-4 p-2 ml-auto mr-auto" href="#">
             <div style="margin: 0 auto ; text-align: center;">
               <div class="food">
               </div>
@@ -165,7 +138,7 @@
           </a>
           <div class="dropdown-divider">
           </div>
-          <a class="dropdown-item lead bold" href="/all-categories">
+          <a class="btn btn-primary dropdown-item lead bold" href="/all-categories">
             Show All Catagories
           </a>
         </div>
@@ -178,9 +151,11 @@
           {{#each stores}}
           <a class="dropdown-item col-6" href="#">
             {{this.storeName}}
-            <span class="badge ml-2 badge-secondary float-right badge-pill mt-1">
+            <!-- <span class="badge ml-2 badge-secondary float-right badge-pill mt-1">
               2
-            </span>
+            </span> -->
+            <img class="float-right" src="/images/new.png">
+            </img>
           </a>
           {{/each}}
           <div class="dropdown-divider">
