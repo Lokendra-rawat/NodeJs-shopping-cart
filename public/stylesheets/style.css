@@ -259,7 +259,7 @@ a {
   width: 100%;
   /*width: auto;*/
   height: auto;
-  max-height: 200px;
+  max-height: 170px;
   /* height: 100%; */
 }
 .outer-box {
@@ -596,6 +596,10 @@ a {
   }
   .box img {
     min-height: 100px;
+    height: auto;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
   }
   .box:hover {
     box-shadow: 0 0 0 0;

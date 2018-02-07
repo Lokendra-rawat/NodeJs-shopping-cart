@@ -3,7 +3,7 @@
   <div class="text-center" id="hero">
     <div class="banner">
       <a href="#">
-        <img src="images/banner1.jpg" />
+        <img src="images/banner.jpg" />
       </a>
     </div>
   </div>
@@ -108,41 +108,43 @@
       </h6>
     </div>
     <div class="side-offers" style="padding: 10px;">
-      <div class="col content-box">
+      <div style="min-height: " class="col content-box">
         <div class="row" id="content-box">
-          {{#each imageUrl}}
-          <div class="col-6 col-sm-4 col-lg-3 col-xl-3 boder p-1 outer-box">
+          {{#each data}}
+          <div class="col-12 col-sm-4 col-lg-3 col-xl-3 boder p-1 outer-box">
             <div class="box border border-left-0 border-top-0 border-right-0">
-              <img onerror="this.src='images/error.png'" src="{{this.imageUrl}}" style="width: 100%;height: auto">
+              <div class="image text-center">
+                <img onerror="this.src='images/supreme1.jpg'" src="images/products/{{this.imageName}}">
+              </div>
               <br/>
               <p>
                 <a href="#">
-                  Last 4 Days to Save - Shop For Rs. 250 & Get Flat Rs. 75 Cashback
+                  {{this.dealName}}
                 </a>
               </p>
               <div class="box-text">
                 <div class="text-center">
                   <div class="cut-price text-left">
                     <div class="clearfix row">
-                      <div class="col lead">
+                      <div class="col-7 lead">
                         <del class="mr-1">
                           <small>
-                            $250
+                            {{this.cutPrice}}
                           </small>
                         </del>
-                        $175
+                        {{this.mainPrice}}
                       </div>
-                      <div class="col text-right">
-                        <a href="https://freekaamaal.com/amazon-coupons">
-                          amazon
+                      <div class="col-5 text-right">
+                        <a href="/{{this.storeName}}">
+                          {{this.storeName}}
                         </a>
                       </div>
                     </div>
                     <br/>
                   </div>
-                  <button class="btn btn-outline-dark btn-sm">
+                  <a class="btn btn-outline-dark btn-sm" href="{{this.dealUrl}}">
                     Shop Now
-                  </button>
+                  </a>
                   <br/>
                   <br/>
                 </div>

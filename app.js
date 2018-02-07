@@ -86,21 +86,3 @@ app.use(function (err, req, res, next) {
 });
 
 module.exports = app;
-
-
-// deal.find({},{_i:0,__v:0},function(err,data){
-//   console.log(data);
-// });
-
-// setInterval(_ => {
-//   var newDeal = new deal({
-//     imageUrl: faker.image.image(200,150)
-//   });
-
-//   newDeal.save(function (err, data) {
-//     if (err) console.log(err);
-//     else console.log('data saved');
-//   })
-// }, 1000);
-
-// console.log(faker.image.image(200,150));

@@ -7,7 +7,8 @@
     var tabWidth = tab.offsetWidth;
     var boxWidth = contentBox.offsetWidth;
   } catch (e) {
-    console.table(e);
+    // console.table(e);
+    // silent
   }
 
   window.onscroll = function () {
@@ -39,7 +40,6 @@
 
 function getData() {
   $("#loader").css('display', 'inline-block');
-
   var jqxhr = $.get("/", function (data) {
       console.log('success');
     })
@@ -60,8 +60,6 @@ function getData() {
 }
 
 //CODE FOR THE SEARCH RESULTS XHR
-
-
 var showResults = debounce(function (arg) {
   var value = arg.trim();
   if (value == "" || value.length <= 0) {
@@ -106,3 +104,89 @@ function debounce(func, wait, immediate) {
   };
 };
 
+// module revaling pattern
+
+var people = (function () {
+  var people = ['lil pump', 'rich chigga', 'lil xan', 'lil peep'];
+
+  // caching the DOM
+  var $box = $("#box");
+  var $button = $box.find('button');
+  var $input = $box.find('input');
+  var $ul = $box.find('ul');
+  var template = function (data) {
+    return "<li>" + data + "<span class='float-right badge badge-warning badge-pill btn-xs del'>X</span><span class='float-right badge badge-success badge-pill btn-xs up'>Up</span><span class='float-right badge badge-danger badge-pill btn-xs down'>Down</span></li>";
+  }
+
+  //bind events
+  $button.on("click", addPerson);
+  $ul.delegate("span.del", 'click', delPerson);
+  $ul.delegate("span.up", 'click', upPerson);
+  $ul.delegate("span.down", 'click', downPerson);
+
+  _render();
+
+  function _render() {
+    $ul.html("");
+    people.forEach(x => {
+      $ul.append(template(x));
+    });
+  }
+
+  function addPerson(value) {
+    var name = (typeof value === "string") ? value : $input.val();
+    people.push(name);
+    _render();
+  }
+
+  function delPerson(event) {
+    var $remove = $(event.target).closest('li');
+    var i = $ul.find('li').index($remove);
+    people.splice(i, 1);
+    _render();
+  }
+
+  function upPerson(event) {
+    var $name = $(event.target).closest('li');
+    var i = $ul.find("li").index($name);
+    if (i != 0) {
+      let bufvalue = people[i];
+      people[i] = people[i - 1];
+      people[i - 1] = bufvalue;
+    }
+    _render();
+  }
+
+  function downPerson(event) {
+    var $name = $(event.target).closest('li');
+    var i = $ul.find("li").index($name);
+    if (i != people.length - 1) {
+      let bufvalue = people[i];
+      people[i] = people[i + 1];
+      people[i + 1] = bufvalue;
+    }
+    _render();
+  }
+
+  // return the public methods to the api
+
+  return {
+    addPerson: addPerson,
+    delPerson: delPerson,
+    upPerson: upPerson,
+    downPerson: downPerson
+  }
+
+})();
+
+var Person = function (name) {
+  this.name = name
+};
+
+// Person.prototype = {};
+Person.prototype.method1 = function () {
+  return this.name;
+}
+
+var john = new Person("john");
+console.log(john);
