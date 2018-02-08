@@ -5,15 +5,17 @@ var https = require('https');
 var store = require('../../Models/stores');
 var deal = require('../../Models/deals');
 
-function checkExistingDeal(dealName) {
-  deal.find({
-    dealName: dealName
-  }, function(err, data) {
-    if (err) console.log(err);
-    if(data.length === 0) return false;
-    return true;
-  });
-}
+// function checkExistingDeal(dealName) {
+//   var result = true;
+//   deal.find({
+//     dealName: dealName
+//   }, function(err, data) {
+//     if (err) console.log(err);
+//     // console.log(data);
+//     if(data.length === 0) result = false;
+//   });
+//   return result;
+// }
 
 function saveDeal(obj) {
   var deal = new deals(obj);
@@ -81,11 +83,18 @@ module.exports = function(res) {
             dealUrl: dealUrl,
             tags: tags
           }
-          if (checkExistingDeal(dealName)) {
-            console.log("deal already exists " + dealName);
-          } else {
-            saveDeal(obj);
-          }
+
+          deal.find({
+            dealName: dealName
+          }, function(err, data) {
+            if (err) console.log(err);
+            if (data.length === 0) {
+              saveDeal(obj);
+            }else{
+              console.log('deal already added ' + dealName);
+            }
+          });
+
         }); //end response
       });
     });

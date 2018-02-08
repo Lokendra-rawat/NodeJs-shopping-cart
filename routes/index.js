@@ -7,7 +7,7 @@ var stores = require("../Models/stores");
 var deals = require("../Models/deals");
 
 /* Controllers */
-var index = require("../controllers/index");
+var index = require("../controllers/homeController");
 
 /* GET home page. */
 

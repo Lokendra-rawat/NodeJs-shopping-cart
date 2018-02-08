@@ -23,7 +23,11 @@ mongoose.connect('mongodb://lokendra:lokendra@ds115166.mlab.com:15166/stories', 
 
 var targetUrl = "https://freekaamaal.com/";
 // try {
-https.get(targetUrl, getFkmDeals)
+
+setInterval(function(){
+	https.get(targetUrl, getFkmDeals)
+},1000*60*15);
+
 // } catch(e){
 // console.log(e._message);
 // }

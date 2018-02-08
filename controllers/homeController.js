@@ -17,7 +17,7 @@ exports.home = function(req, res, next) {
           data: data,
           stores: store
         });
-      }).sort('-date').limit(30);
+      }).sort('-date');
     }).limit(20);
   }
 }
