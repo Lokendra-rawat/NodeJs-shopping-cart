@@ -1,1 +1,1 @@
-worker: node add-data app.js
+worker: node add-data/app.js
