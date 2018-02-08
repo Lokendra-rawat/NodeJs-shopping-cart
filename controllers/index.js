@@ -22,7 +22,7 @@ exports.home = function(req, res, next) {
   }
 }
 
-exports.al+lStores = function(req, res, next) {
+exports.allStores = function(req, res, next) {
   stores.find({}, {
     _id: 0,
     __v: 0
