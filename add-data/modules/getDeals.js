@@ -9,16 +9,17 @@ function checkExistingDeal(dealName) {
   deal.find({
     dealName: dealName
   }, function(err, data) {
-    console.log(err);
-    console.log(data);
+    if (err) console.log(err);
+    if(data.length === 0) return true;
+    return false;
   });
 }
 
 function saveDeal(obj) {
   var deal = new deals(obj);
   deal.save({}, function(err, data) {
-    if (err) return false;
-    else return true;
+    if (err) console.log(err);
+    else console.log("deal added");
   })
 }
 
@@ -31,7 +32,7 @@ module.exports = function(res) {
     var $ = cheerio.load(htm);
     $(".product-name a").each(function(i, element) {
       var imageUrl = element.attribs['href'];
-      if (i >= 4) return;
+      // if (i >= 10) return;
       console.log(imageUrl);
       https.get(imageUrl, function(res) {
         var htm = "";
@@ -48,7 +49,7 @@ module.exports = function(res) {
           htm += data;
         });
         res.on('end', _ => {
-          console.log('done broo');
+          console.log('deal page loaded');
           var $ = cheerio.load(htm);
           try {
             dealName = $(".product-details-div h1")[0].children[0].data;
@@ -80,8 +81,11 @@ module.exports = function(res) {
             dealUrl: dealUrl,
             tags: tags
           }
-          checkExistingDeal(dealName);
-          saveDeal(obj);
+          if (checkExistingDeal(dealName)) {
+            console.log("deal already exists " + dealName);
+          } else {
+            saveDeal(obj);
+          }
         }); //end response
       });
     });

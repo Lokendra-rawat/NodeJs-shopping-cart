@@ -26,6 +26,6 @@ module.exports = function(err, data) {
     imgName = "large_" + imgName.slice(imgName.lastIndexOf('/') + 1);
     var fullUrl = url + imgName;
     console.log(fullUrl);
-    getImage(x.imageUrl, imgName);
+    // getImage(x.imageUrl, imgName);
   })
 }
