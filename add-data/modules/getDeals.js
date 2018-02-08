@@ -10,8 +10,8 @@ function checkExistingDeal(dealName) {
     dealName: dealName
   }, function(err, data) {
     if (err) console.log(err);
-    if(data.length === 0) return true;
-    return false;
+    if(data.length === 0) return false;
+    return true;
   });
 }
 
