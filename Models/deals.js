@@ -2,7 +2,7 @@ var mongodb = require('mongoose');
 var Schema = mongodb.Schema;
 
 var deal = mongodb.Schema({
-	storeName: {
+  storeName: {
     type: String,
     required: true,
     unique: false

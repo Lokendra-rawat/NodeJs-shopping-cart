@@ -25,13 +25,15 @@ var app = express();
 
 mongodb.connect('mongodb://lokendra:lokendra@ds115166.mlab.com:15166/stories', {
   useMongoClient: true
-}, function (err) {
-  if (err) console.log(err.name + " => " + err.message);
+}, function(err) {
+  if (err) {
+    throw err;
+  }
 });
 
 // view engine setup
 
-app.use(function (req, res, next) {
+app.use(function(req, res, next) {
   // res.sendStatus(200);
   next();
 });
@@ -68,7 +70,7 @@ app.use('/xhr', xhr);
 
 // catch 404 and forward to error handler
 
-app.use(function (req, res, next) {
+app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err, req);
@@ -76,7 +78,7 @@ app.use(function (req, res, next) {
 
 // error handler
 
-app.use(function (err, req, res, next) {
+app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

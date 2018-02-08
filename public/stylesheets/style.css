@@ -251,15 +251,17 @@ a {
   /*background: rgba(35,39,43,0.1);*/
   /*border-bottom: 1px solid #ddd;*/
   /* box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3) */
+  overflow: hidden;
 }
 .box img {
   padding-top: 10px;
-  padding-bottom: 10px;
+  /*padding-bottom: 10px;*/
   min-height: 150px;
-  width: 100%;
+  /*width: 100%;*/
   /*width: auto;*/
   height: auto;
   max-height: 170px;
+  max-width: 80%;
   /* height: 100%; */
 }
 .outer-box {
@@ -597,7 +599,6 @@ a {
   .box img {
     min-height: 100px;
     height: auto;
-    width: auto;
     margin-left: auto;
     margin-right: auto;
   }

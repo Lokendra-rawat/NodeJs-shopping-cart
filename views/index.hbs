@@ -96,28 +96,23 @@
   </h4>
 </div>
 
-<h4 class="text-center m-0" style="font-weight:300">
+<h4 class="text-center m-sm-5" style="font-weight:300">
   Today's Deals
 </h4>
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-12 col-sm-3 side-content" style="display:none">
-      <h6 class="text-center">
-        Popular Deals
-      </h6>
-    </div>
-    <div class="side-offers" style="padding: 10px;">
-      <div style="min-height: " class="col content-box">
+    <div class="side-offers" style="padding: 0px;">
+      <div class="col content-box">
         <div class="row" id="content-box">
           {{#each data}}
-          <div class="col-12 col-sm-4 col-lg-3 col-xl-3 boder p-1 outer-box">
+          <div class="col-12 col-sm-6 col-lg-3 col-xl-3 boder outer-box">
             <div class="box border border-left-0 border-top-0 border-right-0">
               <div class="image text-center">
-                <img onerror="this.src='images/supreme1.jpg'" src="images/products/{{this.imageName}}">
+                <img onerror="this.src='images/supreme1.jpg'" src="images/products/large_{{this.imageName}}">
               </div>
               <br/>
-              <p>
+              <p style="height: 63px">
                 <a href="#">
                   {{this.dealName}}
                 </a>
@@ -126,7 +121,7 @@
                 <div class="text-center">
                   <div class="cut-price text-left">
                     <div class="clearfix row">
-                      <div class="col-7 lead">
+                      <div class="col-7 pr-0 lead">
                         <del class="mr-1">
                           <small>
                             {{this.cutPrice}}
@@ -134,7 +129,7 @@
                         </del>
                         {{this.mainPrice}}
                       </div>
-                      <div class="col-5 text-right">
+                      <div class="col-5 pl-0 text-right">
                         <a href="/{{this.storeName}}">
                           {{this.storeName}}
                         </a>
@@ -165,5 +160,5 @@
       <br/>
     </div>
   </div>
-
-  {{>footer}}
+</div>
+{{>footer}}
